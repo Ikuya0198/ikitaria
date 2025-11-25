@@ -1,516 +1,112 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <title>Bodega Faro Silencioso | Rías Baixas, Galicia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikitaria | Japan-Italy Premium Trading</title>
 
-  <!-- お好みで：上品な欧文＋日本語フォント -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-    }
-
-    .faro-page {
-      font-family: 'Noto Sans JP','Helvetica Neue','Hiragino Sans','YuGothic','Yu Gothic',system-ui,sans-serif;
-      background:#111;
-      color:#fff;
-      padding:0;
-      margin:0;
-    }
-    .faro-page h1, .faro-page h2, .faro-page h3, .faro-page p {
-      margin: 0;
-    }
-
-    .faro-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .faro-section {
-      padding: 80px 6%;
-    }
-    .faro-center {
-      text-align:center;
-    }
-
-    /* ===== HERO ===== */
-    .faro-hero {
-      text-align: center;
-      padding: 140px 20px;
-      /* EDIT HERE: トップの海の背景写真を差し替え */
-      background:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-      text-shadow:0 0 25px rgba(0,0,0,0.8);
-    }
-    .faro-hero-title {
-      font-family:'Cormorant Garamond','Noto Sans JP',serif;
-      font-size: 56px;
-      font-weight: 400;
-      letter-spacing: 4px;
-      line-height: 1.2;
-    }
-    .faro-hero-region {
-      font-size: 22px;
-      font-weight: 300;
-      margin-top: 10px;
-      letter-spacing: 2px;
-    }
-    .faro-hero-sub {
-      font-size: 17px;
-      margin-top: 26px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.9;
-    }
-    .hero-center-fix {
-      text-align: center !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      display: block;
-      width: 100%;
-    }
-
-    .faro-heading {
-      font-family:'Cormorant Garamond','Noto Sans JP',serif;
-      font-size: 34px;
-      font-weight: 400;
-      text-align:center;
-      margin-bottom: 30px;
-      letter-spacing: 1px;
-    }
-    .faro-bodytext {
-      font-size: 18px;
-      line-height: 1.9;
-      color:#ddd;
-    }
-
-    /* ===== Terroir ===== */
-    .faro-terroir-img {
-      width:100%;
-      max-width: 600px;
-      border-radius:10px;
-      box-shadow:0 0 25px rgba(0,0,0,0.7);
-      display:block;
-      margin:0 auto 30px auto;
-    }
-
-    /* ===== Wines ===== */
-    .wine-list {
-      display:flex;
-      flex-direction:column;
-      gap:50px;
-    }
-    .wine-block {
-      display:flex;
-      flex-wrap:wrap;
-      gap:30px;
-      align-items:flex-start;
-    }
-    .wine-img-wrap {
-      flex:0 0 260px;
-      text-align:center;
-    }
-    .wine-img {
-      width:100%;
-      max-width:260px;
-      border-radius:10px;
-      box-shadow:0 0 25px rgba(0,0,0,0.6);
-    }
-    .wine-text {
-      flex:1;
-      min-width:260px;
-    }
-    .wine-title {
-      font-size:26px;
-      font-weight:300;
-      margin-bottom:8px;
-    }
-    .wine-desc {
-      font-size:16px;
-      line-height:1.9;
-      color:#ddd;
-      margin-bottom:16px;
-    }
-    .wine-meta {
-      font-size:15px;
-      color:#ccc;
-      line-height:1.8;
-    }
-    .wine-price-line {
-      margin-top:4px;
-    }
-    .wine-price-line strong {
-      font-weight:400;
-    }
-    .wine-price-original {
-      text-decoration: line-through;
-      opacity:0.7;
-      margin-right:8px;
-    }
-
-    /* ===== Cellar philosophy ===== */
-    .cellar-img {
-      width: 85%;
-      max-width: 520px;
-      border-radius: 12px;
-      box-shadow:0 0 25px rgba(0,0,0,0.75);
-      margin-bottom: 40px;
-    }
-
-    /* ===== Access section ===== */
-    .faro-access-btn {
-      color:#fff;
-      padding:14px 40px;
-      border:1px solid #fff;
-      text-decoration:none;
-      letter-spacing:2px;
-      font-size:14px;
-      display:inline-block;
-    }
-    .faro-access-btn:hover {
-      background:rgba(255,255,255,0.08);
-    }
-    .limited-bg {
-      /* EDIT HERE: Limited Access 用の背景画像 */
-      background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80")
-                 center/cover no-repeat;
-      background-attachment: fixed;
-      padding:120px 6%;
-    }
-
-    /* ===== Responsive (スマホ最適化) ===== */
-    @media (max-width: 768px) {
-
-      .faro-page {
-        font-size: 14px;
-      }
-
-      .faro-section {
-        padding: 50px 6%;
-      }
-
-      .faro-hero {
-        padding: 110px 16px;
-        background-attachment: scroll;
-      }
-
-      .faro-hero-title {
-        font-size:30px;
-        letter-spacing:1.5px;
-      }
-
-      .faro-hero-region {
-        font-size:16px;
-        margin-top:6px;
-      }
-
-      .faro-hero-sub {
-        font-size:14px;
-        line-height:1.6;
-        padding:0 8px;
-      }
-
-      .faro-heading {
-        font-size:24px;
-        margin-bottom:18px;
-      }
-
-      .faro-bodytext {
-        font-size:14px;
-        line-height:1.7;
-      }
-
-      .faro-terroir-img {
-        max-width:92%;
-      }
-
-      .wine-block {
-        flex-direction:column;
-        align-items:center;
-      }
-
-      .wine-text {
-        text-align:left;
-      }
-
-      .wine-title {
-        font-size:20px;
-      }
-      .wine-desc {
-        font-size:14px;
-        line-height:1.6;
-      }
-      .wine-meta {
-        font-size:13px;
-      }
-      .wine-img {
-        max-width:200px;
-      }
-
-      .cellar-img {
-        max-width:90%;
-      }
-
-      .faro-access-btn {
-        padding:10px 30px;
-        font-size:12px;
-      }
-
-      .limited-bg {
-        background-attachment: scroll;
-        padding:60px 6%;
-      }
-    }
-  </style>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background: #faf8f5;
+            color: #333;
+            line-height: 1.7;
+        }
+        header {
+            background: #111 url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=60') center/cover no-repeat;
+            padding: 140px 30px;
+            text-align: center;
+            color: #fff;
+        }
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 52px;
+            margin: 0;
+            letter-spacing: 0.04em;
+        }
+        header p {
+            font-size: 18px;
+            margin-top: 15px;
+            letter-spacing: 0.04em;
+        }
+        section {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #6b5e4e;
+        }
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            margin-bottom: 35px;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body>
-<section class="faro-page">
 
-  <!-- ===== Hero Section ===== -->
-  <div class="faro-hero">
-    <h1 class="faro-hero-title">
-      Bodega Faro Silencioso
-    </h1>
-    <p class="faro-hero-region">
-      Rías Baixas, Galicia
-    </p>
-    <p class="faro-hero-sub hero-center-fix">
-      ガリシアの荒々しい大西洋岸に、ひとつの静かな灯台が立っている。<br>
-      その足元の小さなセラーで、ほんのわずかな樽だけが、<br>
-      市場ではなく、手渡しで届けるためだけのワインとして静かに造られている。
-    </p>
-  </div>
+<header>
+    <h1>Ikitaria</h1>
+    <p>Japan × Italy Premium Trading & Cultural Bridge</p>
+</header>
 
-  <!-- ===== Story / Philosophy ===== -->
-  <section class="faro-section">
-    <div class="faro-inner faro-center">
-      <h2 class="faro-heading">静かな時間と、ひとつの約束。</h2>
-      <p class="faro-bodytext">
-        スペイン・ガリシア地方 Rías Baixas。<br>
-        大西洋から吹きつける風と霧が、葡萄と人の時間をゆっくりと育てていく土地。<br><br>
-
-        Faro Silencioso（静かな灯台）の足元にある小さなセラーでは、<br>
-        商業的な量産ではなく、<br>
-        <strong>特別な人にだけ手渡されるためのワイン</strong>だけが静かに醸されています。<br><br>
-
-        私たちのボトルは、ほとんど店頭に並ぶことはありません。<br>
-        友人へ、パートナー様へ、そして最愛の人へ。<br>
-        誰かの人生の節目にそっと寄り添うためだけに、<br>
-        今日も樽の中で眠り続けています。
-      </p>
+<section>
+    <h2>About Ikitaria</h2>
+    <div class="card">
+        <p>
+            Ikitariaは、日本とイタリアを結ぶプレミアム商社として、食品・クラフト・デザイン・ワイン・オリーブオイルなど、
+            高品質プロダクトを橋渡しするトレーディングハウスです。
+        </p>
     </div>
-  </section>
 
-  <!-- ===== Terroir & Winemaking ===== -->
-  <section class="faro-section" style="background:#151515;">
-    <div class="faro-inner faro-center">
-      <h2 class="faro-heading">Rías Baixas の葡萄と、静かな造り</h2>
-
-      <!-- EDIT HERE: Rías Baixas の葡萄畑の写真 URL -->
-      <img src="https://images.unsplash.com/photo-1595261239005-14c2f1c4e381?auto=format&fit=crop&w=1200&q=80"
-           alt="Rías Baixas Vineyard"
-           class="faro-terroir-img">
-
-      <p class="faro-bodytext">
-        使用する葡萄は、Rías Baixas の中でもごく限られた区画のみ。<br>
-        大西洋の潮風を真正面から受ける畑で育つ Albariño を中心に、<br>
-        花崗岩質のミネラル豊富な土壌と、海に近い冷涼な気候が<br>
-        きわめて高い酸と塩味を帯びたニュアンスをもたらします。
-      </p>
-      <p class="faro-bodytext" style="margin-top:18px;">
-        収穫はすべて<strong>手摘み</strong>。小さなケースで静かにセラーへ運ばれ、<br>
-        果実の抽出の際には<strong>搾汁率を意図的に低く</strong>抑えることで、<br>
-        皮由来の渋みや粗さを一切出さないようにしています。
-      </p>
-      <p class="faro-bodytext" style="margin-top:18px;">
-        可能な限り<strong>機械による処理を排除</strong>し、低温下でやさしく圧搾。<br>
-        発酵には畑由来の<strong>自然酵母</strong>だけを用い、<br>
-        補糖・補酸・香料などの添加は行いません。
-      </p>
-      <p class="faro-bodytext" style="margin-top:18px;">
-        こうして生まれるワインは、<br>
-        研ぎ澄まされた酸と、海水の飛沫や濡れた花崗岩を思わせる<br>
-        <strong>塩味とミネラル感</strong>を長い余韻として残します。<br>
-        Faro Silencioso のワインは、テクニックではなく、<br>
-        「場所」と「時間」をそのままボトルに閉じ込めることを目指しています。
-      </p>
+    <h2>Our Mission</h2>
+    <div class="card">
+        <p>
+            両国の「文化・味・技術・美意識」を深く理解し、本物だけを届ける。  
+            小ロットからB2B、ブランド構築サポートまで柔軟に対応します。
+        </p>
     </div>
-  </section>
 
-  <!-- ===== Wines ===== -->
-  <section class="faro-section" style="background:#181818;">
-    <div class="faro-inner">
-      <h2 class="faro-heading">Wines of Faro Silencioso</h2>
-
-      <div class="wine-list">
-
-        <!-- Luz de Mi Alma -->
-        <div class="wine-block">
-          <div class="wine-img-wrap">
-            <!-- EDIT HERE: Luz de Mi Alma ボトル画像 -->
-            <img src="/images/luz-de-mi-alma.jpg"
-                 alt="Luz de Mi Alma Bottle"
-                 class="wine-img">
-          </div>
-          <div class="wine-text">
-            <h3 class="wine-title">
-              “Luz de Mi Alma”
-              <span style="font-size:14px; color:#aaa; margin-left:6px;">（ルス・デ・ミ・アルマ：私の魂の光）</span>
-            </h3>
-            <p class="wine-desc">
-              Faro Silencioso の頂点に立つグラン・キュヴェ。<br>
-              “Luz de Mi Alma” は、ワイナリーの哲学と個人的な物語を<br>
-              すべて注ぎ込んだ、象徴的な一本です。<br><br>
-              香りには、レモンピールや白桃、白い花、<br>
-              そして雨上がりの石畳を思わせるミネラルのニュアンス。<br>
-              口に含むと、凛とした酸が背骨をつくり、<br>
-              海の塩気を連想させる塩味と、ほのかなアーモンドのニュアンスが<br>
-              長い余韻となって静かに続きます。
-            </p>
-            <p class="wine-meta">
-              生産本数：年間 50〜150 本<br>
-              スタイル：辛口・フルボディ寄りのホワイト（長期熟成ポテンシャル）<br>
-              テイスティングの目安：10〜12℃、大ぶりの白ワイングラスにて
-            </p>
-            <p class="wine-meta wine-price-line">
-              販売価格：<strong>¥249,000</strong>
-            </p>
-          </div>
-        </div>
-
-        <!-- Norte 1022 -->
-        <div class="wine-block">
-          <div class="wine-img-wrap">
-            <!-- EDIT HERE: Norte 1022 ボトル画像 -->
-            <img src="/images/norte-1022.jpg"
-                 alt="Norte 1022 Bottle"
-                 class="wine-img">
-          </div>
-          <div class="wine-text">
-            <h3 class="wine-title">Norte 1022</h3>
-            <p class="wine-desc">
-              北（Norte）と「1022」という数字の組み合わせは、<br>
-              北風・北の海流・ある一日の記憶を暗示させる、知的な一本。<br><br>
-              香りはライム、青りんご、白い花。<br>
-              Luz de Mi Alma よりもわずかに軽やかで、直線的な酸と<br>
-              シャープなミネラルが際立つスタイルです。
-            </p>
-            <p class="wine-meta">
-              スタイル：辛口・ミディアムボディのホワイト
-            </p>
-            <p class="wine-meta wine-price-line">
-              参考価格：
-              <span class="wine-price-original">¥47,000</span>
-              <strong>¥42,300（10% OFF）</strong>
-            </p>
-          </div>
-        </div>
-
-        <!-- 41° Atlántico -->
-        <div class="wine-block">
-          <div class="wine-img-wrap">
-            <!-- EDIT HERE: 41° Atlántico ボトル画像 -->
-            <img src="/images/41-atlantico.jpg"
-                 alt="41° Atlántico Bottle"
-                 class="wine-img">
-          </div>
-          <div class="wine-text">
-            <h3 class="wine-title">41° Atlántico</h3>
-            <p class="wine-desc">
-              北緯 41°、大西洋。<br>
-              地図上の一点をワイン名にしたこのキュヴェは、<br>
-              テロワールそのものにフォーカスした海洋ワインです。<br><br>
-              グレープフルーツ、洋梨、アプリコットのアロマに、<br>
-              海風由来の塩気と、濡れた花崗岩のようなミネラル。<br>
-              心地よいボリューム感とフレッシュさを兼ね備えています。
-            </p>
-            <p class="wine-meta">
-              スタイル：辛口・ミディアム〜フルボディのホワイト
-            </p>
-            <p class="wine-meta wine-price-line">
-              参考価格：
-              <span class="wine-price-original">¥56,000</span>
-              <strong>¥50,400（10% OFF）</strong>
-            </p>
-          </div>
-        </div>
-
-        <!-- 112°N -->
-        <div class="wine-block">
-          <div class="wine-img-wrap">
-            <!-- EDIT HERE: 112°N ボトル画像 -->
-            <img src="/images/112-n.jpg"
-                 alt="112°N Bottle"
-                 class="wine-img">
-          </div>
-          <div class="wine-text">
-            <h3 class="wine-title">112°N</h3>
-            <p class="wine-desc">
-              ミニマルな記号だけで構成された、コレクター向けの一本。<br>
-              角度と方位を想起させる「112°N」は、<br>
-              航海・針路・決断をテーマにしたコンセプトワインです。<br><br>
-              より凝縮感のある果実味と、熟した白桃やネクタリン、<br>
-              かすかなハーブとスモークのニュアンス。<br>
-              重厚なフレンチオークが、海のミネラル感に陰影を与え、<br>
-              非常に長い余韻を生み出します。
-            </p>
-            <p class="wine-meta">
-              スタイル：辛口・フルボディのホワイト（熟成向き）
-            </p>
-            <p class="wine-meta wine-price-line">
-              参考価格：
-              <span class="wine-price-original">¥73,000</span>
-              <strong>¥65,700（10% OFF）</strong>
-            </p>
-          </div>
-        </div>
-
-      </div>
+    <h2>Main Business</h2>
+    <div class="card">
+        <ul>
+            <li>プレミアム食品・飲料の輸出入（イタリア→日本 / 日本→EU）</li>
+            <li>OEM製造サポート（香水・食品・クラフト）</li>
+            <li>現地リサーチ・マーケット分析</li>
+            <li>ブランド/パッケージ構築支援</li>
+        </ul>
     </div>
-  </section>
 
-  <!-- ===== Cellar Philosophy ===== -->
-  <section class="faro-section" style="background:#181818;">
-    <div class="faro-inner faro-center">
-
-      <!-- EDIT HERE：セラー写真を差し替え -->
-      <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80"
-           class="cellar-img" alt="Cellar image">
-
-      <h2 class="faro-heading">静かなセラーの哲学</h2>
-      <p class="faro-bodytext">
-        葡萄は単一またはごく少数の契約畑より、年間生産本数を限定して確保。<br>
-        小さな樽と静かな地下室だけが、私たちの“工場”です。<br><br>
-
-        詳細なスペックやテクニカルデータを語りすぎることよりも、<br>
-        グラスの中で何が起きるかを最優先に考える。<br>
-        それが Bodega Faro Silencioso の哲学です。
-      </p>
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: contact@ikitaria.com</p>
     </div>
-  </section>
-
-  <!-- ===== Limited Access ===== -->
-  <section class="faro-section limited-bg">
-    <div class="faro-inner faro-center">
-      <h2 class="faro-heading">Limited Access Only</h2>
-      <p class="faro-bodytext" style="font-size:17px; max-width:720px; margin:0 auto 40px auto;">
-        本ワイナリーのボトルは、原則として一般販売を行っておりません。<br>
-        招待を受けた方、および特別なご案内（Invitation Code）をお持ちの方のみ、下記よりお問い合わせいただけます。
-      </p>
-      <a href="#" class="faro-access-btn">
-        SPECIAL INQUIRY
-      </a>
-    </div>
-  </section>
-
 </section>
+
+<footer>
+    © 2025 Ikitaria. All Rights Reserved.
+</footer>
+
 </body>
 </html>
+
 
