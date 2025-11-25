@@ -1,675 +1,516 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bodega Faro Silencioso | Rías Baixas, Galicia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<style>
-    /* 重要：ここから下はElementor/テーマの干渉を防ぐためのスタイルです。
-       ID: #zazen-lp-wrapper の中だけにスタイルが適用されます。
-    */
+  <!-- お好みで：上品な欧文＋日本語フォント -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
 
-    #zazen-lp-wrapper {
-        /* 変数定義 */
-        --bg-color: #FDFBF7; /* より明るく温かいオフホワイト */
-        --bg-secondary: #F2EFE6;
-        --text-color: #3A3A3A;
-        --accent-color: #9C8C7D;
-        --matcha-color: #8FA37E;
-        --ginger-color: #C7895D;
-        
-        --font-serif: 'Cormorant Garamond', serif;
-        --font-sans: 'Lato', sans-serif;
-        
-        --border-radius-card: 24px;
-        --border-radius-btn: 50px;
-        --border-radius-img: 32px;
-
-        /* テーマの背景色（ネイビー等）を強制的に上書き (!important) */
-        background-color: var(--bg-color) !important;
-        color: var(--text-color) !important;
-        font-family: var(--font-sans) !important;
-        font-weight: 300;
-        line-height: 1.8;
-        width: 100%;
-        position: relative;
-        z-index: 1;
-        text-align: left; /* テーマの中央揃え強制を解除 */
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
     }
 
-    /* Elementorのリセット用 */
-    #zazen-lp-wrapper * {
-        box-sizing: border-box;
+    .faro-page {
+      font-family: 'Noto Sans JP','Helvetica Neue','Hiragino Sans','YuGothic','Yu Gothic',system-ui,sans-serif;
+      background:#111;
+      color:#fff;
+      padding:0;
+      margin:0;
+    }
+    .faro-page h1, .faro-page h2, .faro-page h3, .faro-page p {
+      margin: 0;
     }
 
-    /* 見出し設定 */
-    #zazen-lp-wrapper h1, 
-    #zazen-lp-wrapper h2, 
-    #zazen-lp-wrapper h3 {
-        font-family: var(--font-serif);
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        color: var(--accent-color) !important; /* 強制適用 */
-        margin-top: 0;
+    .faro-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .faro-section {
+      padding: 80px 6%;
+    }
+    .faro-center {
+      text-align:center;
     }
 
-    /* 画像設定 */
-    #zazen-lp-wrapper img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border-radius: var(--border-radius-img);
-        border: none !important; /* テーマの枠線を消す */
-        background: transparent !important;
-        box-shadow: none; /* テーマの影をリセット */
+    /* ===== HERO ===== */
+    .faro-hero {
+      text-align: center;
+      padding: 140px 20px;
+      /* EDIT HERE: トップの海の背景写真を差し替え */
+      background:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      text-shadow:0 0 25px rgba(0,0,0,0.8);
+    }
+    .faro-hero-title {
+      font-family:'Cormorant Garamond','Noto Sans JP',serif;
+      font-size: 56px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      line-height: 1.2;
+    }
+    .faro-hero-region {
+      font-size: 22px;
+      font-weight: 300;
+      margin-top: 10px;
+      letter-spacing: 2px;
+    }
+    .faro-hero-sub {
+      font-size: 17px;
+      margin-top: 26px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.9;
+    }
+    .hero-center-fix {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display: block;
+      width: 100%;
     }
 
-    /* コンテナ */
-    #zazen-lp-wrapper .lp-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 30px;
+    .faro-heading {
+      font-family:'Cormorant Garamond','Noto Sans JP',serif;
+      font-size: 34px;
+      font-weight: 400;
+      text-align:center;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+    .faro-bodytext {
+      font-size: 18px;
+      line-height: 1.9;
+      color:#ddd;
     }
 
-    /* ボタン設定 */
-    #zazen-lp-wrapper .lp-btn {
-        display: inline-block;
-        padding: 14px 36px;
-        border: 2px solid var(--accent-color);
-        background: var(--bg-color);
-        color: var(--accent-color);
-        text-decoration: none !important; /* 下線を消す */
-        font-family: var(--font-sans);
-        font-weight: 700;
-        font-size: 0.9rem;
-        border-radius: var(--border-radius-btn);
-        transition: all 0.3s ease;
-        margin-top: 24px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        cursor: pointer;
+    /* ===== Terroir ===== */
+    .faro-terroir-img {
+      width:100%;
+      max-width: 600px;
+      border-radius:10px;
+      box-shadow:0 0 25px rgba(0,0,0,0.7);
+      display:block;
+      margin:0 auto 30px auto;
     }
 
-    #zazen-lp-wrapper .lp-btn:hover {
-        background: var(--accent-color);
-        color: var(--bg-color) !important;
-        transform: translateY(-2px);
+    /* ===== Wines ===== */
+    .wine-list {
+      display:flex;
+      flex-direction:column;
+      gap:50px;
+    }
+    .wine-block {
+      display:flex;
+      flex-wrap:wrap;
+      gap:30px;
+      align-items:flex-start;
+    }
+    .wine-img-wrap {
+      flex:0 0 260px;
+      text-align:center;
+    }
+    .wine-img {
+      width:100%;
+      max-width:260px;
+      border-radius:10px;
+      box-shadow:0 0 25px rgba(0,0,0,0.6);
+    }
+    .wine-text {
+      flex:1;
+      min-width:260px;
+    }
+    .wine-title {
+      font-size:26px;
+      font-weight:300;
+      margin-bottom:8px;
+    }
+    .wine-desc {
+      font-size:16px;
+      line-height:1.9;
+      color:#ddd;
+      margin-bottom:16px;
+    }
+    .wine-meta {
+      font-size:15px;
+      color:#ccc;
+      line-height:1.8;
+    }
+    .wine-price-line {
+      margin-top:4px;
+    }
+    .wine-price-line strong {
+      font-weight:400;
+    }
+    .wine-price-original {
+      text-decoration: line-through;
+      opacity:0.7;
+      margin-right:8px;
     }
 
-    /* ヘッダー */
-    #zazen-lp-wrapper header {
-        padding: 30px 0;
-        text-align: center;
-        background: transparent !important;
-    }
-    
-    #zazen-lp-wrapper .logo-img {
-        width: 100px;
-        margin: 0 auto;
-        border-radius: 0; 
+    /* ===== Cellar philosophy ===== */
+    .cellar-img {
+      width: 85%;
+      max-width: 520px;
+      border-radius: 12px;
+      box-shadow:0 0 25px rgba(0,0,0,0.75);
+      margin-bottom: 40px;
     }
 
-    /* セクション共通 */
-    #zazen-lp-wrapper section {
-        padding: 100px 0;
-        background-color: transparent; /* 親の背景に従う */
+    /* ===== Access section ===== */
+    .faro-access-btn {
+      color:#fff;
+      padding:14px 40px;
+      border:1px solid #fff;
+      text-decoration:none;
+      letter-spacing:2px;
+      font-size:14px;
+      display:inline-block;
+    }
+    .faro-access-btn:hover {
+      background:rgba(255,255,255,0.08);
+    }
+    .limited-bg {
+      /* EDIT HERE: Limited Access 用の背景画像 */
+      background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80")
+                 center/cover no-repeat;
+      background-attachment: fixed;
+      padding:120px 6%;
     }
 
-    #zazen-lp-wrapper .section-title {
-        text-align: center;
-        font-size: 2.2rem;
-        margin-bottom: 60px;
-        position: relative;
-        color: var(--accent-color) !important;
-    }
-    
-    #zazen-lp-wrapper .section-title::after {
-        content: '•';
-        display: block;
-        text-align: center;
-        font-size: 1.5rem;
-        color: var(--accent-color);
-        margin-top: 10px;
-        opacity: 0.5;
-    }
+    /* ===== Responsive (スマホ最適化) ===== */
+    @media (max-width: 768px) {
 
-    /* Hero Section */
-    #zazen-lp-wrapper #hero {
-        min-height: 80vh;
-        display: flex;
-        align-items: center;
-        padding-top: 40px;
-        padding-bottom: 80px;
-        background-color: var(--bg-color) !important; /* 明るい色を強制 */
-    }
+      .faro-page {
+        font-size: 14px;
+      }
 
-    #zazen-lp-wrapper .hero-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-    }
+      .faro-section {
+        padding: 50px 6%;
+      }
 
-    #zazen-lp-wrapper .hero-content h1 {
-        font-size: 4rem;
-        margin-bottom: 20px;
-        letter-spacing: 0.05em;
-        line-height: 1.1;
-    }
+      .faro-hero {
+        padding: 110px 16px;
+        background-attachment: scroll;
+      }
 
-    #zazen-lp-wrapper .hero-content p {
-        font-size: 1.3rem;
-        font-weight: 400;
-        margin-bottom: 30px;
-        color: var(--text-color);
-    }
-    
-    #zazen-lp-wrapper .hero-image-wrapper {
-        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* 丸みを帯びた形状 */
-        overflow: hidden;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        aspect-ratio: 4 / 5;
-    }
-    
-    #zazen-lp-wrapper .hero-image-wrapper img {
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-         border-radius: 0;
-    }
+      .faro-hero-title {
+        font-size:30px;
+        letter-spacing:1.5px;
+      }
 
-    /* About Section */
-    #zazen-lp-wrapper #about {
-        background-color: var(--bg-secondary) !important;
-        border-radius: 40px;
-        margin: 40px 0; /* Elementorのパディング考慮 */
-        padding: 80px 20px;
-    }
-    
-    #zazen-lp-wrapper .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 50px;
-        align-items: center;
-    }
-    
-    #zazen-lp-wrapper .about-img img {
-         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-         border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    }
+      .faro-hero-region {
+        font-size:16px;
+        margin-top:6px;
+      }
 
-    #zazen-lp-wrapper .lead {
-        text-align: center;
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+      .faro-hero-sub {
+        font-size:14px;
+        line-height:1.6;
+        padding:0 8px;
+      }
 
-    /* Benefits */
-    #zazen-lp-wrapper .benefit-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 24px;
-    }
+      .faro-heading {
+        font-size:24px;
+        margin-bottom:18px;
+      }
 
-    #zazen-lp-wrapper .benefit-list li {
-        background: white;
-        padding: 30px;
-        border-radius: var(--border-radius-card);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-        text-align: center;
-        transition: transform 0.3s ease;
-    }
-    
-    #zazen-lp-wrapper .benefit-list li:hover {
-         transform: translateY(-5px);
-    }
+      .faro-bodytext {
+        font-size:14px;
+        line-height:1.7;
+      }
 
-    #zazen-lp-wrapper .benefit-list strong {
-        display: block;
-        font-family: var(--font-serif);
-        font-size: 1.3rem;
-        margin-bottom: 12px;
-        color: var(--accent-color);
-    }
+      .faro-terroir-img {
+        max-width:92%;
+      }
 
-    /* Ingredients */
-    #zazen-lp-wrapper #ingredients {
-        text-align: center;
-    }
-    
-    #zazen-lp-wrapper .ingredients-wrapper {
-        background: white;
-        padding: 50px;
-        display: inline-block;
-        border-radius: var(--border-radius-card);
-        box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-        border: 2px dashed var(--accent-color); /* 柔らかい印象の破線 */
-    }
+      .wine-block {
+        flex-direction:column;
+        align-items:center;
+      }
 
-    #zazen-lp-wrapper .clean-label span {
-        display: inline-block;
-        margin: 5px 10px;
-        padding: 8px 16px;
-        background: var(--bg-secondary);
-        border-radius: 20px;
-        font-size: 0.9rem;
-        color: var(--text-color);
-    }
+      .wine-text {
+        text-align:left;
+      }
 
-    /* Flavors */
-    #zazen-lp-wrapper #flavors {
-        background-color: var(--bg-secondary) !important;
-        margin: 40px 0;
-        border-radius: 40px;
-        padding: 80px 20px;
-    }
+      .wine-title {
+        font-size:20px;
+      }
+      .wine-desc {
+        font-size:14px;
+        line-height:1.6;
+      }
+      .wine-meta {
+        font-size:13px;
+      }
+      .wine-img {
+        max-width:200px;
+      }
 
-    #zazen-lp-wrapper .flavor-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-    }
+      .cellar-img {
+        max-width:90%;
+      }
 
-    #zazen-lp-wrapper .flavor-card {
-        background: white;
-        padding: 40px;
-        text-align: center;
-        border-radius: var(--border-radius-card);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        transition: transform 0.3s;
-        border: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #zazen-lp-wrapper .flavor-card:hover {
-        transform: translateY(-8px);
-    }
-    
-    #zazen-lp-wrapper .flavor-img-placeholder {
-        width: 120px;
-        height: 120px;
-        background-color: var(--bg-secondary);
-        border-radius: 50%;
-        margin-bottom: 24px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #zazen-lp-wrapper .flavor-img-placeholder img {
-        border-radius: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+      .faro-access-btn {
+        padding:10px 30px;
+        font-size:12px;
+      }
 
-    #zazen-lp-wrapper .flavor-card h3 {
-        margin-bottom: 12px;
-        font-size: 1.6rem;
+      .limited-bg {
+        background-attachment: scroll;
+        padding:60px 6%;
+      }
     }
+  </style>
+</head>
 
-    #zazen-lp-wrapper .price {
-        display: inline-block;
-        margin-top: auto;
-        padding: 8px 20px;
-        background: var(--bg-secondary);
-        border-radius: 30px;
-        font-weight: 700;
-        font-size: 1rem;
-        color: var(--accent-color);
-    }
+<body>
+<section class="faro-page">
 
-    /* Process */
-    #zazen-lp-wrapper .process-steps {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-        text-align: center;
-    }
+  <!-- ===== Hero Section ===== -->
+  <div class="faro-hero">
+    <h1 class="faro-hero-title">
+      Bodega Faro Silencioso
+    </h1>
+    <p class="faro-hero-region">
+      Rías Baixas, Galicia
+    </p>
+    <p class="faro-hero-sub hero-center-fix">
+      ガリシアの荒々しい大西洋岸に、ひとつの静かな灯台が立っている。<br>
+      その足元の小さなセラーで、ほんのわずかな樽だけが、<br>
+      市場ではなく、手渡しで届けるためだけのワインとして静かに造られている。
+    </p>
+  </div>
 
-    #zazen-lp-wrapper .step {
-        background: white;
-        padding: 30px;
-        border-radius: var(--border-radius-card);
-        box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    }
+  <!-- ===== Story / Philosophy ===== -->
+  <section class="faro-section">
+    <div class="faro-inner faro-center">
+      <h2 class="faro-heading">静かな時間と、ひとつの約束。</h2>
+      <p class="faro-bodytext">
+        スペイン・ガリシア地方 Rías Baixas。<br>
+        大西洋から吹きつける風と霧が、葡萄と人の時間をゆっくりと育てていく土地。<br><br>
 
-    #zazen-lp-wrapper .step-number {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-        border-radius: 50%;
-        background: var(--accent-color);
-        color: white;
-        margin-bottom: 20px;
-        font-family: var(--font-serif);
-        font-size: 1.2rem;
-        font-weight: 600;
-    }
+        Faro Silencioso（静かな灯台）の足元にある小さなセラーでは、<br>
+        商業的な量産ではなく、<br>
+        <strong>特別な人にだけ手渡されるためのワイン</strong>だけが静かに醸されています。<br><br>
 
-    /* Philosophy */
-    #zazen-lp-wrapper .philosophy-content {
-        background: white;
-        padding: 60px;
-        border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-        display: inline-block;
-    }
-    
-    #zazen-lp-wrapper .zen-quote {
-        font-family: var(--font-serif);
-        font-size: 2.2rem;
-        font-style: italic;
-        margin-bottom: 24px;
-        color: var(--accent-color);
-        display: block;
-    }
+        私たちのボトルは、ほとんど店頭に並ぶことはありません。<br>
+        友人へ、パートナー様へ、そして最愛の人へ。<br>
+        誰かの人生の節目にそっと寄り添うためだけに、<br>
+        今日も樽の中で眠り続けています。
+      </p>
+    </div>
+  </section>
 
-    /* Contact / Wholesale */
-    #zazen-lp-wrapper #contact {
-        background-color: var(--bg-secondary) !important;
-        color: var(--text-color) !important;
-        text-align: center;
-        margin: 40px 0;
-        border-radius: 40px;
-        padding: 80px 20px;
-    }
+  <!-- ===== Terroir & Winemaking ===== -->
+  <section class="faro-section" style="background:#151515;">
+    <div class="faro-inner faro-center">
+      <h2 class="faro-heading">Rías Baixas の葡萄と、静かな造り</h2>
 
-    #zazen-lp-wrapper .wholesale-info {
-        display: inline-block;
-        text-align: left;
-        background: white;
-        padding: 40px;
-        border-radius: var(--border-radius-card);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        margin-bottom: 40px;
-        max-width: 100%;
-    }
+      <!-- EDIT HERE: Rías Baixas の葡萄畑の写真 URL -->
+      <img src="https://images.unsplash.com/photo-1595261239005-14c2f1c4e381?auto=format&fit=crop&w=1200&q=80"
+           alt="Rías Baixas Vineyard"
+           class="faro-terroir-img">
 
-    #zazen-lp-wrapper .wholesale-info table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0 10px;
-        margin-bottom: 20px;
-    }
+      <p class="faro-bodytext">
+        使用する葡萄は、Rías Baixas の中でもごく限られた区画のみ。<br>
+        大西洋の潮風を真正面から受ける畑で育つ Albariño を中心に、<br>
+        花崗岩質のミネラル豊富な土壌と、海に近い冷涼な気候が<br>
+        きわめて高い酸と塩味を帯びたニュアンスをもたらします。
+      </p>
+      <p class="faro-bodytext" style="margin-top:18px;">
+        収穫はすべて<strong>手摘み</strong>。小さなケースで静かにセラーへ運ばれ、<br>
+        果実の抽出の際には<strong>搾汁率を意図的に低く</strong>抑えることで、<br>
+        皮由来の渋みや粗さを一切出さないようにしています。
+      </p>
+      <p class="faro-bodytext" style="margin-top:18px;">
+        可能な限り<strong>機械による処理を排除</strong>し、低温下でやさしく圧搾。<br>
+        発酵には畑由来の<strong>自然酵母</strong>だけを用い、<br>
+        補糖・補酸・香料などの添加は行いません。
+      </p>
+      <p class="faro-bodytext" style="margin-top:18px;">
+        こうして生まれるワインは、<br>
+        研ぎ澄まされた酸と、海水の飛沫や濡れた花崗岩を思わせる<br>
+        <strong>塩味とミネラル感</strong>を長い余韻として残します。<br>
+        Faro Silencioso のワインは、テクニックではなく、<br>
+        「場所」と「時間」をそのままボトルに閉じ込めることを目指しています。
+      </p>
+    </div>
+  </section>
 
-    #zazen-lp-wrapper .wholesale-info td {
-        padding: 10px 20px;
-        background: var(--bg-color);
-        border: none;
-    }
-    
-    #zazen-lp-wrapper .wholesale-info td:first-child {
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        font-weight: 700;
-        color: var(--accent-color);
-    }
-    
-    #zazen-lp-wrapper .wholesale-info td:last-child {
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        text-align: right;
-    }
+  <!-- ===== Wines ===== -->
+  <section class="faro-section" style="background:#181818;">
+    <div class="faro-inner">
+      <h2 class="faro-heading">Wines of Faro Silencioso</h2>
 
-    #zazen-lp-wrapper a.email-link {
-        color: var(--accent-color);
-        font-size: 1.4rem;
-        text-decoration: none;
-        font-weight: 700;
-        border-bottom: 2px dotted var(--accent-color);
-    }
+      <div class="wine-list">
 
-    #zazen-lp-wrapper footer {
-        background: transparent !important;
-        color: var(--accent-color);
-        text-align: center;
-        padding: 40px 0;
-        font-size: 0.9rem;
-    }
-
-    /* レスポンシブ対応 */
-    @media (max-width: 860px) {
-        #zazen-lp-wrapper .hero-grid, 
-        #zazen-lp-wrapper .about-grid { grid-template-columns: 1fr; gap: 40px; }
-        
-        #zazen-lp-wrapper .hero-content { order: 2; text-align: center; }
-        #zazen-lp-wrapper .hero-image-wrapper { order: 1; max-width: 80%; margin: 0 auto; }
-        
-        #zazen-lp-wrapper .hero-content h1 { font-size: 3rem; }
-        #zazen-lp-wrapper .process-steps { grid-template-columns: 1fr 1fr; }
-        
-        #zazen-lp-wrapper section { padding: 60px 0; }
-        #zazen-lp-wrapper .lp-container { padding: 0 20px; }
-        #zazen-lp-wrapper #about, 
-        #zazen-lp-wrapper #flavors, 
-        #zazen-lp-wrapper #contact { margin: 20px 0; border-radius: 20px; }
-    }
-    
-    @media (max-width: 500px) {
-         #zazen-lp-wrapper .process-steps { grid-template-columns: 1fr; }
-         #zazen-lp-wrapper .hero-content h1 { font-size: 2.5rem; }
-         #zazen-lp-wrapper .wholesale-info { padding: 20px; }
-    }
-</style>
-
-<div id="zazen-lp-wrapper">
-
-    <header>
-        <div class="lp-container">
-            <img src="ChatGPT Image 2025年11月23日 17_21_39.jpg" alt="ZAZEN CRAFT Logo" class="logo-img">
+        <!-- Luz de Mi Alma -->
+        <div class="wine-block">
+          <div class="wine-img-wrap">
+            <!-- EDIT HERE: Luz de Mi Alma ボトル画像 -->
+            <img src="/images/luz-de-mi-alma.jpg"
+                 alt="Luz de Mi Alma Bottle"
+                 class="wine-img">
+          </div>
+          <div class="wine-text">
+            <h3 class="wine-title">
+              “Luz de Mi Alma”
+              <span style="font-size:14px; color:#aaa; margin-left:6px;">（ルス・デ・ミ・アルマ：私の魂の光）</span>
+            </h3>
+            <p class="wine-desc">
+              Faro Silencioso の頂点に立つグラン・キュヴェ。<br>
+              “Luz de Mi Alma” は、ワイナリーの哲学と個人的な物語を<br>
+              すべて注ぎ込んだ、象徴的な一本です。<br><br>
+              香りには、レモンピールや白桃、白い花、<br>
+              そして雨上がりの石畳を思わせるミネラルのニュアンス。<br>
+              口に含むと、凛とした酸が背骨をつくり、<br>
+              海の塩気を連想させる塩味と、ほのかなアーモンドのニュアンスが<br>
+              長い余韻となって静かに続きます。
+            </p>
+            <p class="wine-meta">
+              生産本数：年間 50〜150 本<br>
+              スタイル：辛口・フルボディ寄りのホワイト（長期熟成ポテンシャル）<br>
+              テイスティングの目安：10〜12℃、大ぶりの白ワイングラスにて
+            </p>
+            <p class="wine-meta wine-price-line">
+              販売価格：<strong>¥249,000</strong>
+            </p>
+          </div>
         </div>
-    </header>
 
-    <section id="hero">
-        <div class="lp-container hero-grid">
-            <div class="hero-content">
-                <h1>ZAZEN CRAFT</h1>
-                <h2 style="font-size: 1.5rem; margin-bottom: 20px; color: var(--accent-color);">A Calm Fermented Wellness Drink from Japan.</h2>
-                <p>Japanese KOJI × Botanical Wellness.<br>Crafted to bring stillness into your everyday life.</p>
-                <a href="#flavors" class="lp-btn">Discover Flavors</a>
-            </div>
-            <div class="hero-image-wrapper">
-                 <img src="ChatGPT Image 2025年11月23日 20_37_39.jpg" alt="ZAZEN CRAFT Bottle in Zen Garden">
-            </div>
+        <!-- Norte 1022 -->
+        <div class="wine-block">
+          <div class="wine-img-wrap">
+            <!-- EDIT HERE: Norte 1022 ボトル画像 -->
+            <img src="/images/norte-1022.jpg"
+                 alt="Norte 1022 Bottle"
+                 class="wine-img">
+          </div>
+          <div class="wine-text">
+            <h3 class="wine-title">Norte 1022</h3>
+            <p class="wine-desc">
+              北（Norte）と「1022」という数字の組み合わせは、<br>
+              北風・北の海流・ある一日の記憶を暗示させる、知的な一本。<br><br>
+              香りはライム、青りんご、白い花。<br>
+              Luz de Mi Alma よりもわずかに軽やかで、直線的な酸と<br>
+              シャープなミネラルが際立つスタイルです。
+            </p>
+            <p class="wine-meta">
+              スタイル：辛口・ミディアムボディのホワイト
+            </p>
+            <p class="wine-meta wine-price-line">
+              参考価格：
+              <span class="wine-price-original">¥47,000</span>
+              <strong>¥42,300（10% OFF）</strong>
+            </p>
+          </div>
         </div>
-    </section>
 
-    <section id="about">
-        <div class="lp-container">
-            <h2 class="section-title">A Drink That Brings Stillness</h2>
-            <p class="lead">ZAZEN CRAFT is a modern wellness drink inspired by ancient wisdom.</p>
-            
-            <div class="about-grid">
-                <div class="about-img">
-                    <img src="ChatGPT Image 2025年11月23日 20_37_35.jpg" alt="ZAZEN CRAFT Light Bottle">
-                </div>
-                <div class="about-text">
-                    <p>It is made from <strong>KOJI</strong> — a centuries-old ingredient essential for miso, soy sauce, and sake.</p>
-                    <br>
-                    <p>KOJI has supported the Japanese diet for over a thousand years. It helps digestion, supports immunity, and brings the body back to a gentle rhythm.</p>
-                    <br>
-                    <p>ZAZEN CRAFT translates this quiet strength into a modern, drinkable form.</p>
-                </div>
-            </div>
+        <!-- 41° Atlántico -->
+        <div class="wine-block">
+          <div class="wine-img-wrap">
+            <!-- EDIT HERE: 41° Atlántico ボトル画像 -->
+            <img src="/images/41-atlantico.jpg"
+                 alt="41° Atlántico Bottle"
+                 class="wine-img">
+          </div>
+          <div class="wine-text">
+            <h3 class="wine-title">41° Atlántico</h3>
+            <p class="wine-desc">
+              北緯 41°、大西洋。<br>
+              地図上の一点をワイン名にしたこのキュヴェは、<br>
+              テロワールそのものにフォーカスした海洋ワインです。<br><br>
+              グレープフルーツ、洋梨、アプリコットのアロマに、<br>
+              海風由来の塩気と、濡れた花崗岩のようなミネラル。<br>
+              心地よいボリューム感とフレッシュさを兼ね備えています。
+            </p>
+            <p class="wine-meta">
+              スタイル：辛口・ミディアム〜フルボディのホワイト
+            </p>
+            <p class="wine-meta wine-price-line">
+              参考価格：
+              <span class="wine-price-original">¥56,000</span>
+              <strong>¥50,400（10% OFF）</strong>
+            </p>
+          </div>
         </div>
-    </section>
 
-    <section id="benefits">
-        <div class="lp-container">
-            <h2 class="section-title">Why KOJI Works</h2>
-            <ul class="benefit-list">
-                <li>
-                    <strong>Digestive Enzymes</strong>
-                    Help break down nutrients efficiently.
-                </li>
-                <li>
-                    <strong>β-glucan</strong>
-                    Provides natural immune support.
-                </li>
-                <li>
-                    <strong>GABA</strong>
-                    Promotes relaxation and calm.
-                </li>
-                <li>
-                    <strong>Kojic Acid</strong>
-                    Known for antioxidant properties.
-                </li>
-                <li>
-                    <strong>Prebiotics</strong>
-                    Supports a healthy gut microbiome.
-                </li>
-            </ul>
-            <p style="text-align:center; margin-top:40px; color: var(--accent-color);">We preserve these benefits by keeping fermentation natural and low-heat.</p>
+        <!-- 112°N -->
+        <div class="wine-block">
+          <div class="wine-img-wrap">
+            <!-- EDIT HERE: 112°N ボトル画像 -->
+            <img src="/images/112-n.jpg"
+                 alt="112°N Bottle"
+                 class="wine-img">
+          </div>
+          <div class="wine-text">
+            <h3 class="wine-title">112°N</h3>
+            <p class="wine-desc">
+              ミニマルな記号だけで構成された、コレクター向けの一本。<br>
+              角度と方位を想起させる「112°N」は、<br>
+              航海・針路・決断をテーマにしたコンセプトワインです。<br><br>
+              より凝縮感のある果実味と、熟した白桃やネクタリン、<br>
+              かすかなハーブとスモークのニュアンス。<br>
+              重厚なフレンチオークが、海のミネラル感に陰影を与え、<br>
+              非常に長い余韻を生み出します。
+            </p>
+            <p class="wine-meta">
+              スタイル：辛口・フルボディのホワイト（熟成向き）
+            </p>
+            <p class="wine-meta wine-price-line">
+              参考価格：
+              <span class="wine-price-original">¥73,000</span>
+              <strong>¥65,700（10% OFF）</strong>
+            </p>
+          </div>
         </div>
-    </section>
 
-    <section id="ingredients">
-        <div class="lp-container">
-            <h2 class="section-title">Ingredients</h2>
-            <div class="ingredients-wrapper">
-                <h3>Only Natural Ingredients. Nothing Artificial.</h3>
-                <p style="margin: 30px 0; font-size: 1.1rem;">
-                    Japanese Rice KOJI  •  Ginger  •  Citrus Botanicals  •  Matcha  •  Plant-derived Minerals
-                </p>
-                <div class="clean-label">
-                    <span>No artificial sweeteners</span>
-                    <span>No preservatives</span>
-                    <span>No synthetic flavors</span>
-                </div>
-                <p style="margin-top: 30px; font-weight:600; color: var(--accent-color);">Just fermentation, plants, and Japanese craft.</p>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="flavors">
-        <div class="lp-container">
-            <h2 class="section-title">Our Flavors</h2>
-            <div class="flavor-grid">
-                <div class="flavor-card">
-                    <div class="flavor-img-placeholder">
-                        <span style="color: #ccc;">Image</span>
-                        </div>
-                    <h3 style="color: #8C7B6D;">🟤 ORIGINAL</h3>
-                    <p>Mild, smooth KOJI blend for daily balance.</p>
-                    <span class="price">€4.80 / 250ml</span>
-                </div>
-                <div class="flavor-card">
-                    <div class="flavor-img-placeholder">
-                         <span style="color: #ccc;">Image</span>
-                        </div>
-                    <h3 style="color: var(--ginger-color);">🔥 GINGER HEAT</h3>
-                    <p>KOJI × Ginger warming botanical drink for immune & digestive support.</p>
-                    <span class="price">€5.50 / 250ml</span>
-                </div>
-                <div class="flavor-card">
-                    <div class="flavor-img-placeholder">
-                         <span style="color: #ccc;">Image</span>
-                         </div>
-                    <h3 style="color: var(--matcha-color);">🟩 MATCHA CALM</h3>
-                    <p>KOJI × Matcha for clarity, calm energy and mental focus.</p>
-                    <span class="price">€6.20 / 250ml</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ===== Cellar Philosophy ===== -->
+  <section class="faro-section" style="background:#181818;">
+    <div class="faro-inner faro-center">
 
-    <section id="process">
-        <div class="lp-container">
-            <h2 class="section-title">How It’s Made</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <span class="step-number">1</span>
-                    <h3>KOJI Culturing</h3>
-                    <p>Rice is steamed and grown with <em>Aspergillus oryzae</em> for 48 hours.</p>
-                </div>
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <h3>Fermentation</h3>
-                    <p>KOJI ferments naturally with plant extracts under low temperature.</p>
-                </div>
-                <div class="step">
-                    <span class="step-number">3</span>
-                    <h3>Extraction</h3>
-                    <p>Botanicals are extracted gently to retain their functional compounds.</p>
-                </div>
-                <div class="step">
-                    <span class="step-number">4</span>
-                    <h3>Blending</h3>
-                    <p>All flavors are blended in small batches and bottled fresh.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <!-- EDIT HERE：セラー写真を差し替え -->
+      <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80"
+           class="cellar-img" alt="Cellar image">
 
-    <section id="philosophy">
-        <div class="lp-container">
-            <h2 class="section-title">Philosophy</h2>
-            <div class="philosophy-content">
-                <span class="zen-quote">"Inspired by Zen"</span>
-                <p style="max-width: 600px; margin: 0 auto;">
-                    ZAZEN CRAFT takes inspiration from Japanese gardens, temples, and seasonal rhythms.<br>
-                    A drink that slows the moment, softens the day, and re-centers the body.<br><br>
-                    <strong style="color: var(--accent-color); font-size: 1.1rem;">Not a performance drink — a gentle daily ritual.</strong>
-                </p>
-            </div>
-        </div>
-    </section>
+      <h2 class="faro-heading">静かなセラーの哲学</h2>
+      <p class="faro-bodytext">
+        葡萄は単一またはごく少数の契約畑より、年間生産本数を限定して確保。<br>
+        小さな樽と静かな地下室だけが、私たちの“工場”です。<br><br>
 
-    <section id="contact">
-        <div class="lp-container">
-            <h2 class="section-title">Partnerships & Wholesale</h2>
-            <p style="margin-bottom: 40px; font-size: 1.1rem;">ZAZEN CRAFT is preparing its first production batch for the European market.</p>
-            
-            <div class="wholesale-info">
-                <h3 style="text-align: center; margin-bottom: 20px;">Wholesale Pricing</h3>
-                <table>
-                    <tr>
-                        <td>Original</td>
-                        <td>€2.40</td>
-                    </tr>
-                    <tr>
-                        <td>Ginger Heat</td>
-                        <td>€2.90</td>
-                    </tr>
-                    <tr>
-                        <td>Matcha Calm</td>
-                        <td>€3.20</td>
-                    </tr>
-                </table>
-                <p style="text-align: center;"><strong>MOQ:</strong> 1,200 bottles per flavor (mixed pallet available)</p>
-            </div>
-            
-            <div>
-                <p>For inquiries and orders:</p>
-                <br>
-                <h3 style="color: var(--accent-color);">Ikitaria (Japan × Italy Project)</h3>
-                <br>
-                <a href="mailto:info@ikitaria.com" class="email-link">info@ikitaria.com</a>
-            </div>
-        </div>
-    </section>
+        詳細なスペックやテクニカルデータを語りすぎることよりも、<br>
+        グラスの中で何が起きるかを最優先に考える。<br>
+        それが Bodega Faro Silencioso の哲学です。
+      </p>
+    </div>
+  </section>
 
-    <footer>
-        <div class="lp-container">
-            <p>&copy; 2025 ZAZEN CRAFT. All Rights Reserved.</p>
-        </div>
-    </footer>
+  <!-- ===== Limited Access ===== -->
+  <section class="faro-section limited-bg">
+    <div class="faro-inner faro-center">
+      <h2 class="faro-heading">Limited Access Only</h2>
+      <p class="faro-bodytext" style="font-size:17px; max-width:720px; margin:0 auto 40px auto;">
+        本ワイナリーのボトルは、原則として一般販売を行っておりません。<br>
+        招待を受けた方、および特別なご案内（Invitation Code）をお持ちの方のみ、下記よりお問い合わせいただけます。
+      </p>
+      <a href="#" class="faro-access-btn">
+        SPECIAL INQUIRY
+      </a>
+    </div>
+  </section>
 
-</div> ```
+</section>
+</body>
+</html>
 
-### 追加のアドバイス：Elementorの設定
-
-このコードを貼り付けてもまだヘッダーやフッター、余白などにテーマの影響が強く残る場合は、以下の設定を行ってください。
-
-1.  Elementorの編集画面を開く。
-2.  左下の歯車アイコン（設定）をクリック。
-3.  **「固定ページレイアウト」** を **「Elementor キャンバス」** に変更する。
-    * これにより、テーマのヘッダー・フッター・背景設定がすべて無効化され、このLPだけの真っ白なキャンバスになります。これが一番きれいに表示される方法です。
