@@ -400,9 +400,9 @@
 
 <!-- Language Switcher -->
 <div class="language-switcher">
-    <button class="lang-btn active" data-lang-selector="ja">日本語</button>
-    <button class="lang-btn" data-lang-selector="en">English</button>
-    <button class="lang-btn" data-lang-selector="it">Italiano</button>
+    <button class="lang-btn active" data-lang-selector="ja">🇯🇵 日本語</button>
+    <button class="lang-btn" data-lang-selector="en">🇬🇧 English</button>
+    <button class="lang-btn" data-lang-selector="it">🇮🇹 Italiano</button>
 </div>
 
 <!-- Back Button -->
@@ -631,35 +631,146 @@
 </section>
 
 <!-- ===========================================
-     CONTACT BOX (PROMINENT)
+     RESERVATION SECTION
 ============================================ -->
 <section>
-    <div class="contact-box">
-        <h2 data-lang="ja">お申し込み・お問い合わせ</h2>
-        <h2 data-lang="en">Reservations & Inquiries</h2>
-        <h2 data-lang="it">Prenotazioni e Informazioni</h2>
+    <div class="section-title">
+        <h2 data-lang="ja">ご予約</h2>
+        <h2 data-lang="en">Make a Reservation</h2>
+        <h2 data-lang="it">Prenota</h2>
+
+        <p data-lang="ja">下記フォームからご予約ください。お支払いはフォーム送信後にStripeで行います。</p>
+        <p data-lang="en">Please fill out the form below to reserve your spot. Payment is processed via Stripe after form submission.</p>
+        <p data-lang="it">Compila il modulo qui sotto per prenotare il tuo posto. Il pagamento viene elaborato tramite Stripe dopo l'invio del modulo.</p>
+    </div>
+
+    <div class="grid-2">
+        <!-- Reservation Form -->
+        <div class="card">
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="ja">予約フォーム</h3>
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="en">Reservation Form</h3>
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="it">Modulo di Prenotazione</h3>
+
+            <!-- Google Forms Embed -->
+            <!-- Replace the src URL with your actual Google Form embed URL -->
+            <iframe
+                style="width: 100%; min-height: 800px; border: none; border-radius: var(--radius);"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSe_IKITARIA_COOKING_CLASS_2026/viewform?embedded=true"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0">
+                Loading…
+            </iframe>
+
+            <p style="margin-top: 20px; text-align: center; color: var(--text-soft); font-size: 14px;" data-lang="ja">
+                ※フォームが表示されない場合は、ページを再読み込みしてください
+            </p>
+            <p style="margin-top: 20px; text-align: center; color: var(--text-soft); font-size: 14px;" data-lang="en">
+                ※If the form doesn't appear, please reload the page
+            </p>
+            <p style="margin-top: 20px; text-align: center; color: var(--text-soft); font-size: 14px;" data-lang="it">
+                ※Se il modulo non appare, ricarica la pagina
+            </p>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="card">
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="ja">お支払い</h3>
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="en">Payment</h3>
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="it">Pagamento</h3>
+
+            <div style="background: var(--bg-cream); padding: 30px; border-radius: var(--radius); margin-bottom: 30px;">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div style="font-size: 48px; color: var(--accent-gold); margin-bottom: 16px;">💳</div>
+                    <p style="font-size: 32px; font-weight: 700; color: var(--accent-darkgold); margin-bottom: 8px;">¥15,000</p>
+                    <p style="color: var(--text-soft);" data-lang="ja">税込</p>
+                    <p style="color: var(--text-soft);" data-lang="en">Tax included</p>
+                    <p style="color: var(--text-soft);" data-lang="it">Tasse incluse</p>
+                </div>
+
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+                    <li data-lang="ja" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        全ての食材・材料費
+                    </li>
+                    <li data-lang="ja" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        オリーブオイル＆ワインテイスティング
+                    </li>
+                    <li data-lang="ja" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        レシピ集・エプロン貸出
+                    </li>
+
+                    <li data-lang="en" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        All ingredients & materials
+                    </li>
+                    <li data-lang="en" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        Olive oil & wine tasting
+                    </li>
+                    <li data-lang="en" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        Recipe booklet & apron rental
+                    </li>
+
+                    <li data-lang="it" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        Tutti gli ingredienti e materiali
+                    </li>
+                    <li data-lang="it" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        Degustazione olio d'oliva e vino
+                    </li>
+                    <li data-lang="it" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
+                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
+                        Ricettario e noleggio grembiule
+                    </li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 30px;">
+                <!-- Replace with your actual Stripe Payment Link -->
+                <a href="https://buy.stripe.com/test_ikitaria_cooking_class_15000yen" target="_blank" style="display: inline-block; padding: 18px 48px; color: #fff; font-size: 18px; font-weight: 600; text-decoration: none; border-radius: 50px; background: linear-gradient(135deg, var(--accent-darkgold), var(--accent-gold)); transition: var(--transition); box-shadow: 0 8px 20px rgba(157, 126, 60, 0.3);">
+                    <span data-lang="ja">Stripeで支払う →</span>
+                    <span data-lang="en">Pay with Stripe →</span>
+                    <span data-lang="it">Paga con Stripe →</span>
+                </a>
+            </div>
+
+            <div style="background: #f0f7ff; padding: 20px; border-radius: var(--radius); border-left: 4px solid #4a90e2;">
+                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 8px;" data-lang="ja">
+                    <strong>ご注意：</strong>フォーム送信後、上記ボタンからStripeの安全な決済ページへ進んでください。クレジットカード・デビットカードがご利用いただけます。
+                </p>
+                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 8px;" data-lang="en">
+                    <strong>Note:</strong> After submitting the form, click the button above to proceed to Stripe's secure payment page. Credit and debit cards accepted.
+                </p>
+                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 8px;" data-lang="it">
+                    <strong>Nota:</strong> Dopo aver inviato il modulo, clicca sul pulsante sopra per procedere alla pagina di pagamento sicura di Stripe. Carte di credito e debito accettate.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="contact-box" style="margin-top: 60px;">
+        <h2 data-lang="ja">お問い合わせ</h2>
+        <h2 data-lang="en">Questions?</h2>
+        <h2 data-lang="it">Domande?</h2>
 
         <p data-lang="ja">
-            ご予約・ご質問は下記のメールアドレスまでお気軽にお問い合わせください。<br>
-            お名前、ご希望日程、参加人数をお知らせください。
+            ご質問がございましたら、お気軽にメールでお問い合わせください。
         </p>
         <p data-lang="en">
-            For reservations and questions, please contact us via email below.<br>
-            Please include your name, preferred date, and number of participants.
+            If you have any questions, feel free to contact us via email.
         </p>
         <p data-lang="it">
-            Per prenotazioni e domande, contattateci via email qui sotto.<br>
-            Includete il vostro nome, la data preferita e il numero di partecipanti.
+            Se hai domande, non esitare a contattarci via email.
         </p>
 
-        <a href="mailto:contact@ikitaria.com?subject=料理教室の予約について / Cooking Class Reservation">
-            <span data-lang="ja">📧 メールで問い合わせる</span>
-            <span data-lang="en">📧 Contact via Email</span>
-            <span data-lang="it">📧 Contatta via Email</span>
-        </a>
-
         <div class="contact-info">
-            <p>contact@ikitaria.com</p>
+            <p>📧 contact@ikitaria.com</p>
             <p style="font-size: 16px; font-weight: 400; opacity: 0.9;" data-lang="ja">対応言語：日本語・英語・イタリア語</p>
             <p style="font-size: 16px; font-weight: 400; opacity: 0.9;" data-lang="en">Languages: Japanese, English, Italian</p>
             <p style="font-size: 16px; font-weight: 400; opacity: 0.9;" data-lang="it">Lingue: Giapponese, Inglese, Italiano</p>
