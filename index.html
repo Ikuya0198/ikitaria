@@ -619,13 +619,15 @@
         .mt-40 { margin-top: 40px; }
 
         /* Hide non-active languages */
-        [data-lang]:not([data-lang="ja"]) {
-            display: none;
+        body:not(.lang-ja) [data-lang="ja"],
+        body:not(.lang-en) [data-lang="en"],
+        body:not(.lang-it) [data-lang="it"] {
+            display: none !important;
         }
     </style>
 </head>
 
-<body>
+<body class="lang-ja">
 
 <!-- Language Switcher -->
 <div class="language-switcher">
@@ -1093,7 +1095,6 @@
 <script>
     // Language switcher functionality
     const langButtons = document.querySelectorAll('[data-lang-selector]');
-    const allLangElements = document.querySelectorAll('[data-lang]');
 
     // Set initial language (Japanese)
     let currentLang = 'ja';
@@ -1106,15 +1107,9 @@
             langButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
-            // Show/hide content based on language
-            allLangElements.forEach(element => {
-                const elementLang = element.getAttribute('data-lang');
-                if (elementLang === selectedLang) {
-                    element.style.display = '';
-                } else {
-                    element.style.display = 'none';
-                }
-            });
+            // Update body class to show selected language
+            document.body.className = document.body.className.replace(/lang-\w+/g, '');
+            document.body.classList.add('lang-' + selectedLang);
 
             currentLang = selectedLang;
         });
