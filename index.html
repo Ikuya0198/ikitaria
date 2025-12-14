@@ -99,7 +99,7 @@
         header {
             position: relative;
             background: linear-gradient(135deg, rgba(20, 20, 20, 0.85), rgba(50, 30, 30, 0.85)),
-                        url('https://images.unsplash.com/photo-1541599540903-216a46caab45?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+                        url('https://ikuya0198.github.io/ikitaria/image/italianfood.jpg') center/cover no-repeat;
             min-height: 85vh;
             display: flex;
             align-items: center;
@@ -191,6 +191,23 @@
             margin: 100px auto;
             padding: 0 30px;
             animation: fadeIn 0.8s ease-out;
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            border-radius: 2px;
+        }
+
+        section:first-of-type::before {
+            display: none;
         }
 
         @keyframes fadeIn {
@@ -597,8 +614,58 @@
                 padding: 0 20px;
             }
 
+            section::before {
+                width: 60px;
+                height: 3px;
+                top: -40px;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .section-title h2 {
+                font-size: clamp(28px, 5vw, 36px);
+            }
+
+            .section-title p {
+                font-size: 16px;
+            }
+
             .card {
                 padding: 25px;
+            }
+
+            .feature-card {
+                padding: 25px;
+            }
+
+            header {
+                min-height: 70vh;
+            }
+
+            footer {
+                margin-top: 80px;
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                margin: 40px auto;
+                padding: 0 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .grid-2, .grid-3 {
+                gap: 20px;
+            }
+
+            .section-title h2 {
+                font-size: clamp(24px, 5vw, 32px);
             }
 
             .img-block {
@@ -608,6 +675,102 @@
             .google-form-embed {
                 min-height: 1000px;
             }
+        }
+
+        /* ===========================================
+           Accessibility Improvements
+        ============================================ */
+        a:focus, button:focus, .lang-btn:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 3px;
+        }
+
+        .cta a:focus {
+            outline-color: white;
+        }
+
+        /* Skip to main content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--accent-gold);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 10000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* ===========================================
+           FAQ Section
+        ============================================ */
+        .faq-item {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-soft);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 24px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--accent-darkgold);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 28px;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            color: var(--text-soft);
+            line-height: 1.8;
         }
 
         /* ===========================================
@@ -642,6 +805,7 @@
 <header>
     <div class="header-content">
         <h1>Ikitaria</h1>
+        <p style="font-size: clamp(20px, 3.5vw, 28px); color: var(--accent-gold); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 20px;">Connect the Dots</p>
         <p data-lang="ja">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
         <p data-lang="en">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
         <p data-lang="it">Giappone × Italia — Trading Premium e Ponte Culturale Autentico</p>
@@ -679,21 +843,27 @@
         <h3 style="font-size: 28px; color: var(--accent-darkgold); margin-bottom: 16px;" data-lang="it">Corso di Cucina Italiana — Prenota Ora</h3>
 
         <p data-lang="ja" style="margin-bottom: 24px; font-size: 17px; line-height: 1.8;">
-            本格イタリア料理を学びながら、Ikitariaが厳選したプレミアム食材を体験できる特別なクラスです。オリーブオイル・ワインのテイスティングも含まれます。定員12名様限定の少人数制です。
+            本格イタリア料理を学びながら、Ikitariaが厳選したプレミアム食材を体験できる特別なクラスです。オリーブオイル・ワインのテイスティングも含まれます。定員10名様限定の少人数制です。
         </p>
         <p data-lang="en" style="margin-bottom: 24px; font-size: 17px; line-height: 1.8;">
-            A special class where you can learn authentic Italian cooking while experiencing premium ingredients carefully selected by Ikitaria. Includes olive oil and wine tasting. Limited to 12 people per session.
+            A special class where you can learn authentic Italian cooking while experiencing premium ingredients carefully selected by Ikitaria. Includes olive oil and wine tasting. Limited to 10 people per session.
         </p>
         <p data-lang="it" style="margin-bottom: 24px; font-size: 17px; line-height: 1.8;">
-            Una classe speciale dove puoi imparare la cucina italiana autentica sperimentando ingredienti premium selezionati con cura da Ikitaria. Include degustazione di olio d'oliva e vino. Limitato a 12 persone per sessione.
+            Una classe speciale dove puoi imparare la cucina italiana autentica sperimentando ingredienti premium selezionati con cura da Ikitaria. Include degustazione di olio d'oliva e vino. Limitato a 10 persone per sessione.
         </p>
 
         <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="font-size: 20px;">📅</span>
-                <span style="color: var(--text-soft);" data-lang="ja">2026年2月（複数日程）</span>
-                <span style="color: var(--text-soft);" data-lang="en">February 2026 (Multiple dates)</span>
-                <span style="color: var(--text-soft);" data-lang="it">Febbraio 2026 (Più date)</span>
+                <span style="color: var(--text-soft);" data-lang="ja">2月7日・8日</span>
+                <span style="color: var(--text-soft);" data-lang="en">February 7th & 8th</span>
+                <span style="color: var(--text-soft);" data-lang="it">7 e 8 febbraio</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 20px;">📍</span>
+                <span style="color: var(--text-soft);" data-lang="ja">東京駅から20分以内</span>
+                <span style="color: var(--text-soft);" data-lang="en">Within 20 min from Tokyo Station</span>
+                <span style="color: var(--text-soft);" data-lang="it">Entro 20 min dalla Stazione di Tokyo</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="font-size: 20px;">💴</span>
@@ -701,9 +871,9 @@
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="font-size: 20px;">👥</span>
-                <span style="color: var(--text-soft);" data-lang="ja">定員12名</span>
-                <span style="color: var(--text-soft);" data-lang="en">Max 12 people</span>
-                <span style="color: var(--text-soft);" data-lang="it">Max 12 persone</span>
+                <span style="color: var(--text-soft);" data-lang="ja">定員10名</span>
+                <span style="color: var(--text-soft);" data-lang="en">Max 10 people</span>
+                <span style="color: var(--text-soft);" data-lang="it">Max 10 persone</span>
             </div>
         </div>
 
@@ -713,20 +883,6 @@
                 <span data-lang="en">View Details & Reserve →</span>
                 <span data-lang="it">Vedi Dettagli e Prenota →</span>
             </a>
-        </div>
-
-        <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid var(--border-light); text-align: center;">
-            <p style="font-size: 18px; font-weight: 600; color: var(--accent-darkgold); margin-bottom: 12px;" data-lang="ja">💬 お問い合わせはこちら</p>
-            <p style="font-size: 18px; font-weight: 600; color: var(--accent-darkgold); margin-bottom: 12px;" data-lang="en">💬 Contact Us</p>
-            <p style="font-size: 18px; font-weight: 600; color: var(--accent-darkgold); margin-bottom: 12px;" data-lang="it">💬 Contattaci</p>
-
-            <a href="mailto:contact@ikitaria.com?subject=料理教室について / About Cooking Class" style="display: inline-block; color: var(--accent-darkgold); font-size: 20px; font-weight: 600; text-decoration: none; margin-bottom: 8px; transition: var(--transition);">
-                📧 contact@ikitaria.com
-            </a>
-
-            <p style="color: var(--text-soft); font-size: 14px;" data-lang="ja">メールでお気軽にご予約・お問い合わせください（日本語・英語・イタリア語対応）</p>
-            <p style="color: var(--text-soft); font-size: 14px;" data-lang="en">Feel free to contact us via email for reservations and inquiries (Japanese, English, Italian)</p>
-            <p style="color: var(--text-soft); font-size: 14px;" data-lang="it">Contattateci via email per prenotazioni e informazioni (Giapponese, Inglese, Italiano)</p>
         </div>
     </div>
 </section>
@@ -740,23 +896,20 @@
         <h2 data-lang="en">About Us</h2>
         <h2 data-lang="it">Chi Siamo</h2>
 
-        <p data-lang="ja">Ikitariaは日本とイタリアをつなぐ、静かなラグジュアリーの香りを纏うトレーディングハウスです。</p>
-        <p data-lang="en">Ikitaria is a premium trading house connecting Japan and Italy with a touch of quiet luxury.</p>
-        <p data-lang="it">Ikitaria è una casa commerciale premium che collega il Giappone e l'Italia con un tocco di lusso discreto.</p>
+        <p data-lang="ja">Ikitariaは高品質な製品を直接届けることで、低価格でより高品質なものを届けるヨーロッパとアジアをつなぐ企業です。</p>
+        <p data-lang="en">Ikitaria connects Europe and Asia, delivering high-quality products directly at lower prices.</p>
+        <p data-lang="it">Ikitaria collega Europa e Asia, fornendo prodotti di alta qualità direttamente a prezzi più bassi.</p>
     </div>
 
     <div class="card">
         <p data-lang="ja">
-            私たちは「文化・味・技術・美」を本気で守り抜くプレミアム商社として、高品質なイタリア食材・ワイン・オリーブオイル・クラフト製品を日本へ届けています。
-            小ロットから大規模商流まで幅広く対応し、世界観のあるブランドを日本・アジアへ橋渡しします。
+            私たちは「文化・味・技術・美」を本気で守り抜くプレミアム商社です。高品質なイタリア食材を直接生産者からつなぎ、文化やさまざまな技術、あらゆる付加価値を日本、アジアへ繋いでいきます。小ロットから大規模商流まで幅広く対応し、さまざまなご要望に柔軟に対応いたします。
         </p>
         <p data-lang="en">
-            As a premium trading company committed to preserving "culture, taste, craftsmanship, and beauty," we deliver high-quality Italian ingredients, wines, olive oils, and craft products to Japan.
-            We handle everything from small batches to large-scale distribution, bridging brands with unique worldviews to Japan and Asia.
+            We are a premium trading company committed to preserving "culture, taste, craftsmanship, and beauty." We connect high-quality Italian ingredients directly from producers, bridging culture, various technologies, and all added values to Japan and Asia. We flexibly handle everything from small batches to large-scale distribution, accommodating various requests.
         </p>
         <p data-lang="it">
-            Come azienda commerciale premium impegnata a preservare "cultura, gusto, artigianato e bellezza," portiamo in Giappone ingredienti italiani di alta qualità, vini, oli d'oliva e prodotti artigianali.
-            Gestiamo tutto, dai piccoli lotti alla distribuzione su larga scala, collegando marchi con visioni uniche al Giappone e all'Asia.
+            Siamo un'azienda commerciale premium impegnata a preservare "cultura, gusto, artigianato e bellezza." Colleghiamo ingredienti italiani di alta qualità direttamente dai produttori, creando ponti di cultura, tecnologie varie e tutti i valori aggiunti verso il Giappone e l'Asia. Gestiamo in modo flessibile tutto, dai piccoli lotti alla distribuzione su larga scala, soddisfacendo varie richieste.
         </p>
     </div>
 </section>
@@ -802,7 +955,7 @@
         </div>
 
         <div>
-            <div class="img-block" style="background-image:url('https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=1400&q=80');"></div>
+            <div class="img-block" style="background-image:url('https://ikuya0198.github.io/ikitaria/image/olive.jpg');" role="img" aria-label="オリーブの木"></div>
         </div>
     </div>
 </section>
@@ -827,59 +980,29 @@
             <h3 data-lang="en">Import/Export</h3>
             <h3 data-lang="it">Import/Export</h3>
 
-            <p data-lang="ja">プレミアム食品・飲料の輸出入（Italy→Japan / Japan→EU）</p>
-            <p data-lang="en">Premium food & beverage import/export (Italy→Japan / Japan→EU)</p>
-            <p data-lang="it">Import/export di cibi e bevande premium (Italia→Giappone / Giappone→UE)</p>
+            <p data-lang="ja">オリーブオイルやモーターパーツなど、高品質な製品の輸出入を行っています。</p>
+            <p data-lang="en">We handle import/export of high-quality products such as olive oil and motor parts.</p>
+            <p data-lang="it">Gestiamo l'import/export di prodotti di alta qualità come olio d'oliva e parti di motori.</p>
         </div>
 
         <div class="feature-card">
-            <h3 data-lang="ja">オリーブオイル・ワイン</h3>
-            <h3 data-lang="en">Olive Oil & Wine</h3>
-            <h3 data-lang="it">Olio d'Oliva e Vino</h3>
+            <h3 data-lang="ja">自社生産事業</h3>
+            <h3 data-lang="en">In-house Production</h3>
+            <h3 data-lang="it">Produzione Interna</h3>
 
-            <p data-lang="ja">大規模オリーブオイル・ワイン取り扱い（20〜1,000MT）</p>
-            <p data-lang="en">Large-scale olive oil & wine trading (20-1,000MT)</p>
-            <p data-lang="it">Commercio su larga scala di olio d'oliva e vino (20-1.000MT)</p>
+            <p data-lang="ja">自社農場、自社契約農場、工場での生産を通じて、高品質な製品を提供します。</p>
+            <p data-lang="en">We provide high-quality products through our own farms, contract farms, and factory production.</p>
+            <p data-lang="it">Forniamo prodotti di alta qualità attraverso le nostre fattorie, fattorie a contratto e produzione in fabbrica.</p>
         </div>
 
         <div class="feature-card">
-            <h3 data-lang="ja">OEM製造</h3>
-            <h3 data-lang="en">OEM Manufacturing</h3>
-            <h3 data-lang="it">Produzione OEM</h3>
+            <h3 data-lang="ja">事業サポート</h3>
+            <h3 data-lang="en">Business Support</h3>
+            <h3 data-lang="it">Supporto Aziendale</h3>
 
-            <p data-lang="ja">OEM製造サポート（香水・食品・クラフト）</p>
-            <p data-lang="en">OEM manufacturing support (perfume, food, craft)</p>
-            <p data-lang="it">Supporto alla produzione OEM (profumi, cibo, artigianato)</p>
-        </div>
-
-        <div class="feature-card">
-            <h3 data-lang="ja">ブランド構築</h3>
-            <h3 data-lang="en">Brand Building</h3>
-            <h3 data-lang="it">Costruzione del Marchio</h3>
-
-            <p data-lang="ja">ブランド/パッケージ構築支援</p>
-            <p data-lang="en">Brand/packaging development support</p>
-            <p data-lang="it">Supporto allo sviluppo del marchio/packaging</p>
-        </div>
-
-        <div class="feature-card">
-            <h3 data-lang="ja">市場リサーチ</h3>
-            <h3 data-lang="en">Market Research</h3>
-            <h3 data-lang="it">Ricerca di Mercato</h3>
-
-            <p data-lang="ja">市場リサーチ・プロダクト企画</p>
-            <p data-lang="en">Market research & product planning</p>
-            <p data-lang="it">Ricerca di mercato e pianificazione del prodotto</p>
-        </div>
-
-        <div class="feature-card">
-            <h3 data-lang="ja">品質管理</h3>
-            <h3 data-lang="en">Quality Control</h3>
-            <h3 data-lang="it">Controllo Qualità</h3>
-
-            <p data-lang="ja">製造管理、輸送、品質管理まで</p>
-            <p data-lang="en">Production, transport, and quality management</p>
-            <p data-lang="it">Gestione della produzione, trasporto e qualità</p>
+            <p data-lang="ja">市場リサーチ、販売促進など、日本市場での拡販活動の実績があります。</p>
+            <p data-lang="en">We have experience in market research, sales promotion, and expansion activities in the Japanese market.</p>
+            <p data-lang="it">Abbiamo esperienza in ricerche di mercato, promozione delle vendite e attività di espansione nel mercato giapponese.</p>
         </div>
     </div>
 </section>
@@ -890,7 +1013,7 @@
 <section>
     <div class="grid-2">
         <div>
-            <div class="img-block" style="background-image:url('https://images.unsplash.com/photo-1600783489682-3c498b6b74d2?auto=format&fit=crop&w=1350&q=80');"></div>
+            <div class="img-block" style="background-image:url('https://ikuya0198.github.io/ikitaria/image/oliveoil.jpg');" role="img" aria-label="オリーブオイル"></div>
         </div>
 
         <div>
@@ -942,44 +1065,38 @@
     <div class="grid-2">
         <div>
             <div class="section-title" style="text-align:left;">
-                <h2 data-lang="ja">OEM Partners</h2>
-                <h2 data-lang="en">OEM Partners</h2>
-                <h2 data-lang="it">Partner OEM</h2>
+                <h2 data-lang="ja">Partner</h2>
+                <h2 data-lang="en">Partner</h2>
+                <h2 data-lang="it">Partner</h2>
             </div>
 
             <p data-lang="ja" class="mb-20">
-                香水・アロマ・クラフト食品・ボトル飲料など、
-                <strong>小ロットから始められるOEM製造</strong>をイタリア・スペイン・日本でサポートしています。
+                OEMのサポートや、各マーケットに興味のある顧客様へ、さまざまなサービスを提供しています。
             </p>
 
             <p data-lang="en" class="mb-20">
-                For perfumes, aromas, craft foods, bottled beverages, and more,
-                we support <strong>OEM manufacturing starting from small batches</strong> in Italy, Spain, and Japan.
+                We provide various services for OEM support and customers interested in different markets.
             </p>
 
             <p data-lang="it" class="mb-20">
-                Per profumi, aromi, cibi artigianali, bevande in bottiglia e altro,
-                supportiamo la <strong>produzione OEM a partire da piccoli lotti</strong> in Italia, Spagna e Giappone.
+                Forniamo vari servizi per il supporto OEM e clienti interessati a diversi mercati.
             </p>
 
             <p data-lang="ja">
-                パッケージデザイン、製造管理、輸送、品質管理まで、
-                あなたのブランドが市場で光を放つためのフルライン支援を提供します。
+                直接高品質な材料の調達を検討している方、現地でのサポートが必要な方など、各種お問い合わせください。
             </p>
 
             <p data-lang="en">
-                From package design to production management, transport, and quality control,
-                we provide full-line support for your brand to shine in the market.
+                For those considering direct procurement of high-quality materials or needing local support, please contact us for various inquiries.
             </p>
 
             <p data-lang="it">
-                Dal design del packaging alla gestione della produzione, trasporto e controllo qualità,
-                forniamo supporto completo affinché il tuo marchio brilli sul mercato.
+                Per coloro che stanno considerando l'approvvigionamento diretto di materiali di alta qualità o che necessitano di supporto locale, contattateci per varie richieste.
             </p>
         </div>
 
         <div>
-            <div class="img-block" style="background-image:url('https://images.unsplash.com/photo-1559715541-5daf8a0296b6?auto=format&fit=crop&w=1350&q=80');"></div>
+            <div class="img-block" style="background-image:url('https://ikuya0198.github.io/ikitaria/image/italianfood.jpg');" role="img" aria-label="イタリア料理"></div>
         </div>
     </div>
 </section>
@@ -1038,6 +1155,161 @@
 </section>
 
 <!-- ===========================================
+     FAQ
+============================================ -->
+<section>
+    <div class="section-title">
+        <h2 data-lang="ja">よくある質問</h2>
+        <h2 data-lang="en">Frequently Asked Questions</h2>
+        <h2 data-lang="it">Domande Frequenti</h2>
+
+        <p data-lang="ja">お客様からよくいただく質問をまとめました。</p>
+        <p data-lang="en">Here are answers to our most frequently asked questions.</p>
+        <p data-lang="it">Ecco le risposte alle domande più frequenti.</p>
+    </div>
+
+    <div>
+        <div class="faq-item">
+            <button class="faq-question" data-lang="ja">
+                最小発注量はありますか？
+            </button>
+            <button class="faq-question" data-lang="en">
+                Is there a minimum order quantity?
+            </button>
+            <button class="faq-question" data-lang="it">
+                C'è una quantità minima d'ordine?
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content" data-lang="ja">
+                    小ロットから大規模商流まで幅広く対応しております。製品や数量によって異なりますので、まずはお気軽にお問い合わせください。
+                </div>
+                <div class="faq-answer-content" data-lang="en">
+                    We handle everything from small batches to large-scale distribution. Requirements vary by product and quantity, so please feel free to contact us for details.
+                </div>
+                <div class="faq-answer-content" data-lang="it">
+                    Gestiamo tutto, dai piccoli lotti alla distribuzione su larga scala. I requisiti variano in base al prodotto e alla quantità, quindi non esitate a contattarci per i dettagli.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" data-lang="ja">
+                料理教室の参加に必要なものはありますか？
+            </button>
+            <button class="faq-question" data-lang="en">
+                What do I need to bring to the cooking class?
+            </button>
+            <button class="faq-question" data-lang="it">
+                Cosa devo portare al corso di cucina?
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content" data-lang="ja">
+                    エプロンや調理器具は全てご用意しておりますので、手ぶらでお越しいただけます。筆記用具をお持ちいただくと、メモを取るのに便利です。
+                </div>
+                <div class="faq-answer-content" data-lang="en">
+                    All aprons and cooking utensils are provided, so you can come empty-handed. Bringing a pen and paper for notes is recommended.
+                </div>
+                <div class="faq-answer-content" data-lang="it">
+                    Tutti i grembiuli e gli utensili da cucina sono forniti, quindi puoi venire a mani vuote. È consigliato portare penna e carta per prendere appunti.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" data-lang="ja">
+                納期はどのくらいかかりますか？
+            </button>
+            <button class="faq-question" data-lang="en">
+                What is the typical delivery time?
+            </button>
+            <button class="faq-question" data-lang="it">
+                Qual è il tempo di consegna tipico?
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content" data-lang="ja">
+                    製品や数量、配送先によって異なります。通常、イタリアからの輸入の場合は2〜3ヶ月程度です。詳細はお問い合わせください。
+                </div>
+                <div class="faq-answer-content" data-lang="en">
+                    Delivery times vary by product, quantity, and destination. Typically, imports from Italy take 2-3 months. Please contact us for specific details.
+                </div>
+                <div class="faq-answer-content" data-lang="it">
+                    I tempi di consegna variano in base al prodotto, alla quantità e alla destinazione. Tipicamente, le importazioni dall'Italia richiedono 2-3 mesi. Contattateci per dettagli specifici.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" data-lang="ja">
+                OEM製造は対応していますか？
+            </button>
+            <button class="faq-question" data-lang="en">
+                Do you offer OEM manufacturing services?
+            </button>
+            <button class="faq-question" data-lang="it">
+                Offrite servizi di produzione OEM?
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content" data-lang="ja">
+                    はい、自社農場、自社契約農場、工場での生産を通じて、OEM製造に対応しております。小ロットからご相談可能です。
+                </div>
+                <div class="faq-answer-content" data-lang="en">
+                    Yes, we offer OEM manufacturing through our own farms, contract farms, and factory production. We can accommodate small batches.
+                </div>
+                <div class="faq-answer-content" data-lang="it">
+                    Sì, offriamo produzione OEM attraverso le nostre fattorie, fattorie a contratto e produzione in fabbrica. Possiamo accogliere piccoli lotti.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" data-lang="ja">
+                現地でのサポートは受けられますか？
+            </button>
+            <button class="faq-question" data-lang="en">
+                Do you provide local support?
+            </button>
+            <button class="faq-question" data-lang="it">
+                Fornite supporto locale?
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content" data-lang="ja">
+                    はい、市場リサーチ、販売促進、日本市場での拡販活動など、現地でのサポートを提供しております。詳細はお問い合わせください。
+                </div>
+                <div class="faq-answer-content" data-lang="en">
+                    Yes, we provide local support including market research, sales promotion, and expansion activities in the Japanese market. Please contact us for details.
+                </div>
+                <div class="faq-answer-content" data-lang="it">
+                    Sì, forniamo supporto locale inclusi ricerca di mercato, promozione delle vendite e attività di espansione nel mercato giapponese. Contattateci per i dettagli.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" data-lang="ja">
+                サンプルの提供は可能ですか？
+            </button>
+            <button class="faq-question" data-lang="en">
+                Can you provide samples?
+            </button>
+            <button class="faq-question" data-lang="it">
+                Potete fornire campioni?
+            </button>
+            <div class="faq-answer">
+                <div class="faq-answer-content" data-lang="ja">
+                    はい、製品によってサンプルの提供が可能です。サンプル費用や配送料については、お問い合わせ時にご案内いたします。
+                </div>
+                <div class="faq-answer-content" data-lang="en">
+                    Yes, samples are available for most products. Sample costs and shipping fees will be provided upon inquiry.
+                </div>
+                <div class="faq-answer-content" data-lang="it">
+                    Sì, i campioni sono disponibili per la maggior parte dei prodotti. I costi dei campioni e le spese di spedizione saranno forniti su richiesta.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
      CONTACT
 ============================================ -->
 <section id="contact">
@@ -1053,28 +1325,10 @@
 
     <div class="card">
         <p style="font-size:22px; font-weight:600; margin-bottom:8px;">Email</p>
-        <p style="margin-bottom:30px; font-size:18px; color:var(--accent-darkgold);">contact@ikitaria.com</p>
-
-        <p style="font-size:20px; font-weight:600; margin-bottom:12px;" data-lang="ja">対応言語</p>
-        <p style="font-size:20px; font-weight:600; margin-bottom:12px;" data-lang="en">Languages</p>
-        <p style="font-size:20px; font-weight:600; margin-bottom:12px;" data-lang="it">Lingue</p>
-
-        <ul class="list">
-            <li data-lang="ja">日本語</li>
-            <li data-lang="ja">英語</li>
-            <li data-lang="ja">イタリア語</li>
-
-            <li data-lang="en">Japanese</li>
-            <li data-lang="en">English</li>
-            <li data-lang="en">Italian</li>
-
-            <li data-lang="it">Giapponese</li>
-            <li data-lang="it">Inglese</li>
-            <li data-lang="it">Italiano</li>
-        </ul>
+        <p style="margin-bottom:30px; font-size:18px; color:var(--accent-darkgold);">info@ikitaria.com</p>
 
         <div class="cta">
-            <a href="mailto:contact@ikitaria.com">
+            <a href="mailto:info@ikitaria.com">
                 <span data-lang="ja">メールを送る</span>
                 <span data-lang="en">Send Email</span>
                 <span data-lang="it">Invia Email</span>
@@ -1114,6 +1368,31 @@
             document.body.classList.add('lang-' + selectedLang);
 
             currentLang = selectedLang;
+        });
+    });
+
+    // FAQ Accordion functionality
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = answer.classList.contains('active');
+
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                answer.classList.add('active');
+                question.classList.add('active');
+            }
         });
     });
 
