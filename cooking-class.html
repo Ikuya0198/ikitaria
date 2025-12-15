@@ -15,18 +15,18 @@
            Base Theme (Same as index.html)
         ============================================ */
         :root {
-            --bg-light: #f8f6f3;
-            --bg-white: #ffffff;
-            --bg-cream: #faf8f5;
+            --bg-light: #e8e8e8;
+            --bg-white: #f5f5f5;
+            --bg-cream: #ececec;
             --text-main: #1a1a1a;
-            --text-soft: #5a5a5a;
-            --text-light: #8a8a8a;
+            --text-soft: #4a4a4a;
+            --text-light: #7a7a7a;
             --accent-gold: #c9a961;
             --accent-darkgold: #9d7e3c;
             --accent-burgundy: #6d3838;
-            --border-light: rgba(0,0,0,0.08);
-            --shadow-soft: 0 8px 32px rgba(0,0,0,0.06);
-            --shadow-medium: 0 12px 48px rgba(0,0,0,0.1);
+            --border-light: rgba(0,0,0,0.12);
+            --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
+            --shadow-medium: 0 12px 48px rgba(0,0,0,0.12);
             --radius: 16px;
             --radius-large: 24px;
             --max-width: 1200px;
@@ -636,25 +636,334 @@
 </section>
 
 <!-- ===========================================
+     SCHEDULE & INSTRUCTOR
+============================================ -->
+<section>
+    <div class="grid-2">
+        <!-- Schedule -->
+        <div class="card">
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 28px;">📋</span>
+                <span data-lang="ja">当日のスケジュール</span>
+                <span data-lang="en">Event Schedule</span>
+                <span data-lang="it">Programma dell'Evento</span>
+            </h3>
+
+            <div style="space-y: 16px;">
+                <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg-cream); border-radius: var(--radius); margin-bottom: 12px;">
+                    <div style="flex-shrink: 0; width: 80px; font-weight: 700; color: var(--accent-gold);">10:00</div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="ja">受付・オリエンテーション</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="en">Check-in & Orientation</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="it">Check-in e Orientamento</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">自己紹介、本日の流れ説明</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Introductions, schedule overview</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Presentazioni, panoramica del programma</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg-cream); border-radius: var(--radius); margin-bottom: 12px;">
+                    <div style="flex-shrink: 0; width: 80px; font-weight: 700; color: var(--accent-gold);">10:30</div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="ja">調理実習（前菜・パスタ）</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="en">Cooking (Appetizer & Pasta)</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="it">Cucina (Antipasto e Pasta)</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">食材説明、調理デモンストレーション</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Ingredient intro, cooking demo</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Introduzione ingredienti, demo cucina</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg-cream); border-radius: var(--radius); margin-bottom: 12px;">
+                    <div style="flex-shrink: 0; width: 80px; font-weight: 700; color: var(--accent-gold);">12:30</div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="ja">テイスティング＆試食会</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="en">Tasting & Dining</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="it">Degustazione e Pranzo</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">オリーブオイル・ワインテイスティング、調理した料理を試食</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Olive oil & wine tasting, enjoy your creations</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Degustazione olio e vino, gusta le tue creazioni</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 16px; padding: 16px; background: var(--bg-cream); border-radius: var(--radius);">
+                    <div style="flex-shrink: 0; width: 80px; font-weight: 700; color: var(--accent-gold);">14:30</div>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="ja">質疑応答・終了</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="en">Q&A & Closing</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="it">Q&A e Chiusura</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">レシピ集配布、食材販売会</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Recipe booklet, ingredient sale</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Ricettario, vendita ingredienti</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructor -->
+        <div class="card">
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 28px;">👨‍🍳</span>
+                <span data-lang="ja">講師紹介</span>
+                <span data-lang="en">Instructor</span>
+                <span data-lang="it">Istruttore</span>
+            </h3>
+
+            <div style="background: var(--bg-cream); padding: 24px; border-radius: var(--radius); margin-bottom: 20px;">
+                <p style="font-size: 20px; font-weight: 700; color: var(--accent-darkgold); margin-bottom: 8px;">Chef Marco Rossi</p>
+                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 16px;" data-lang="ja">イタリア料理専門シェフ</p>
+                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 16px;" data-lang="en">Italian Cuisine Specialist</p>
+                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 16px;" data-lang="it">Specialista di Cucina Italiana</p>
+
+                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 12px;" data-lang="ja">
+                    イタリア・トスカーナ出身。ミラノの名門料理学校を卒業後、フィレンツェの三ツ星レストランで10年間修業。2015年に来日し、東京都内のイタリアンレストランでシェフを務める。本場の技術と日本の繊細さを融合した料理が評判。
+                </p>
+                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 12px;" data-lang="en">
+                    Born in Tuscany, Italy. After graduating from a prestigious culinary school in Milan, trained for 10 years at a three-Michelin-star restaurant in Florence. Moved to Japan in 2015 and currently serves as head chef at a Tokyo Italian restaurant. Known for blending authentic Italian techniques with Japanese finesse.
+                </p>
+                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 12px;" data-lang="it">
+                    Nato in Toscana, Italia. Dopo essersi diplomato in una prestigiosa scuola di cucina a Milano, ha fatto apprendistato per 10 anni in un ristorante tre stelle Michelin a Firenze. Si è trasferito in Giappone nel 2015 e attualmente è chef di un ristorante italiano a Tokyo. Conosciuto per la fusione di tecniche italiane autentiche con la raffinatezza giapponese.
+                </p>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;">
+                    <span style="background: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; color: var(--text-soft);" data-lang="ja">イタリア料理協会認定</span>
+                    <span style="background: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; color: var(--text-soft);" data-lang="en">Certified by Italian Cuisine Assoc.</span>
+                    <span style="background: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; color: var(--text-soft);" data-lang="it">Certificato dall'Assoc. Cucina Italiana</span>
+
+                    <span style="background: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; color: var(--text-soft);">10+ years</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     BENEFITS & NOTES
+============================================ -->
+<section>
+    <div class="grid-2">
+        <!-- Benefits -->
+        <div class="card">
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 28px;">🎁</span>
+                <span data-lang="ja">参加特典</span>
+                <span data-lang="en">Participant Benefits</span>
+                <span data-lang="it">Vantaggi per i Partecipanti</span>
+            </h3>
+
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 12px 0; border-bottom: 1px solid var(--border-light); display: flex; gap: 12px;">
+                    <span style="color: var(--accent-gold); font-size: 20px;">✓</span>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="ja">オリジナルレシピ集プレゼント</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="en">Original Recipe Booklet</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="it">Ricettario Originale</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">本日の料理レシピ（日本語・英語対応）</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Today's recipes (Japanese & English)</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Ricette di oggi (Giapponese e Inglese)</p>
+                    </div>
+                </li>
+
+                <li style="padding: 12px 0; border-bottom: 1px solid var(--border-light); display: flex; gap: 12px;">
+                    <span style="color: var(--accent-gold); font-size: 20px;">✓</span>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="ja">使用食材10%割引</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="en">10% Off on Ingredients</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="it">10% di Sconto sugli Ingredienti</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">当日販売の食材を特別価格で購入可能</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Special pricing on ingredients sold at the event</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Prezzi speciali sugli ingredienti venduti all'evento</p>
+                    </div>
+                </li>
+
+                <li style="padding: 12px 0; display: flex; gap: 12px;">
+                    <span style="color: var(--accent-gold); font-size: 20px;">✓</span>
+                    <div>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="ja">次回クラス優先予約権</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="en">Priority Booking for Next Class</p>
+                        <p style="font-weight: 600; margin-bottom: 4px;" data-lang="it">Prenotazione Prioritaria per il Prossimo Corso</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">次回開催のクラスを優先的にご予約いただけます</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Get early access to our next cooking class</p>
+                        <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Accesso anticipato al nostro prossimo corso di cucina</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Notes & Preparation -->
+        <div class="card">
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 28px;">⚠️</span>
+                <span data-lang="ja">注意事項・準備事項</span>
+                <span data-lang="en">Important Notes</span>
+                <span data-lang="it">Note Importanti</span>
+            </h3>
+
+            <div style="background: #fff3cd; padding: 16px; border-radius: var(--radius); border-left: 4px solid #ffc107; margin-bottom: 16px;">
+                <p style="font-weight: 600; margin-bottom: 8px; color: #856404;" data-lang="ja">ご参加前にご確認ください</p>
+                <p style="font-weight: 600; margin-bottom: 8px; color: #856404;" data-lang="en">Please Review Before Attending</p>
+                <p style="font-weight: 600; margin-bottom: 8px; color: #856404;" data-lang="it">Si Prega di Rivedere Prima di Partecipare</p>
+
+                <ul style="list-style: disc; padding-left: 20px; margin: 0; color: #856404;">
+                    <li data-lang="ja" style="margin-bottom: 8px;">動きやすい服装でお越しください（エプロンは貸出あり）</li>
+                    <li data-lang="en" style="margin-bottom: 8px;">Please wear comfortable clothing (aprons provided)</li>
+                    <li data-lang="it" style="margin-bottom: 8px;">Si prega di indossare abbigliamento comodo (grembiuli forniti)</li>
+
+                    <li data-lang="ja" style="margin-bottom: 8px;">食物アレルギーのある方は事前にお知らせください</li>
+                    <li data-lang="en" style="margin-bottom: 8px;">Please inform us of any food allergies in advance</li>
+                    <li data-lang="it" style="margin-bottom: 8px;">Si prega di informarci di eventuali allergie alimentari in anticipo</li>
+
+                    <li data-lang="ja" style="margin-bottom: 8px;">貴重品の管理は各自でお願いいたします</li>
+                    <li data-lang="en" style="margin-bottom: 8px;">Please manage your valuables yourself</li>
+                    <li data-lang="it" style="margin-bottom: 8px;">Si prega di gestire i propri oggetti di valore</li>
+
+                    <li data-lang="ja" style="margin-bottom: 8px;">写真撮影は可能ですが、他の参加者への配慮をお願いします</li>
+                    <li data-lang="en" style="margin-bottom: 8px;">Photography allowed, please be considerate of others</li>
+                    <li data-lang="it" style="margin-bottom: 8px;">Fotografie consentite, si prega di essere rispettosi degli altri</li>
+
+                    <li data-lang="ja">開始時刻の10分前までにお越しください</li>
+                    <li data-lang="en">Please arrive 10 minutes before start time</li>
+                    <li data-lang="it">Si prega di arrivare 10 minuti prima dell'orario di inizio</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
+     CANCELLATION POLICY & FAQ
+============================================ -->
+<section>
+    <div class="grid-2">
+        <!-- Cancellation Policy -->
+        <div class="card">
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 28px;">📜</span>
+                <span data-lang="ja">キャンセルポリシー</span>
+                <span data-lang="en">Cancellation Policy</span>
+                <span data-lang="it">Politica di Cancellazione</span>
+            </h3>
+
+            <div style="background: var(--bg-cream); padding: 20px; border-radius: var(--radius);">
+                <div style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <p style="font-weight: 600;" data-lang="ja">開催日7日前まで</p>
+                        <p style="font-weight: 600;" data-lang="en">7+ days before</p>
+                        <p style="font-weight: 600;" data-lang="it">7+ giorni prima</p>
+                        <p style="color: var(--accent-gold); font-weight: 700;">100%</p>
+                    </div>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">全額返金いたします</p>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Full refund</p>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Rimborso completo</p>
+                </div>
+
+                <div style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <p style="font-weight: 600;" data-lang="ja">開催日3〜6日前</p>
+                        <p style="font-weight: 600;" data-lang="en">3-6 days before</p>
+                        <p style="font-weight: 600;" data-lang="it">3-6 giorni prima</p>
+                        <p style="color: var(--accent-gold); font-weight: 700;">50%</p>
+                    </div>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">50%返金いたします</p>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">50% refund</p>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Rimborso del 50%</p>
+                </div>
+
+                <div style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <p style="font-weight: 600;" data-lang="ja">開催日2日前〜当日</p>
+                        <p style="font-weight: 600;" data-lang="en">2 days before - day of</p>
+                        <p style="font-weight: 600;" data-lang="it">2 giorni prima - giorno</p>
+                        <p style="color: #dc3545; font-weight: 700;" data-lang="ja">返金不可</p>
+                        <p style="color: #dc3545; font-weight: 700;" data-lang="en">No refund</p>
+                        <p style="color: #dc3545; font-weight: 700;" data-lang="it">Nessun rimborso</p>
+                    </div>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="ja">食材準備のため返金できません</p>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="en">Ingredients already prepared</p>
+                    <p style="font-size: 14px; color: var(--text-soft);" data-lang="it">Ingredienti già preparati</p>
+                </div>
+
+                <p style="font-size: 13px; color: var(--text-soft); font-style: italic;" data-lang="ja">※ キャンセルはinfo@ikitaria.comまでご連絡ください</p>
+                <p style="font-size: 13px; color: var(--text-soft); font-style: italic;" data-lang="en">※ Contact info@ikitaria.com to cancel</p>
+                <p style="font-size: 13px; color: var(--text-soft); font-style: italic;" data-lang="it">※ Contattare info@ikitaria.com per cancellare</p>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="card">
+            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 28px;">❓</span>
+                <span data-lang="ja">よくある質問</span>
+                <span data-lang="en">FAQ</span>
+                <span data-lang="it">Domande Frequenti</span>
+            </h3>
+
+            <div style="margin-bottom: 16px; padding: 16px; background: var(--bg-cream); border-radius: var(--radius);">
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="ja">Q: 初心者でも参加できますか？</p>
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="en">Q: Can beginners join?</p>
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="it">Q: I principianti possono partecipare?</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="ja">A: はい、初心者の方も大歓迎です。丁寧に指導いたしますのでご安心ください。</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="en">A: Yes, beginners are very welcome. We provide thorough guidance.</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="it">A: Sì, i principianti sono i benvenuti. Forniamo una guida completa.</p>
+            </div>
+
+            <div style="margin-bottom: 16px; padding: 16px; background: var(--bg-cream); border-radius: var(--radius);">
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="ja">Q: 持ち物は必要ですか？</p>
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="en">Q: What should I bring?</p>
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="it">Q: Cosa devo portare?</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="ja">A: 手ぶらでお越しいただけます。エプロン・調理器具は全てご用意しております。</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="en">A: You can come empty-handed. All aprons and utensils are provided.</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="it">A: Puoi venire a mani vuote. Tutti i grembiuli e gli utensili sono forniti.</p>
+            </div>
+
+            <div style="padding: 16px; background: var(--bg-cream); border-radius: var(--radius);">
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="ja">Q: 食物アレルギーがあります</p>
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="en">Q: I have food allergies</p>
+                <p style="font-weight: 600; margin-bottom: 8px; color: var(--accent-darkgold);" data-lang="it">Q: Ho allergie alimentari</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="ja">A: 事前にお知らせいただければ、可能な限り対応いたします。事前アンケートにご記入ください。</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="en">A: Please inform us in advance via the pre-event survey, and we'll accommodate as much as possible.</p>
+                <p style="font-size: 15px; color: var(--text-soft);" data-lang="it">A: Si prega di informarci in anticipo tramite il questionario pre-evento e faremo del nostro meglio per accontentarvi.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===========================================
      RESERVATION SECTION
 ============================================ -->
 <section>
     <div class="section-title">
-        <h2 data-lang="ja">ご予約</h2>
-        <h2 data-lang="en">Make a Reservation</h2>
-        <h2 data-lang="it">Prenota</h2>
+        <h2 data-lang="ja">事前アンケート</h2>
+        <h2 data-lang="en">Pre-Event Survey</h2>
+        <h2 data-lang="it">Questionario Pre-Evento</h2>
 
-        <p data-lang="ja">下記フォームからご予約ください。お支払いはフォーム送信後にStripeで行います。</p>
-        <p data-lang="en">Please fill out the form below to reserve your spot. Payment is processed via Stripe after form submission.</p>
-        <p data-lang="it">Compila il modulo qui sotto per prenotare il tuo posto. Il pagamento viene elaborato tramite Stripe dopo l'invio del modulo.</p>
+        <p data-lang="ja">事前アンケートへのご回答で、当日の予約に参考にさせていただきます。また、事前アンケート回答のお客様にはプレミアム価格でのご案内を実施させていただきます。お支払いについては別途ご連絡いたします。</p>
+        <p data-lang="en">Your survey responses will help us prepare for your reservation. Customers who complete the survey will receive premium pricing. Payment details will be provided separately.</p>
+        <p data-lang="it">Le vostre risposte al questionario ci aiuteranno a preparare la vostra prenotazione. I clienti che completano il questionario riceveranno prezzi premium. I dettagli di pagamento saranno forniti separatamente.</p>
     </div>
 
-    <div class="grid-2">
-        <!-- Reservation Form -->
-        <div class="card">
-            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="ja">予約フォーム</h3>
-            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="en">Reservation Form</h3>
-            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="it">Modulo di Prenotazione</h3>
+    <div class="card" style="max-width: 900px; margin: 0 auto;">
+        <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="ja">事前アンケートフォーム</h3>
+        <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="en">Pre-Event Survey Form</h3>
+        <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="it">Modulo Questionario Pre-Evento</h3>
+
+        <div style="background: linear-gradient(135deg, #fff5e6, #ffe6cc); padding: 24px; border-radius: var(--radius); margin-bottom: 30px; border-left: 4px solid var(--accent-gold);">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span style="font-size: 28px;">🎁</span>
+                <h4 style="font-size: 20px; color: var(--accent-darkgold); margin: 0;" data-lang="ja">特典のご案内</h4>
+                <h4 style="font-size: 20px; color: var(--accent-darkgold); margin: 0;" data-lang="en">Special Benefits</h4>
+                <h4 style="font-size: 20px; color: var(--accent-darkgold); margin: 0;" data-lang="it">Vantaggi Speciali</h4>
+            </div>
+            <p style="margin: 0; color: var(--text-soft); line-height: 1.8;" data-lang="ja">
+                事前アンケートにご回答いただいたお客様には、プレミアム価格でのご案内を実施させていただきます。当日の準備の参考にさせていただきますので、ぜひご協力ください。
+            </p>
+            <p style="margin: 0; color: var(--text-soft); line-height: 1.8;" data-lang="en">
+                Customers who complete the pre-event survey will receive premium pricing. Your responses help us better prepare for the event, so we appreciate your cooperation.
+            </p>
+            <p style="margin: 0; color: var(--text-soft); line-height: 1.8;" data-lang="it">
+                I clienti che completano il questionario pre-evento riceveranno prezzi premium. Le vostre risposte ci aiutano a prepararci meglio per l'evento, quindi apprezziamo la vostra collaborazione.
+            </p>
+        </div>
 
             <!-- Google Forms Embed -->
             <iframe
@@ -675,86 +984,6 @@
             <p style="margin-top: 20px; text-align: center; color: var(--text-soft); font-size: 14px;" data-lang="it">
                 ※Se il modulo non appare, ricarica la pagina
             </p>
-        </div>
-
-        <!-- Payment Section -->
-        <div class="card">
-            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="ja">お支払い</h3>
-            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="en">Payment</h3>
-            <h3 style="font-size: 24px; color: var(--accent-darkgold); margin-bottom: 24px; text-align: center;" data-lang="it">Pagamento</h3>
-
-            <div style="background: var(--bg-cream); padding: 30px; border-radius: var(--radius); margin-bottom: 30px;">
-                <div style="text-align: center; margin-bottom: 24px;">
-                    <div style="font-size: 48px; color: var(--accent-gold); margin-bottom: 16px;">💳</div>
-                    <p style="font-size: 32px; font-weight: 700; color: var(--accent-darkgold); margin-bottom: 8px;">¥4,980</p>
-                    <p style="color: var(--text-soft);" data-lang="ja">税込</p>
-                    <p style="color: var(--text-soft);" data-lang="en">Tax included</p>
-                    <p style="color: var(--text-soft);" data-lang="it">Tasse incluse</p>
-                </div>
-
-                <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
-                    <li data-lang="ja" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        全ての食材・材料費
-                    </li>
-                    <li data-lang="ja" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        オリーブオイル＆ワインテイスティング
-                    </li>
-                    <li data-lang="ja" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        レシピ集・エプロン貸出
-                    </li>
-
-                    <li data-lang="en" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        All ingredients & materials
-                    </li>
-                    <li data-lang="en" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        Olive oil & wine tasting
-                    </li>
-                    <li data-lang="en" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        Recipe booklet & apron rental
-                    </li>
-
-                    <li data-lang="it" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        Tutti gli ingredienti e materiali
-                    </li>
-                    <li data-lang="it" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        Degustazione olio d'oliva e vino
-                    </li>
-                    <li data-lang="it" style="padding: 8px 0 8px 28px; position: relative; font-size: 15px;">
-                        <span style="position: absolute; left: 0; color: var(--accent-gold);">✓</span>
-                        Ricettario e noleggio grembiule
-                    </li>
-                </ul>
-            </div>
-
-            <div style="text-align: center; margin-bottom: 30px;">
-                <!-- Replace with your actual Stripe Payment Link -->
-                <a href="https://buy.stripe.com/test_ikitaria_cooking_class_15000yen" target="_blank" style="display: inline-block; padding: 18px 48px; color: #fff; font-size: 18px; font-weight: 600; text-decoration: none; border-radius: 50px; background: linear-gradient(135deg, var(--accent-darkgold), var(--accent-gold)); transition: var(--transition); box-shadow: 0 8px 20px rgba(157, 126, 60, 0.3);">
-                    <span data-lang="ja">Stripeで支払う →</span>
-                    <span data-lang="en">Pay with Stripe →</span>
-                    <span data-lang="it">Paga con Stripe →</span>
-                </a>
-            </div>
-
-            <div style="background: #f0f7ff; padding: 20px; border-radius: var(--radius); border-left: 4px solid #4a90e2;">
-                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 8px;" data-lang="ja">
-                    <strong>ご注意：</strong>フォーム送信後、上記ボタンからStripeの安全な決済ページへ進んでください。クレジットカード・デビットカードがご利用いただけます。
-                </p>
-                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 8px;" data-lang="en">
-                    <strong>Note:</strong> After submitting the form, click the button above to proceed to Stripe's secure payment page. Credit and debit cards accepted.
-                </p>
-                <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 8px;" data-lang="it">
-                    <strong>Nota:</strong> Dopo aver inviato il modulo, clicca sul pulsante sopra per procedere alla pagina di pagamento sicura di Stripe. Carte di credito e debito accettate.
-                </p>
-            </div>
-        </div>
     </div>
 
     <!-- Contact Information -->
@@ -774,10 +1003,7 @@
         </p>
 
         <div class="contact-info">
-            <p>📧 contact@ikitaria.com</p>
-            <p style="font-size: 16px; font-weight: 400; opacity: 0.9;" data-lang="ja">対応言語：日本語・英語・イタリア語</p>
-            <p style="font-size: 16px; font-weight: 400; opacity: 0.9;" data-lang="en">Languages: Japanese, English, Italian</p>
-            <p style="font-size: 16px; font-weight: 400; opacity: 0.9;" data-lang="it">Lingue: Giapponese, Inglese, Italiano</p>
+            <p>📧 info@ikitaria.com</p>
         </div>
     </div>
 </section>
