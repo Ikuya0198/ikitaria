@@ -1,0 +1,10 @@
+{
+  "projectName": "ikitaria",
+  "displayName": "Ikitaria Project",
+  "description": "Ikitaria事業のWebサイト・リポジトリ",
+  "type": "business-project",
+  "repository": "ikitaria-repo",
+  "createdAt": "2025-12-02",
+  "warning": "⚠️ このプロジェクトは ikitaria 事業専用です。avisail 事業とは全く別のプロジェクトです。混同しないよう注意してください。",
+  "relatedPath": "/Users/ikuyaodaka/Desktop/ikitaria-repo"
+}
