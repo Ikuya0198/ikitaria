@@ -391,9 +391,140 @@
 
         /* Hide non-active languages */
         body:not(.lang-ja) [data-lang="ja"],
-        body:not(.lang-en) [data-lang="en"],
-        body:not(.lang-it) [data-lang="it"] {
+        body:not(.lang-en) [data-lang="en"] {
             display: none !important;
+        }
+
+        /* ===========================================
+           Form Styling (Avisail-inspired)
+        ============================================ */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            font-size: 16px;
+            font-family: 'Lato', sans-serif;
+            color: var(--text-main);
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+        }
+
+        .form-input:hover {
+            border-color: rgba(201, 169, 97, 0.3);
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        select.form-input {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23c9a961' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 45px;
+        }
+
+        .form-hint {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 0;
+            font-style: italic;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 18px 48px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--accent-darkgold), var(--accent-gold));
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(157, 126, 60, 0.3);
+            border: none;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-darkgold));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(157, 126, 60, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #formMessage.success {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        #formMessage.error {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        /* Form validation states */
+        .form-input:invalid:not(:placeholder-shown) {
+            border-color: #dc3545;
+        }
+
+        .form-input:valid:not(:placeholder-shown) {
+            border-color: #28a745;
+        }
+
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            accent-color: var(--accent-gold);
         }
     </style>
 </head>
@@ -404,7 +535,6 @@
 <div class="language-switcher">
     <button class="lang-btn active" data-lang-selector="ja">🇯🇵 日本語</button>
     <button class="lang-btn" data-lang-selector="en">🇬🇧 English</button>
-    <button class="lang-btn" data-lang-selector="it">🇮🇹 Italiano</button>
 </div>
 
 <!-- Back Button -->
@@ -983,25 +1113,149 @@
             </p>
         </div>
 
-            <!-- Google Forms Embed -->
-            <iframe
-                style="width: 100%; min-height: 800px; border: none; border-radius: var(--radius);"
-                src="https://docs.google.com/forms/d/e/1FAIpQLSd_adJy86pa_ENQiRbHehLE7wgMuVu9bcSn838yANeSP3Ihdw/viewform?embedded=true"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0">
-                Loading…
-            </iframe>
+            <!-- Custom Survey Form -->
+            <form id="surveyForm" style="display: grid; gap: 24px;">
+                <!-- Name -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">お名前 *</span>
+                        <span data-lang="en">Full Name *</span>
+                    </label>
+                    <input type="text" name="name" class="form-input" required>
+                </div>
 
-            <p style="margin-top: 20px; text-align: center; color: var(--text-soft); font-size: 14px;" data-lang="ja">
-                ※フォームが表示されない場合は、ページを再読み込みしてください
-            </p>
-            <p style="margin-top: 20px; text-align: center; color: var(--text-soft); font-size: 14px;" data-lang="en">
-                ※If the form doesn't appear, please reload the page
-            </p>
-            <p style="margin-top: 20px; text-align: center; color: var(--text-soft); font-size: 14px;" data-lang="it">
-                ※Se il modulo non appare, ricarica la pagina
-            </p>
+                <!-- Email -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">メールアドレス *</span>
+                        <span data-lang="en">Email Address *</span>
+                    </label>
+                    <input type="email" name="email" class="form-input" required>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">電話番号 *</span>
+                        <span data-lang="en">Phone Number *</span>
+                    </label>
+                    <input type="tel" name="phone" class="form-input" required>
+                </div>
+
+                <!-- Preferred Session -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">ご希望の日程 *</span>
+                        <span data-lang="en">Preferred Session *</span>
+                    </label>
+                    <select name="session" class="form-input" required>
+                        <option value="" data-lang="ja">選択してください</option>
+                        <option value="" data-lang="en">Please select</option>
+                        <option value="feb7-day" data-lang="ja">2月7日 昼の部 (11:00-13:30)</option>
+                        <option value="feb7-day" data-lang="en">February 7th Day Session (11:00-13:30)</option>
+                        <option value="feb7-evening" data-lang="ja">2月7日 夜の部 (17:00-19:30)</option>
+                        <option value="feb7-evening" data-lang="en">February 7th Evening Session (17:00-19:30)</option>
+                        <option value="feb8-day" data-lang="ja">2月8日 昼の部 (11:00-13:30)</option>
+                        <option value="feb8-day" data-lang="en">February 8th Day Session (11:00-13:30)</option>
+                        <option value="feb8-evening" data-lang="ja">2月8日 夜の部 (17:00-19:30)</option>
+                        <option value="feb8-evening" data-lang="en">February 8th Evening Session (17:00-19:30)</option>
+                    </select>
+                </div>
+
+                <!-- Number of Participants -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">参加人数 *</span>
+                        <span data-lang="en">Number of Participants *</span>
+                    </label>
+                    <select name="participants" class="form-input" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+                <!-- Dietary Restrictions -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">食物アレルギー・食事制限</span>
+                        <span data-lang="en">Dietary Restrictions / Allergies</span>
+                    </label>
+                    <textarea name="dietary" class="form-input" rows="3" placeholder=""></textarea>
+                    <p class="form-hint" data-lang="ja">アレルギーや食事制限がある場合はご記入ください</p>
+                    <p class="form-hint" data-lang="en">Please note any allergies or dietary restrictions</p>
+                </div>
+
+                <!-- Experience Level -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">料理経験 *</span>
+                        <span data-lang="en">Cooking Experience *</span>
+                    </label>
+                    <select name="experience" class="form-input" required>
+                        <option value="" data-lang="ja">選択してください</option>
+                        <option value="" data-lang="en">Please select</option>
+                        <option value="beginner" data-lang="ja">初心者</option>
+                        <option value="beginner" data-lang="en">Beginner</option>
+                        <option value="intermediate" data-lang="ja">中級者</option>
+                        <option value="intermediate" data-lang="en">Intermediate</option>
+                        <option value="advanced" data-lang="ja">上級者</option>
+                        <option value="advanced" data-lang="en">Advanced</option>
+                    </select>
+                </div>
+
+                <!-- How did you hear about us -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">このイベントをどこで知りましたか？</span>
+                        <span data-lang="en">How did you hear about this event?</span>
+                    </label>
+                    <select name="referral" class="form-input">
+                        <option value="" data-lang="ja">選択してください</option>
+                        <option value="" data-lang="en">Please select</option>
+                        <option value="website" data-lang="ja">ウェブサイト</option>
+                        <option value="website" data-lang="en">Website</option>
+                        <option value="social" data-lang="ja">SNS</option>
+                        <option value="social" data-lang="en">Social Media</option>
+                        <option value="friend" data-lang="ja">友人・知人</option>
+                        <option value="friend" data-lang="en">Friend/Acquaintance</option>
+                        <option value="other" data-lang="ja">その他</option>
+                        <option value="other" data-lang="en">Other</option>
+                    </select>
+                </div>
+
+                <!-- Additional Comments -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">ご質問・ご要望</span>
+                        <span data-lang="en">Questions / Special Requests</span>
+                    </label>
+                    <textarea name="comments" class="form-input" rows="4"></textarea>
+                </div>
+
+                <!-- Privacy Policy Agreement -->
+                <div class="form-group" style="display: flex; gap: 12px; align-items: start;">
+                    <input type="checkbox" name="privacy" id="privacy" required style="margin-top: 4px; width: 20px; height: 20px; cursor: pointer;">
+                    <label for="privacy" style="font-size: 14px; color: var(--text-soft); cursor: pointer;">
+                        <span data-lang="ja">個人情報保護方針に同意します *</span>
+                        <span data-lang="en">I agree to the privacy policy *</span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <button type="submit" class="btn-primary" style="padding: 18px 60px; font-size: 18px; width: 100%; max-width: 400px;">
+                        <span data-lang="ja">送信する</span>
+                        <span data-lang="en">Submit</span>
+                    </button>
+                </div>
+
+                <!-- Success/Error Messages -->
+                <div id="formMessage" style="display: none; padding: 20px; border-radius: var(--radius); text-align: center; font-size: 16px; margin-top: 20px;"></div>
+            </form>
     </div>
 
     <!-- Contact Information -->
@@ -1059,6 +1313,94 @@
             currentLang = selectedLang;
         });
     });
+
+    // Form submission handler
+    const surveyForm = document.getElementById('surveyForm');
+    const formMessage = document.getElementById('formMessage');
+
+    if (surveyForm) {
+        surveyForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(surveyForm);
+            const data = Object.fromEntries(formData);
+
+            // Show loading state
+            const submitButton = surveyForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span data-lang="ja">送信中...</span><span data-lang="en">Submitting...</span>';
+
+            try {
+                // Option 1: Send to Google Forms
+                // You'll need to replace this URL with your actual Google Forms action URL
+                const googleFormsURL = 'https://docs.google.com/forms/d/e/1FAIpQLSd_adJy86pa_ENQiRbHehLE7wgMuVu9bcSn838yANeSP3Ihdw/formResponse';
+
+                // Map form fields to Google Forms entry IDs
+                // These IDs need to be obtained from your Google Form's source code
+                const googleFormData = new FormData();
+                // googleFormData.append('entry.XXXXXXXX', data.name);
+                // googleFormData.append('entry.XXXXXXXX', data.email);
+                // etc...
+
+                // For now, we'll use a simple email solution
+                // Create email body
+                const emailBody = `
+新しい事前アンケート回答 / New Survey Response
+
+お名前 / Name: ${data.name}
+メールアドレス / Email: ${data.email}
+電話番号 / Phone: ${data.phone}
+ご希望の日程 / Preferred Session: ${data.session}
+参加人数 / Participants: ${data.participants}
+食物アレルギー / Dietary Restrictions: ${data.dietary || 'なし / None'}
+料理経験 / Experience: ${data.experience}
+どこで知ったか / Referral: ${data.referral || 'N/A'}
+ご質問・ご要望 / Comments: ${data.comments || 'なし / None'}
+                `.trim();
+
+                // Create mailto link
+                const mailtoLink = `mailto:info@ikitaria.com?subject=${encodeURIComponent('料理教室 事前アンケート / Cooking Class Survey')}&body=${encodeURIComponent(emailBody)}`;
+
+                // Open email client
+                window.location.href = mailtoLink;
+
+                // Show success message
+                formMessage.className = 'success';
+                formMessage.style.display = 'block';
+
+                if (currentLang === 'ja') {
+                    formMessage.textContent = '✓ アンケートフォームが開かれました。メールクライアントから送信してください。自動的に開かない場合は、info@ikitaria.com までご連絡ください。';
+                } else {
+                    formMessage.textContent = '✓ Email client opened. Please send the email. If it doesn\'t open automatically, please contact info@ikitaria.com';
+                }
+
+                // Reset form
+                surveyForm.reset();
+
+                // Scroll to message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            } catch (error) {
+                console.error('Form submission error:', error);
+
+                // Show error message
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+
+                if (currentLang === 'ja') {
+                    formMessage.textContent = '✗ エラーが発生しました。お手数ですが、info@ikitaria.com まで直接ご連絡ください。';
+                } else {
+                    formMessage.textContent = '✗ An error occurred. Please contact us directly at info@ikitaria.com';
+                }
+            } finally {
+                // Restore button state
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+            }
+        });
+    }
 </script>
 
 </body>
