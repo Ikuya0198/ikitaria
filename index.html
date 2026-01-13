@@ -32,7 +32,6 @@
             --font-body: 'Lato', sans-serif;
 
             --max-width: 1200px;
-            /* Tighter container */
             --radius: 12px;
 
             --transition: all 0.3s ease;
@@ -62,9 +61,7 @@
             color: var(--color-text-main);
             font-family: var(--font-body);
             line-height: 1.7;
-            /* Tighter line height */
             font-size: 16px;
-            /* Base font size */
         }
 
         h1,
@@ -106,7 +103,6 @@
             padding: 80px 0;
         }
 
-        /* Reduced padding */
         .text-gold {
             color: var(--color-accent);
         }
@@ -131,12 +127,9 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: var(--radius);
             padding: 2.5rem;
-            /* Reduced padding */
         }
 
-        /* ===========================================
-           Header & Nav
-        ============================================ */
+        /* Nav */
         .site-nav {
             position: fixed;
             top: 0;
@@ -189,12 +182,9 @@
             border-bottom: 1px solid var(--color-accent);
         }
 
-        /* ===========================================
-           Hero (Compact)
-        ============================================ */
+        /* Hero */
         .hero {
             height: 80vh;
-            /* Reduced height */
             min-height: 600px;
             position: relative;
             display: flex;
@@ -225,7 +215,6 @@
 
         .hero h1 {
             font-size: clamp(3rem, 5vw, 5rem);
-            /* Smaller H1 */
             line-height: 1.1;
             margin-bottom: 1.5rem;
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -249,9 +238,7 @@
             opacity: 0.6;
         }
 
-        /* ===========================================
-           Section Styles
-        ============================================ */
+        /* Sections */
         .section-header {
             margin-bottom: 3rem;
             text-align: center;
@@ -276,7 +263,7 @@
             margin-top: 1rem;
         }
 
-        /* News Release (Highlight) */
+        /* Styles specific to News Release */
         .news-highlight {
             border-left: 3px solid var(--color-accent);
             background: linear-gradient(90deg, rgba(197, 160, 89, 0.1), transparent);
@@ -307,12 +294,12 @@
             background: #fff;
         }
 
-        /* Grid Layouts */
+        /* Grids */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            align-items: center;
+            align-items: start;
         }
 
         .grid-3 {
@@ -327,6 +314,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
             background: rgba(255, 255, 255, 0.02);
+            height: 100%;
         }
 
         .feature-card:hover {
@@ -345,31 +333,7 @@
             color: var(--color-text-muted);
         }
 
-        /* Company Table */
-        .company-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
-
-        .company-table tr {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .company-table th {
-            width: 30%;
-            color: var(--color-text-muted);
-            padding: 1.2rem 0;
-            text-align: left;
-            font-weight: 400;
-        }
-
-        .company-table td {
-            padding: 1.2rem 0;
-            color: #fff;
-        }
-
-        /* FAQ (Compact) */
+        /* FAQ */
         .faq-item {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -414,6 +378,30 @@
             padding-bottom: 1.5rem;
         }
 
+        /* Company Table (minimal) */
+        .company-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .company-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .company-table th {
+            width: 30%;
+            color: var(--color-text-muted);
+            padding: 1.2rem 0;
+            text-align: left;
+            font-weight: 400;
+        }
+
+        .company-table td {
+            padding: 1.2rem 0;
+            color: #fff;
+        }
+
         /* Footer */
         footer {
             padding: 3rem 0;
@@ -424,7 +412,6 @@
             font-size: 0.8rem;
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
 
             .grid-2,
@@ -440,13 +427,9 @@
             .section-padding {
                 padding: 60px 0;
             }
-
-            .glass-card {
-                padding: 1.5rem;
-            }
         }
 
-        /* Lang */
+        /* Logic */
         [data-lang]:not(.active) {
             display: none;
         }
@@ -498,9 +481,12 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Japan &times; Italy</h1>
-            <p data-lang="ja">本物の架け橋となる</p>
-            <p data-lang="en">Bridging Cultures through Excellence</p>
+            <h1>Ikitaria</h1>
+            <!-- Original content: "Connect the Dots" -->
+            <p style="font-size:1.5rem; margin-bottom:1rem; color:var(--color-accent); letter-spacing:0.1em;">Connect
+                the Dots</p>
+            <p data-lang="ja">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
+            <p data-lang="en">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
         </div>
         <div class="scroll-hint">SCROLL</div>
     </header>
@@ -510,207 +496,301 @@
         <div class="container">
             <div class="section-header">
                 <span>Updates</span>
-                <h2 data-lang="ja">最新情報</h2>
+                <h2 data-lang="ja">News Release</h2>
                 <h2 data-lang="en">News Release</h2>
+                <p data-lang="ja">Ikitariaの最新情報・イベントをお知らせします。</p>
+                <p data-lang="en">Latest news and events from Ikitaria.</p>
             </div>
 
             <div class="glass-card news-highlight">
                 <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-                    <span class="news-tag">EVENT</span>
-                    <span style="font-size:0.9rem; color:var(--color-text-muted);">2026.02</span>
+                    <span class="news-tag" data-lang="ja">最新イベント</span><span class="news-tag" data-lang="en">Latest
+                        Event</span>
+                    <span style="font-size:0.9rem; color:var(--color-text-muted);" data-lang="ja">2026年2月開催</span><span
+                        style="font-size:0.9rem; color:var(--color-text-muted);" data-lang="en">February 2026</span>
                 </div>
                 <h3 style="font-size:1.5rem; margin-bottom:1rem; color:#fff;" data-lang="ja">イタリア料理教室 — 予約受付中</h3>
-                <h3 style="font-size:1.5rem; margin-bottom:1rem; color:#fff;" data-lang="en">Italian Cooking Class —
-                    Bookings Open</h3>
-                <p data-lang="ja" style="color:#ddd; max-width:800px;">
-                    本物のイタリア食材を使用し、シェフによる実演と試食を楽しむプレミアムな料理教室を開催します。
-                    オリーブオイルやワインのテイスティングも含んだ特別な体験をお届けします。
+                <h3 style="font-size:1.5rem; margin-bottom:1rem; color:#fff;" data-lang="en">Italian Cooking Class — Now
+                    Accepting Reservations</h3>
+                <p data-lang="ja" style="color:#ddd; max-width:800px; margin-bottom:1rem;">
+                    Ikitariaが開催する本格イタリア料理教室では、プレミアムなイタリア食材を使用し、本場の味を学べます。少人数制で丁寧に実施し、調理後は皆さまで試食を楽しみます。現地の高品質なオリーブオイルとワインのテイスティング、現地の本格的な食材に対するご説明も実施いたします。
                 </p>
-                <p data-lang="en" style="color:#ddd; max-width:800px;">
-                    Join our premium cooking class using authentic ingredients. Experience chef demonstrations, tastings
-                    of olive oil and wines.
+                <p data-lang="en" style="color:#ddd; max-width:800px; margin-bottom:1rem;">
+                    At Ikitaria's authentic Italian cooking class, you'll learn genuine Italian flavors using premium
+                    ingredients. Our small group setting ensures careful instruction, followed by a group tasting of
+                    your creations. The class includes high-quality olive oil and wine tastings from Italy, plus
+                    detailed explanations of authentic ingredients.
                 </p>
+                <!-- Compact Details Info -->
+                <div
+                    style="font-size:0.9rem; color:var(--color-accent); margin-bottom:1rem; display:flex; gap:1rem; flex-wrap:wrap;">
+                    <span data-lang="ja">📅 2月7日（土）</span><span data-lang="en">📅 Feb 7th (Sat)</span>
+                    <span data-lang="ja">📍 上板橋駅徒歩6分</span><span data-lang="en">📍 6 min from Kamiitabashi St.</span>
+                    <span>💴 ¥6,900</span>
+                </div>
+
                 <a href="cooking-class.html" class="btn-news">
-                    <span data-lang="ja">詳細・予約へ &rarr;</span>
-                    <span data-lang="en">Details & Booking &rarr;</span>
+                    <span data-lang="ja">詳細を見る・予約する →</span>
+                    <span data-lang="en">View Details & Reserve →</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Philosophy -->
+    <!-- About Us & Our Philosophy -->
     <section class="section-padding" style="background:#111;">
+        <div class="container">
+            <!-- About Us -->
+            <div class="section-header">
+                <span>About Us</span>
+                <h2 data-lang="ja">About Us</h2>
+                <h2 data-lang="en">About Us</h2>
+                <p data-lang="ja">Ikitariaは高品質な製品を直接届けることで、低価格でより高品質なものを届けるヨーロッパとアジアをつなぐ企業です。</p>
+                <p data-lang="en">Ikitaria connects Europe and Asia, delivering high-quality products directly at lower
+                    prices.</p>
+            </div>
+            <div class="glass-card mb-2" style="text-align:center;">
+                <p data-lang="ja">
+                    私たちは「文化・味・技術・美」を本気で守り抜くプレミアム商社です。高品質なイタリア食材を直接生産者からつなぎ、文化やさまざまな技術、あらゆる付加価値を日本、アジアへ繋いでいきます。小ロットから大規模商流まで幅広く対応し、さまざまなご要望に柔軟に対応いたします。
+                </p>
+                <p data-lang="en">
+                    We are a premium trading company committed to preserving "culture, taste, craftsmanship, and
+                    beauty." We connect high-quality Italian ingredients directly from producers, bridging culture,
+                    various technologies, and all added values to Japan and Asia. We flexibly handle everything from
+                    small batches to large-scale distribution, accommodating various requests.
+                </p>
+            </div>
+
+            <!-- Our Philosophy -->
+            <div class="section-header" style="margin-top:4rem;">
+                <span>Philosophy</span>
+                <h2 data-lang="ja">Our Philosophy</h2>
+                <h2 data-lang="en">Our Philosophy</h2>
+                <p data-lang="ja">「本物であること」「誠実さ」「美しさ」</p>
+                <p data-lang="en">"Authenticity" "Integrity" "Beauty"</p>
+            </div>
+            <div class="glass-card" style="text-align:center;">
+                <p data-lang="ja" class="mb-1">
+                    私たちが扱うのは、単なる"商品"ではありません。その土地で生まれ、職人が磨き、文化が育てた「本物」だけを扱います。
+                </p>
+                <p data-lang="ja" class="mb-1">
+                    生産者の思いと、バイヤーの期待を同じ温度で理解し、その橋渡し役として最も誠実なスタンスで向き合います。
+                </p>
+                <p data-lang="ja">Ikitariaは、静かで上質な価値の流れを創る商社です。</p>
+
+                <p data-lang="en" class="mb-1">
+                    What we handle is not just "products." We deal only with "authenticity" — born in its land, refined
+                    by artisans, and nurtured by culture.
+                </p>
+                <p data-lang="en" class="mb-1">
+                    We understand both the producers' passion and the buyers' expectations at the same temperature,
+                    bridging them with the utmost integrity.
+                </p>
+                <p data-lang="en">Ikitaria creates a flow of quiet, premium value.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section-padding">
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <div class="section-header" style="text-align:left; margin-bottom:2rem;">
-                        <span>Philosophy</span>
-                        <h2 data-lang="ja">理念</h2>
-                        <h2 data-lang="en">Our Philosophy</h2>
+                    <div class="section-header" style="text-align:left;">
+                        <span>Story</span>
+                        <h2 data-lang="ja">Our Story</h2>
+                        <h2 data-lang="en">Our Story</h2>
                     </div>
-                    <p data-lang="ja" style="margin-bottom:1.5rem; color:#ccc;">
-                        Ikitariaは、日本とイタリアの食文化を最高品質で繋ぐプレミアム商社です。
-                        私たちが扱うのは「モノ」ではなく、その土地で生まれ、職人が磨き、文化が育てた「本物」です。
+                    <p data-lang="ja" class="mb-1">
+                        Ikitariaは、日本人とイタリア人の2名による小さなチームから始まりました。
+                        私たちが扱うのは「モノ」ではなく、「文化」と「背景」と「本物の価値」です。
                     </p>
-                    <p data-lang="ja" style="color:#ccc;">
-                        生産者の思いとバイヤーの期待を同じ温度で理解し、最も誠実なスタンスで向き合います。
-                        静かで上質な価値の流れを創ること、それが私たちの使命です。
+                    <p data-lang="ja">
+                        イタリアの生産者が込める情熱、日本の職人が守る繊細さ。
+                        この2つが出会った瞬間、世界にひとつだけの魅力が生まれます。
                     </p>
-                    <p data-lang="en" style="margin-bottom:1.5rem; color:#ccc;">
-                        Ikitaria is a premium trading house connecting Japanese and Italian culinary cultures.
-                        We deal only with "authenticity" — born in its land, refined by artisans, and nurtured by
-                        culture.
+                    <p data-lang="en" class="mb-1">
+                        Ikitaria began as a small team of two—a Japanese and an Italian.
+                        What we handle is not just "products," but "culture," "background," and "authentic value."
                     </p>
-                    <p data-lang="en" style="color:#ccc;">
-                        We bridge producers and buyers with integrity, creating a flow of quiet, premium value.
+                    <p data-lang="en">
+                        The passion of Italian producers and the delicacy preserved by Japanese artisans.
+                        When these two meet, a unique charm is born.
                     </p>
                 </div>
-                <!-- Image Block (Replaced with Glass Card for Text Density or Image) -->
-                <div class="glass-card" style="display:flex; align-items:center; justify-content:center; padding:3rem;">
-                    <h3
-                        style="font-family:var(--font-heading); font-size:2rem; font-style:italic; color:var(--color-accent); text-align:center;">
-                        "Authenticity"<br>"Integrity"<br>"Beauty"
-                    </h3>
+                <div class="glass-card"
+                    style="display:flex; align-items:center; justify-content:center; padding:3rem; aspect-ratio:16/9; background:url('https://ikuya0198.github.io/ikitaria/image/business.jpg') center/cover;">
+                    <!-- Image placeholder if load fails -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="section-padding">
+    <!-- Main Business -->
+    <section class="section-padding" style="background:#111;">
         <div class="container">
             <div class="section-header">
                 <span>Services</span>
-                <h2 data-lang="ja">事業内容</h2>
-                <h2 data-lang="en">Our Business</h2>
-                <p data-lang="ja">小ロットから大規模B2Bまで柔軟に対応します</p>
-                <p data-lang="en">Flexible support from small to large-scale B2B</p>
+                <h2 data-lang="ja">Main Business</h2>
+                <h2 data-lang="en">Main Business</h2>
+                <p data-lang="ja">小ロットから大規模B2Bまで、柔軟な対応が可能です。</p>
+                <p data-lang="en">Flexible support from small batches to large-scale B2B.</p>
             </div>
 
             <div class="grid-3">
                 <div class="feature-card">
                     <h3 data-lang="ja">輸出入事業</h3>
                     <h3 data-lang="en">Import/Export</h3>
-                    <p data-lang="ja">厳選されたオリーブオイル、パスタ、ワイン、モーターパーツ等の高品質な製品を輸入・輸出します。</p>
-                    <p data-lang="en">Import/export of premium olive oil, pasta, wines, and motor parts.</p>
+                    <p data-lang="ja">オリーブオイルやモーターパーツなど、高品質な製品の輸出入を行っています。</p>
+                    <p data-lang="en">We handle import/export of high-quality products such as olive oil and motor
+                        parts.</p>
                 </div>
                 <div class="feature-card">
-                    <h3 data-lang="ja">自社生産・OEM</h3>
-                    <h3 data-lang="en">Production & OEM</h3>
-                    <p data-lang="ja">自社農場や提携工場での生産を通じ、オリジナル商品の開発やOEM供給に対応します。</p>
-                    <p data-lang="en">Development of original products and OEM supply through our farms and partner
-                        factories.</p>
+                    <h3 data-lang="ja">自社生産事業</h3>
+                    <h3 data-lang="en">In-house Production</h3>
+                    <p data-lang="ja">自社農場、自社契約農場、工場での生産を通じて、高品質な製品を提供します。</p>
+                    <p data-lang="en">We provide high-quality products through our own farms, contract farms, and
+                        factory production.</p>
                 </div>
                 <div class="feature-card">
                     <h3 data-lang="ja">事業サポート</h3>
                     <h3 data-lang="en">Business Support</h3>
-                    <p data-lang="ja">日本市場でのリサーチ、販売促進、販路拡大のための現地サポートを提供します。</p>
-                    <p data-lang="en">Local support for market research, sales promotion, and channel expansion in
-                        Japan.</p>
+                    <p data-lang="ja">市場リサーチ、販売促進など、日本市場での拡販活動の実績があります。</p>
+                    <p data-lang="en">We have experience in market research, sales promotion, and expansion activities
+                        in the Japanese market.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners -->
+    <!-- Partner -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <div class="section-header" style="text-align:left;">
+                        <span>Partner</span>
+                        <h2 data-lang="ja">Partner</h2>
+                        <h2 data-lang="en">Partner</h2>
+                    </div>
+                    <p data-lang="ja" class="mb-1">
+                        OEMのサポートや、各マーケットに興味のある顧客様へ、さまざまなサービスを提供しています。
+                    </p>
+                    <p data-lang="ja">
+                        直接高品質な材料の調達を検討している方、現地でのサポートが必要な方など、各種お問い合わせください。
+                    </p>
+                    <p data-lang="en" class="mb-1">
+                        We provide various services for OEM support and customers interested in different markets.
+                    </p>
+                    <p data-lang="en">
+                        For those considering direct procurement of high-quality materials or needing local support,
+                        please contact us for various inquiries.
+                    </p>
+                </div>
+                <div class="glass-card"
+                    style="display:flex; align-items:center; justify-content:center; padding:3rem; aspect-ratio:16/9; background:url('https://ikuya0198.github.io/ikitaria/image/partner.jpg') center/cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
     <section class="section-padding" style="background:#111;">
         <div class="container">
             <div class="section-header">
-                <span>Partners</span>
-                <h2 data-lang="ja">パートナーシップ</h2>
-                <h2 data-lang="en">Partnership</h2>
+                <span>Q&A</span>
+                <h2 data-lang="ja">よくある質問</h2>
+                <h2 data-lang="en">Frequently Asked Questions</h2>
+                <p data-lang="ja">お客様からよくいただく質問をまとめました。</p>
+                <p data-lang="en">Here are answers to our most frequently asked questions.</p>
             </div>
-            <div class="glass-card text-center" style="max-width:800px; margin:0 auto;">
-                <p data-lang="ja">
-                    原材料の直接調達をお考えの方、イタリア製品のOEMをご検討の方へ、最適なソリューションを提案します。
-                    現地ネットワークを活かし、スムーズな取引をサポートします。
-                </p>
-                <p data-lang="en">
-                    We offer optimal solutions for those considering direct procurement or OEM of Italian products.
-                    Leveraging our local network to ensure smooth transactions.
-                </p>
+
+            <div style="max-width:800px; margin:0 auto;">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-lang="ja">最小発注量はありますか？</span><span data-lang="en">Is there a minimum order
+                            quantity?</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-lang="ja">小ロットから大規模商流まで幅広く対応しております。製品や数量によって異なりますので、まずはお気軽にお問い合わせください。</p>
+                        <p data-lang="en">We handle everything from small batches to large-scale distribution.
+                            Requirements vary by product and quantity, so please feel free to contact us for details.
+                        </p>
+                    </div>
+                </div>
+                <!-- Added back specific FAQs from original -->
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-lang="ja">納期はどのくらいかかりますか？</span><span data-lang="en">What is the typical delivery
+                            time?</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-lang="ja">製品や数量、配送先によって異なります。通常、イタリアからの輸入の場合は2〜3ヶ月程度です。詳細はお問い合わせください。</p>
+                        <p data-lang="en">Delivery times vary by product, quantity, and destination. Typically, imports
+                            from Italy take 2-3 months. Please contact us for specific details.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-lang="ja">OEM製造は対応していますか？</span><span data-lang="en">Do you offer OEM manufacturing
+                            services?</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-lang="ja">はい、自社農場、自社契約農場、工場での生産を通じて、OEM製造に対応しております。小ロットからご相談可能です。</p>
+                        <p data-lang="en">Yes, we offer OEM manufacturing through our own farms, contract farms, and
+                            factory production. We can accommodate small batches.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-lang="ja">現地でのサポートは受けられますか？</span><span data-lang="en">Do you provide local
+                            support?</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-lang="ja">はい、市場リサーチ、販売促進、日本市場での拡販活動など、現地でのサポートを提供しております。詳細はお問い合わせください。</p>
+                        <p data-lang="en">Yes, we provide local support including market research, sales promotion, and
+                            expansion activities in the Japanese market. Please contact us for details.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-lang="ja">サンプルの提供は可能ですか？</span><span data-lang="en">Can you provide samples?</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-lang="ja">はい、製品によってサンプルの提供が可能です。サンプル費用や配送料については、お問い合わせ時にご案内いたします。</p>
+                        <p data-lang="en">Yes, samples are available for most products. Sample costs and shipping fees
+                            will be provided upon inquiry.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Company & FAQ -->
+    <!-- Contact -->
     <section class="section-padding">
-        <div class="container">
-            <div class="grid-2" style="align-items:start;">
-                <!-- Company Profile -->
-                <div>
-                    <div class="section-header" style="text-align:left;">
-                        <span>Profile</span>
-                        <h2 data-lang="ja">会社概要</h2>
-                        <h2 data-lang="en">Company Profile</h2>
-                    </div>
-                    <table class="company-table">
-                        <tr>
-                            <th data-lang="ja">会社名</th>
-                            <th data-lang="en">Company</th>
-                            <td>Ikitaria Inc.</td>
-                        </tr>
-                        <tr>
-                            <th data-lang="ja">代表者</th>
-                            <th data-lang="en">CEO</th>
-                            <td data-lang="ja">佐藤 郁也</td>
-                            <td data-lang="en">Ikuya Sato</td>
-                        </tr>
-                        <tr>
-                            <th data-lang="ja">所在地</th>
-                            <th data-lang="en">Address</th>
-                            <td>Tokyo, Shibuya-ku</td>
-                        </tr>
-                        <tr>
-                            <th data-lang="ja">お問い合わせ</th>
-                            <th data-lang="en">Contact</th>
-                            <td class="text-gold">info@ikitaria.com</td>
-                        </tr>
-                    </table>
-                </div>
+        <div class="container text-center">
+            <div class="section-header">
+                <span>Contact</span>
+                <h2 data-lang="ja">Contact</h2>
+                <h2 data-lang="en">Contact</h2>
+                <p data-lang="ja">ご相談・見積もり・サンプル依頼など、お気軽にお問い合わせください。</p>
+                <p data-lang="en">For inquiries, quotes, sample requests, please feel free to contact us.</p>
+            </div>
 
-                <!-- FAQ -->
-                <div>
-                    <div class="section-header" style="text-align:left;">
-                        <span>Q&A</span>
-                        <h2 data-lang="ja">よくある質問</h2>
-                        <h2 data-lang="en">FAQ</h2>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span data-lang="ja">最小発注量はありますか？</span><span data-lang="en">Minimum Order Quantity?</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p data-lang="ja">小ロットからの対応も可能です。詳細はお問い合わせください。</p>
-                            <p data-lang="en">We accept small batches. Please contact us.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span data-lang="ja">納期はどのくらいですか？</span><span data-lang="en">Delivery Time?</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p data-lang="ja">通常、イタリアからの輸入は2-3ヶ月ですが、在庫状況によります。</p>
-                            <p data-lang="en">Typically 2-3 months for imports, depending on stock.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span data-lang="ja">サンプルの提供は可能ですか？</span><span data-lang="en">Samples Available?</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p data-lang="ja">はい、可能です。お気軽にご相談ください。</p>
-                            <p data-lang="en">Yes, samples are available upon request.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="glass-card" style="display:inline-block; min-width:300px;">
+                <p style="font-size:1.2rem; font-weight:600; margin-bottom:0.5rem; color:#fff;">Email</p>
+                <p style="margin-bottom:1.5rem; font-size:1.1rem; color:var(--color-accent);">info@ikitaria.com</p>
+                <a href="mailto:info@ikitaria.com" class="btn-news">
+                    <span data-lang="ja">メールを送る</span><span data-lang="en">Send Email</span>
+                </a>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Ikitaria Inc. All Rights Reserved.</p>
+            <p>© 2025 Ikitaria. All Rights Reserved.</p>
+            <p style="margin-top:0.5rem; opacity:0.6;">Japan × Italy Premium Trading House</p>
         </div>
     </footer>
 
@@ -726,7 +806,7 @@
             });
         });
 
-        // FAQ
+        // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
                 q.classList.toggle('active');
@@ -741,7 +821,7 @@
             });
         });
 
-        // Nav Scroll
+        // Sticky Nav
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.site-nav');
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
