@@ -558,6 +558,191 @@
         <p data-lang="en">Experience authentic Italian cuisine and premium ingredients</p>
     </div>
 </header>
+<!-- ===========================================
+     RESERVATION SECTION
+============================================ -->
+<section>
+    <div class="section-title">
+        <h2 data-lang="ja">ご参加のお申し込み</h2>
+        <h2 data-lang="en">Registration</h2>
+
+        <p data-lang="ja">ご参加のお申し込みは下記にてお願いします</p>
+        <p data-lang="en">Please register using the form below</p>
+    </div>
+
+    <div class="card" style="max-width: 900px; margin: 0 auto;">
+        <div style="background: linear-gradient(135deg, #fff5e6, #ffe6cc); padding: 24px; border-radius: var(--radius); margin-bottom: 30px; border-left: 4px solid var(--accent-gold);">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span style="font-size: 28px;">📝</span>
+                <h4 style="font-size: 20px; color: var(--accent-darkgold); margin: 0;" data-lang="ja">お申し込みフォーム</h4>
+                <h4 style="font-size: 20px; color: var(--accent-darkgold); margin: 0;" data-lang="en">Registration Form</h4>
+            </div>
+            <p style="margin: 0; color: var(--text-soft); line-height: 1.8;" data-lang="ja">
+                事前アンケートにご回答いただいたお客様には、プレミアム価格でのご案内を実施させていただきます。当日の準備の参考にさせていただきますので、ぜひご協力ください。
+            </p>
+            <p style="margin: 0; color: var(--text-soft); line-height: 1.8;" data-lang="en">
+                Customers who complete the pre-event survey will receive premium pricing. Your responses help us better prepare for the event, so we appreciate your cooperation.
+            </p>
+        </div>
+
+            <!-- Custom Survey Form -->
+            <form id="surveyForm" style="display: grid; gap: 24px;">
+                <!-- Name -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">お名前 *</span>
+                        <span data-lang="en">Full Name *</span>
+                    </label>
+                    <input type="text" name="name" class="form-input" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">メールアドレス *</span>
+                        <span data-lang="en">Email Address *</span>
+                    </label>
+                    <input type="email" name="email" class="form-input" required>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">電話番号 *</span>
+                        <span data-lang="en">Phone Number *</span>
+                    </label>
+                    <input type="tel" name="phone" class="form-input" required>
+                </div>
+
+                <!-- Preferred Session -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">ご希望の日程 *</span>
+                        <span data-lang="en">Preferred Session *</span>
+                    </label>
+                    <select name="session" class="form-input" required>
+                        <option value="" data-lang="ja">選択してください</option>
+                        <option value="" data-lang="en">Please select</option>
+                        <option value="feb7-day" data-lang="ja">2月7日（土）昼の部 (11:00-14:00)</option>
+                        <option value="feb7-day" data-lang="en">February 7th (Sat) Day Session (11:00-14:00)</option>
+                        <option value="feb7-evening" data-lang="ja">2月7日（土）夜の部 (17:00-20:00)</option>
+                        <option value="feb7-evening" data-lang="en">February 7th (Sat) Evening Session (17:00-20:00)</option>
+                    </select>
+                </div>
+
+                <!-- Number of Participants -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">参加人数 *</span>
+                        <span data-lang="en">Number of Participants *</span>
+                    </label>
+                    <select name="participants" class="form-input" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+                <!-- Dietary Restrictions -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">食物アレルギー・食事制限</span>
+                        <span data-lang="en">Dietary Restrictions / Allergies</span>
+                    </label>
+                    <textarea name="dietary" class="form-input" rows="3" placeholder=""></textarea>
+                    <p class="form-hint" data-lang="ja">アレルギーや食事制限がある場合はご記入ください</p>
+                    <p class="form-hint" data-lang="en">Please note any allergies or dietary restrictions</p>
+                </div>
+
+                <!-- Experience Level -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">料理経験 *</span>
+                        <span data-lang="en">Cooking Experience *</span>
+                    </label>
+                    <select name="experience" class="form-input" required>
+                        <option value="" data-lang="ja">選択してください</option>
+                        <option value="" data-lang="en">Please select</option>
+                        <option value="beginner" data-lang="ja">初心者</option>
+                        <option value="beginner" data-lang="en">Beginner</option>
+                        <option value="intermediate" data-lang="ja">中級者</option>
+                        <option value="intermediate" data-lang="en">Intermediate</option>
+                        <option value="advanced" data-lang="ja">上級者</option>
+                        <option value="advanced" data-lang="en">Advanced</option>
+                    </select>
+                </div>
+
+                <!-- How did you hear about us -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">このイベントをどこで知りましたか？</span>
+                        <span data-lang="en">How did you hear about this event?</span>
+                    </label>
+                    <select name="referral" class="form-input">
+                        <option value="" data-lang="ja">選択してください</option>
+                        <option value="" data-lang="en">Please select</option>
+                        <option value="website" data-lang="ja">ウェブサイト</option>
+                        <option value="website" data-lang="en">Website</option>
+                        <option value="social" data-lang="ja">SNS</option>
+                        <option value="social" data-lang="en">Social Media</option>
+                        <option value="friend" data-lang="ja">友人・知人</option>
+                        <option value="friend" data-lang="en">Friend/Acquaintance</option>
+                        <option value="other" data-lang="ja">その他</option>
+                        <option value="other" data-lang="en">Other</option>
+                    </select>
+                </div>
+
+                <!-- Additional Comments -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-lang="ja">ご質問・ご要望</span>
+                        <span data-lang="en">Questions / Special Requests</span>
+                    </label>
+                    <textarea name="comments" class="form-input" rows="4"></textarea>
+                </div>
+
+                <!-- Privacy Policy Agreement -->
+                <div class="form-group" style="display: flex; gap: 12px; align-items: start;">
+                    <input type="checkbox" name="privacy" id="privacy" required style="margin-top: 4px; width: 20px; height: 20px; cursor: pointer;">
+                    <label for="privacy" style="font-size: 14px; color: var(--text-soft); cursor: pointer;">
+                        <span data-lang="ja">個人情報保護方針に同意します *</span>
+                        <span data-lang="en">I agree to the privacy policy *</span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <button type="submit" class="btn-primary" style="padding: 18px 60px; font-size: 18px; width: 100%; max-width: 400px;">
+                        <span data-lang="ja">送信する</span>
+                        <span data-lang="en">Submit</span>
+                    </button>
+                </div>
+
+                <!-- Success/Error Messages -->
+                <div id="formMessage" style="display: none; padding: 20px; border-radius: var(--radius); text-align: center; font-size: 16px; margin-top: 20px;"></div>
+            </form>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="contact-box" style="margin-top: 60px;">
+        <h2 data-lang="ja">お問い合わせ</h2>
+        <h2 data-lang="en">Questions?</h2>
+
+        <p data-lang="ja">
+            ご質問がございましたら、お気軽にメールでお問い合わせください。
+        </p>
+        <p data-lang="en">
+            If you have any questions, feel free to contact us via email.
+        </p>
+
+        <div class="contact-info">
+            <p>📧 info@ikitaria.com</p>
+        </div>
+    </div>
+</section>
 
 <!-- ===========================================
      CLASS OVERVIEW
@@ -956,191 +1141,6 @@
     </div>
 </section>
 
-<!-- ===========================================
-     RESERVATION SECTION
-============================================ -->
-<section>
-    <div class="section-title">
-        <h2 data-lang="ja">ご参加のお申し込み</h2>
-        <h2 data-lang="en">Registration</h2>
-
-        <p data-lang="ja">ご参加のお申し込みは下記にてお願いします</p>
-        <p data-lang="en">Please register using the form below</p>
-    </div>
-
-    <div class="card" style="max-width: 900px; margin: 0 auto;">
-        <div style="background: linear-gradient(135deg, #fff5e6, #ffe6cc); padding: 24px; border-radius: var(--radius); margin-bottom: 30px; border-left: 4px solid var(--accent-gold);">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                <span style="font-size: 28px;">📝</span>
-                <h4 style="font-size: 20px; color: var(--accent-darkgold); margin: 0;" data-lang="ja">お申し込みフォーム</h4>
-                <h4 style="font-size: 20px; color: var(--accent-darkgold); margin: 0;" data-lang="en">Registration Form</h4>
-            </div>
-            <p style="margin: 0; color: var(--text-soft); line-height: 1.8;" data-lang="ja">
-                事前アンケートにご回答いただいたお客様には、プレミアム価格でのご案内を実施させていただきます。当日の準備の参考にさせていただきますので、ぜひご協力ください。
-            </p>
-            <p style="margin: 0; color: var(--text-soft); line-height: 1.8;" data-lang="en">
-                Customers who complete the pre-event survey will receive premium pricing. Your responses help us better prepare for the event, so we appreciate your cooperation.
-            </p>
-        </div>
-
-            <!-- Custom Survey Form -->
-            <form id="surveyForm" style="display: grid; gap: 24px;">
-                <!-- Name -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">お名前 *</span>
-                        <span data-lang="en">Full Name *</span>
-                    </label>
-                    <input type="text" name="name" class="form-input" required>
-                </div>
-
-                <!-- Email -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">メールアドレス *</span>
-                        <span data-lang="en">Email Address *</span>
-                    </label>
-                    <input type="email" name="email" class="form-input" required>
-                </div>
-
-                <!-- Phone -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">電話番号 *</span>
-                        <span data-lang="en">Phone Number *</span>
-                    </label>
-                    <input type="tel" name="phone" class="form-input" required>
-                </div>
-
-                <!-- Preferred Session -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">ご希望の日程 *</span>
-                        <span data-lang="en">Preferred Session *</span>
-                    </label>
-                    <select name="session" class="form-input" required>
-                        <option value="" data-lang="ja">選択してください</option>
-                        <option value="" data-lang="en">Please select</option>
-                        <option value="feb7-day" data-lang="ja">2月7日（土）昼の部 (11:00-14:00)</option>
-                        <option value="feb7-day" data-lang="en">February 7th (Sat) Day Session (11:00-14:00)</option>
-                        <option value="feb7-evening" data-lang="ja">2月7日（土）夜の部 (17:00-20:00)</option>
-                        <option value="feb7-evening" data-lang="en">February 7th (Sat) Evening Session (17:00-20:00)</option>
-                    </select>
-                </div>
-
-                <!-- Number of Participants -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">参加人数 *</span>
-                        <span data-lang="en">Number of Participants *</span>
-                    </label>
-                    <select name="participants" class="form-input" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
-                </div>
-
-                <!-- Dietary Restrictions -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">食物アレルギー・食事制限</span>
-                        <span data-lang="en">Dietary Restrictions / Allergies</span>
-                    </label>
-                    <textarea name="dietary" class="form-input" rows="3" placeholder=""></textarea>
-                    <p class="form-hint" data-lang="ja">アレルギーや食事制限がある場合はご記入ください</p>
-                    <p class="form-hint" data-lang="en">Please note any allergies or dietary restrictions</p>
-                </div>
-
-                <!-- Experience Level -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">料理経験 *</span>
-                        <span data-lang="en">Cooking Experience *</span>
-                    </label>
-                    <select name="experience" class="form-input" required>
-                        <option value="" data-lang="ja">選択してください</option>
-                        <option value="" data-lang="en">Please select</option>
-                        <option value="beginner" data-lang="ja">初心者</option>
-                        <option value="beginner" data-lang="en">Beginner</option>
-                        <option value="intermediate" data-lang="ja">中級者</option>
-                        <option value="intermediate" data-lang="en">Intermediate</option>
-                        <option value="advanced" data-lang="ja">上級者</option>
-                        <option value="advanced" data-lang="en">Advanced</option>
-                    </select>
-                </div>
-
-                <!-- How did you hear about us -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">このイベントをどこで知りましたか？</span>
-                        <span data-lang="en">How did you hear about this event?</span>
-                    </label>
-                    <select name="referral" class="form-input">
-                        <option value="" data-lang="ja">選択してください</option>
-                        <option value="" data-lang="en">Please select</option>
-                        <option value="website" data-lang="ja">ウェブサイト</option>
-                        <option value="website" data-lang="en">Website</option>
-                        <option value="social" data-lang="ja">SNS</option>
-                        <option value="social" data-lang="en">Social Media</option>
-                        <option value="friend" data-lang="ja">友人・知人</option>
-                        <option value="friend" data-lang="en">Friend/Acquaintance</option>
-                        <option value="other" data-lang="ja">その他</option>
-                        <option value="other" data-lang="en">Other</option>
-                    </select>
-                </div>
-
-                <!-- Additional Comments -->
-                <div class="form-group">
-                    <label class="form-label">
-                        <span data-lang="ja">ご質問・ご要望</span>
-                        <span data-lang="en">Questions / Special Requests</span>
-                    </label>
-                    <textarea name="comments" class="form-input" rows="4"></textarea>
-                </div>
-
-                <!-- Privacy Policy Agreement -->
-                <div class="form-group" style="display: flex; gap: 12px; align-items: start;">
-                    <input type="checkbox" name="privacy" id="privacy" required style="margin-top: 4px; width: 20px; height: 20px; cursor: pointer;">
-                    <label for="privacy" style="font-size: 14px; color: var(--text-soft); cursor: pointer;">
-                        <span data-lang="ja">個人情報保護方針に同意します *</span>
-                        <span data-lang="en">I agree to the privacy policy *</span>
-                    </label>
-                </div>
-
-                <!-- Submit Button -->
-                <div style="text-align: center; margin-top: 20px;">
-                    <button type="submit" class="btn-primary" style="padding: 18px 60px; font-size: 18px; width: 100%; max-width: 400px;">
-                        <span data-lang="ja">送信する</span>
-                        <span data-lang="en">Submit</span>
-                    </button>
-                </div>
-
-                <!-- Success/Error Messages -->
-                <div id="formMessage" style="display: none; padding: 20px; border-radius: var(--radius); text-align: center; font-size: 16px; margin-top: 20px;"></div>
-            </form>
-    </div>
-
-    <!-- Contact Information -->
-    <div class="contact-box" style="margin-top: 60px;">
-        <h2 data-lang="ja">お問い合わせ</h2>
-        <h2 data-lang="en">Questions?</h2>
-
-        <p data-lang="ja">
-            ご質問がございましたら、お気軽にメールでお問い合わせください。
-        </p>
-        <p data-lang="en">
-            If you have any questions, feel free to contact us via email.
-        </p>
-
-        <div class="contact-info">
-            <p>📧 info@ikitaria.com</p>
-        </div>
-    </div>
-</section>
 
 <!-- ===========================================
      FOOTER
