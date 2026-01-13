@@ -461,6 +461,50 @@
                 transform: translateY(0);
             }
         }
+
+        /* 1. SCROLL REVEAL (Fade Up) */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 2. GLOW HOVER for Feature Cards & Glass Cards */
+        .glass-card,
+        .feature-card {
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+        }
+
+        .glass-card:hover,
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2),
+                0 0 20px rgba(197, 160, 89, 0.1) inset;
+            border-color: rgba(197, 160, 89, 0.3);
+            background: rgba(40, 40, 40, 0.6);
+        }
+
+        /* 4. AMBIENT BG (Ken Burns) */
+        @keyframes subtleKenBurns {
+            0% {
+                transform: scale(1.0);
+            }
+
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-bg {
+            /* overwrite existing props if needed, but animation handles it */
+            animation: subtleKenBurns 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
     </style>
 </head>
 
@@ -533,7 +577,7 @@
     </section>
 
     <!-- About Us & Our Philosophy -->
-    <section class="section-padding" style="background:#111;">
+    <section class="section-padding reveal-on-scroll" style="background:#111;">
         <div class="container">
             <!-- About Us -->
             <div class="section-header">
@@ -587,7 +631,7 @@
     </section>
 
     <!-- Our Story -->
-    <section class="section-padding">
+    <section class="section-padding reveal-on-scroll">
         <div class="container">
             <div class="grid-2">
                 <div>
@@ -622,7 +666,7 @@
     </section>
 
     <!-- Main Business -->
-    <section class="section-padding" style="background:#111;">
+    <section class="section-padding reveal-on-scroll" style="background:#111;">
         <div class="container">
             <div class="section-header">
                 <span>Services</span>
@@ -659,7 +703,7 @@
     </section>
 
     <!-- Partner -->
-    <section class="section-padding">
+    <section class="section-padding reveal-on-scroll">
         <div class="container">
             <div class="section-header">
                 <span>Partner</span>
@@ -686,7 +730,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section-padding" style="background:#111;">
+    <section class="section-padding reveal-on-scroll" style="background:#111;">
         <div class="container">
             <div class="section-header">
                 <span>Q&A</span>
@@ -758,7 +802,7 @@
     </section>
 
     <!-- Contact -->
-    <section class="section-padding">
+    <section class="section-padding reveal-on-scroll">
         <div class="container text-center">
             <div class="section-header">
                 <span>Contact</span>
@@ -779,9 +823,6 @@
     </section>
 
     <footer>
-        <div class="container">
-            <p>© 2025 Ikitaria. All Rights Reserved.</p>
-            <p style="margin-top:0.5rem; opacity:0.6;">Japan × Italy Premium Trading House</p>
         </div>
     </footer>
 
@@ -816,6 +857,26 @@
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.site-nav');
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+
+        // Scroll Reveal Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
