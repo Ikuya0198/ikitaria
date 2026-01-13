@@ -15,7 +15,7 @@
 
     <style>
         /* ===========================================
-           Design System & Variables (Compact Luxury)
+           Design System & Variables (Compact Luxury V2)
         ============================================ */
         :root {
             --color-bg: #0f0f0f;
@@ -28,13 +28,14 @@
             --color-accent-dark: #8a703a;
             --color-border: rgba(255, 255, 255, 0.08);
 
-            /* Typography - Scaled Down for Compactness */
+            /* Typography - Significantly Reduced */
             --font-heading: 'Playfair Display', serif;
             --font-subheading: 'Cormorant Garamond', serif;
             --font-body: 'Lato', sans-serif;
 
-            --max-width: 1200px;
-            --radius-lg: 16px;
+            --max-width: 1000px;
+            /* Tighter container */
+            --radius-lg: 12px;
 
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -62,10 +63,10 @@
             background-color: var(--color-bg);
             color: var(--color-text-main);
             font-family: var(--font-body);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
-            font-size: 0.95rem;
-            /* Slightly smaller base font */
+            font-size: 0.85rem;
+            /* Reduced from 0.95rem */
         }
 
         h1,
@@ -75,7 +76,7 @@
             font-family: var(--font-heading);
             font-weight: 400;
             color: #fff;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }
 
         a {
@@ -112,15 +113,17 @@
 
         /* Compact Padding */
         .section-padding {
-            padding: 60px 0;
+            padding: 50px 0;
         }
+
+        /* Reduced from 60px */
 
         .text-gold {
             color: var(--color-accent);
         }
 
         .mb-2 {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         /* Glassmorphism 2.0 - Compact */
@@ -131,8 +134,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            /* Reduced from 4rem */
+            padding: 2rem;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
@@ -153,13 +155,13 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 1.5rem 0;
+            padding: 1.2rem 0;
             transition: var(--transition);
             mix-blend-mode: exclusion;
         }
 
         .site-nav.scrolled {
-            padding: 0.8rem 0;
+            padding: 0.6rem 0;
             background: rgba(15, 15, 15, 0.8);
             backdrop-filter: blur(10px);
             mix-blend-mode: normal;
@@ -176,11 +178,11 @@
             font-family: var(--font-body);
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
             opacity: 0.8;
             color: #fff;
         }
@@ -192,8 +194,8 @@
 
         .lang-switch {
             display: flex;
-            gap: 1.5rem;
-            font-size: 0.8rem;
+            gap: 1.2rem;
+            font-size: 0.75rem;
             letter-spacing: 0.1em;
             font-weight: 700;
         }
@@ -216,16 +218,17 @@
             position: absolute;
             bottom: -4px;
             right: -4px;
-            width: 4px;
-            height: 4px;
+            width: 3px;
+            height: 3px;
             background: var(--color-accent);
             border-radius: 50%;
         }
 
         /* Hero - Compact */
         .hero {
-            height: 85vh;
-            min-height: 600px;
+            height: 70vh;
+            min-height: 500px;
+            /* Reduced Height */
             position: relative;
             display: flex;
             align-items: center;
@@ -259,19 +262,19 @@
         .hero-overline {
             display: block;
             font-family: var(--font-subheading);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-style: italic;
             color: var(--color-accent);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             letter-spacing: 0.05em;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 6vw, 5rem);
-            /* Reduced size */
-            line-height: 1;
-            letter-spacing: -0.03em;
-            margin-bottom: 1.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            /* Significantly Reduced */
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
             text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             background: linear-gradient(to bottom, #fff 20%, #ccc 100%);
             -webkit-background-clip: text;
@@ -279,68 +282,68 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
             font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.15em;
             color: rgba(255, 255, 255, 0.8);
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
             line-height: 1.6;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 2rem;
+            padding-top: 1.5rem;
         }
 
         .scroll-hint {
             position: absolute;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             opacity: 0.5;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .scroll-line {
             width: 1px;
-            height: 50px;
+            height: 40px;
             background: linear-gradient(to bottom, #fff 0%, transparent 100%);
         }
 
         /* Section Layouts - Compact */
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .section-title p {
             color: var(--color-accent);
             font-family: var(--font-subheading);
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .section-title h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             line-height: 1;
-            margin-bottom: 1rem;
-            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            margin-top: 0.2rem;
         }
 
-        /* Concept Text - The "Poetic" bit user liked */
+        /* Concept Text */
         .concept-text {
-            font-size: clamp(1rem, 1.8vw, 1.2rem);
-            line-height: 2;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            line-height: 1.9;
             color: rgba(255, 255, 255, 0.9);
             text-align: center;
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             font-weight: 300;
         }
@@ -357,7 +360,7 @@
 
         .grid-item {
             background: var(--color-bg);
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1rem;
             text-align: center;
             transition: var(--transition);
         }
@@ -367,48 +370,48 @@
         }
 
         .grid-icon {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--color-accent);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             display: block;
         }
 
         .grid-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
             letter-spacing: 0.05em;
         }
 
         .grid-item p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--color-text-muted);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         /* Schedule / Benefits List - Compact & Clean */
         .info-list {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .info-row {
             display: flex;
             align-items: flex-start;
-            gap: 2rem;
-            padding: 1.2rem 0;
+            gap: 1.5rem;
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             transition: var(--transition);
         }
 
         .info-row:hover {
             background: rgba(255, 255, 255, 0.02);
-            padding-left: 1rem;
+            padding-left: 0.5rem;
         }
 
         .info-check {
             color: var(--color-accent);
-            font-size: 1.2rem;
-            margin-top: 2px;
+            font-size: 1.1rem;
+            margin-top: 1px;
         }
 
         .info-content {
@@ -417,21 +420,21 @@
 
         .info-label {
             display: block;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #fff;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.1rem;
         }
 
         .info-sub {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--color-text-muted);
         }
 
         /* FAQ Accordion - Compact */
         .faq-item {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .faq-question {
@@ -440,10 +443,10 @@
             background: none;
             border: none;
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-family: var(--font-body);
             font-weight: 300;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -457,7 +460,7 @@
 
         .faq-question::after {
             content: '+';
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--color-accent);
             transition: transform 0.3s;
         }
@@ -472,12 +475,12 @@
             transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
             color: var(--color-text-muted);
             line-height: 1.6;
-            padding-right: 2rem;
-            font-size: 0.95rem;
+            padding-right: 1.5rem;
+            font-size: 0.85rem;
         }
 
         .faq-answer p {
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         /* Form - Bespoke Compact */
@@ -486,7 +489,7 @@
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             position: relative;
         }
 
@@ -495,8 +498,8 @@
             background: transparent;
             border: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.8rem 0;
-            font-size: 1rem;
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
             color: #fff;
             transition: var(--transition);
             border-radius: 0;
@@ -509,18 +512,36 @@
 
         .form-label {
             position: absolute;
-            top: 0.8rem;
+            top: 0.6rem;
             left: 0;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--color-text-muted);
             pointer-events: none;
             transition: var(--transition);
         }
 
+        /* Select styling for placeholder/label */
+        select.form-control {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* Fix for select placeholder color */
+        select.form-control:invalid {
+            color: var(--color-text-muted);
+        }
+
+        select.form-control option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
         .form-control:focus+.form-label,
         .form-control:not(:placeholder-shown)+.form-label {
-            top: -1rem;
-            font-size: 0.75rem;
+            top: -0.9rem;
+            font-size: 0.7rem;
             color: var(--color-accent);
             letter-spacing: 0.05em;
         }
@@ -529,10 +550,10 @@
             display: block;
             background: var(--color-accent);
             color: #000;
-            padding: 1.2rem 3rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             font-family: var(--font-heading);
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             border: none;
@@ -541,8 +562,8 @@
             overflow: hidden;
             transition: transform 0.3s ease;
             width: 100%;
-            max-width: 350px;
-            margin: 2rem auto 0;
+            max-width: 300px;
+            margin: 1.8rem auto 0;
         }
 
         .btn-magnetic:hover {
@@ -553,30 +574,24 @@
         /* Payment Info */
         .payment-info {
             text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
             background: rgba(255, 255, 255, 0.03);
             border-radius: var(--radius-lg);
         }
 
         .payment-info p {
             color: var(--color-text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .stripe-link {
-            color: var(--color-accent);
-            border-bottom: 1px solid var(--color-accent);
-            padding-bottom: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
         }
 
         /* Footer */
         footer {
-            padding: 3rem 0;
+            padding: 2rem 0;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.3);
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -591,7 +606,7 @@
 
             .grid-item {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 2rem;
+                padding: 1.5rem;
             }
 
             .glass-card {
@@ -599,7 +614,7 @@
             }
 
             .section-padding {
-                padding: 40px 0;
+                padding: 30px 0;
             }
         }
 
@@ -677,8 +692,71 @@
         </div>
     </header>
 
+    <!-- Application Form (Moved to Top) -->
+    <section class="form-section section-padding">
+        <div class="container" style="max-width: 600px;">
+            <div class="section-title">
+                <p>Application</p>
+                <h2 data-lang="ja">お申し込み</h2>
+                <h2 data-lang="en">Application</h2>
+                <p data-lang="ja" style="font-size:0.9rem;">下記フォームよりお手続きください</p>
+                <p data-lang="en" style="font-size:0.9rem;">Please sign up below</p>
+            </div>
+
+            <form id="surveyForm" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
+                    <label for="name" class="form-label" data-lang="ja">お名前 / Name</label><label for="name"
+                        class="form-label" data-lang="en">Name</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
+                    <label for="email" class="form-label" data-lang="ja">メールアドレス / Email</label><label for="email"
+                        class="form-label" data-lang="en">Email</label>
+                </div>
+
+                <div class="form-group">
+                    <!-- Custom Select Layout -->
+                    <label for="participants_select" class="form-label" style="display:none;"></label>
+                    <select id="participants_select" name="participants" class="form-control" required
+                        style="padding-top:0.6rem;">
+                        <option value="" disabled selected hidden>参加人数 / Number of Guests</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" id="requests" name="comments" class="form-control" placeholder=" ">
+                    <label for="requests" class="form-label" data-lang="ja">ご要望・アレルギー / Requests</label><label
+                        for="requests" class="form-label" data-lang="en">Requests</label>
+                </div>
+
+                <button type="submit" class="btn-magnetic">
+                    <span data-lang="ja">申し込む</span><span data-lang="en">Sign Up</span>
+                </button>
+            </form>
+
+            <div id="formMessage" style="text-align:center; margin-top:1rem; min-height:20px;"></div>
+
+            <!-- Payment Link (Restored) -->
+            <div class="payment-info confirm-hidden" style="display:none;">
+                <p data-lang="ja">お申し込みありがとうございます。<br>続いて、下記よりお支払いをお願いいたします。</p>
+                <p data-lang="en">Thank you. Please proceed to payment.</p>
+                <a href="https://buy.stripe.com/test_ikitaria_cooking_class_15000yen" target="_blank"
+                    class="btn-magnetic" style="background:#fff; color:#000; margin-top:1rem; border:1px solid #ccc;">
+                    <span data-lang="ja">Stripeで決済する (¥4,980)</span>
+                    <span data-lang="en">Pay via Stripe (¥4,980)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Concept (Kept New Text) -->
-    <section class="section-padding" style="background: #111;">
+    <section class="section-padding" style="background: rgba(30,30,30,0.3);">
         <div class="container">
             <div class="section-title">
                 <p>Concept</p>
@@ -710,7 +788,6 @@
             <span class="grid-icon">📅</span>
             <h3 data-lang="ja">開催日時</h3>
             <h3 data-lang="en">Date & Time</h3>
-            <!-- Restored: Feb 2026 / Multiple / 10-15 -->
             <p data-lang="ja">2026年2月（複数日程あり）<br>各回 10:00-15:00（5時間）</p>
             <p data-lang="en">Feb 2026 (Multiple dates)<br>10:00-15:00 (5 hours)</p>
         </div>
@@ -718,7 +795,6 @@
             <span class="grid-icon">📍</span>
             <h3 data-lang="ja">場所</h3>
             <h3 data-lang="en">Venue</h3>
-            <!-- Restored: Tokyo Cooking Studio -->
             <p data-lang="ja">東京都内のクッキングスタジオ<br><span style="opacity:0.6; font-size:0.8em">（詳細はお申し込み後にご案内）</span></p>
             <p data-lang="en">Cooking studio in Tokyo<br><span style="opacity:0.6; font-size:0.8em">(Details upon
                     registration)</span></p>
@@ -727,9 +803,8 @@
             <span class="grid-icon">💴</span>
             <h3 data-lang="ja">参加費</h3>
             <h3 data-lang="en">Fee</h3>
-            <!-- Restored: 4,980 -->
-            <p style="font-size:1.2rem; color:var(--color-accent); margin-bottom:0.2rem;">¥4,980 <span
-                    style="font-size:0.8rem; color:var(--color-text-muted);">(Inc. Tax)</span></p>
+            <p style="font-size:1.1rem; color:var(--color-accent); margin-bottom:0.1rem;">¥4,980 <span
+                    style="font-size:0.75rem; color:var(--color-text-muted);">(Inc. Tax)</span></p>
             <p data-lang="ja">食材・ワイン・レシピ・エプロン込</p>
             <p data-lang="en">Includes ingredients, wine, recipe</p>
         </div>
@@ -781,7 +856,7 @@
     <!-- FAQ (Restored Content) -->
     <section class="section-padding" style="background: rgba(255,255,255,0.02);">
         <div class="container" style="max-width: 800px;">
-            <div class="section-title" style="margin-bottom:2rem;">
+            <div class="section-title" style="margin-bottom:1.5rem;">
                 <p>Q&A</p>
                 <h2 data-lang="ja">よくある質問</h2>
                 <h2 data-lang="en">FAQ</h2>
@@ -813,73 +888,6 @@
                     <p data-lang="ja">食材準備の都合上、開催7日前よりキャンセル料（全額）が発生いたします。それ以前のキャンセルは全額返金いたします。</p>
                     <p data-lang="en">A 100% cancellation fee applies from 7 days prior. Full refunds before that.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reservation Form (Bespoke Design, Restored Fields) -->
-    <section class="form-section section-padding">
-        <div class="container" style="max-width: 600px;">
-            <div class="section-title">
-                <p>Reservation</p>
-                <h2 data-lang="ja">ご予約</h2>
-                <h2 data-lang="en">Book Now</h2>
-                <p data-lang="ja">下記フォーム送信後、オンライン決済へお進みください。</p>
-                <p data-lang="en">Please proceed to payment after submitting the form.</p>
-            </div>
-
-            <form id="surveyForm" autocomplete="off">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
-                    <label for="name" class="form-label" data-lang="ja">お名前 / Name</label><label for="name"
-                        class="form-label" data-lang="en">Name</label>
-                </div>
-
-                <div class="form-group">
-                    <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
-                    <label for="email" class="form-label" data-lang="ja">メールアドレス / Email</label><label for="email"
-                        class="form-label" data-lang="en">Email</label>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="participants" name="participants" class="form-control" placeholder=" "
-                        required>
-                    <!-- Changed to simple input or select matching original? Original had select. Keeping sleek input for compactness or select? Let's use simple input for "Number of guests" to be safe, or customized select. -->
-                    <!-- Reverting to Select for clarity -->
-                    <label for="participants" class="form-label" style="display:none;">Guests</label>
-                    <!-- hidden label hack -->
-                    <select id="participants_select" name="participants" class="form-control" required
-                        style="padding-top:0;">
-                        <option value="" disabled selected>参加人数 / Guests</option>
-                        <option value="1">1 Person</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4 People</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="requests" name="comments" class="form-control" placeholder=" ">
-                    <label for="requests" class="form-label" data-lang="ja">ご要望・アレルギー / Requests</label><label
-                        for="requests" class="form-label" data-lang="en">Requests</label>
-                </div>
-
-                <button type="submit" class="btn-magnetic">
-                    <span data-lang="ja">予約を送信する</span><span data-lang="en">Submit Reservation</span>
-                </button>
-            </form>
-
-            <div id="formMessage" style="text-align:center; margin-top:1rem; min-height:20px;"></div>
-
-            <!-- Payment Link (Restored) -->
-            <div class="payment-info confirm-hidden" style="display:none;">
-                <p data-lang="ja">フォームの送信ありがとうございます。<br>続いて、下記よりお支払いをお願いいたします。</p>
-                <p data-lang="en">Thank you. Please proceed to payment.</p>
-                <a href="https://buy.stripe.com/test_ikitaria_cooking_class_15000yen" target="_blank"
-                    class="btn-magnetic" style="background:#fff; color:#000; margin-top:1rem; border:1px solid #ccc;">
-                    <span data-lang="ja">Stripeで決済する (¥4,980)</span>
-                    <span data-lang="en">Pay via Stripe (¥4,980)</span>
-                </a>
             </div>
         </div>
     </section>
