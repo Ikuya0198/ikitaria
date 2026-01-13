@@ -820,6 +820,26 @@
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
+                                <input type="date" id="birthdate" name="birthdate" class="form-control" placeholder=" " required
+                                    style="padding-top:0.6rem;">
+                                <label for="birthdate" class="form-label" data-lang="ja">生年月日 *</label><label
+                                    for="birthdate" class="form-label" data-lang="en">Date of Birth *</label>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom:1.5rem;">
+                                <label for="gender_select" class="form-label" style="display:none;"></label>
+                                <select id="gender_select" name="gender" class="form-control" required
+                                    style="padding-top:0.6rem;">
+                                    <option value="" disabled selected hidden data-lang="ja">性別 *</option>
+                                    <option value="" disabled selected hidden data-lang="en">Gender *</option>
+                                    <option value="男性">男性 / Male</option>
+                                    <option value="女性">女性 / Female</option>
+                                    <option value="その他">その他 / Other</option>
+                                    <option value="回答しない">回答しない / Prefer not to say</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom:1.5rem;">
                                 <label for="datetime_select" class="form-label" style="display:none;"></label>
                                 <select id="datetime_select" name="preferred_datetime" class="form-control" required
                                     style="padding-top:0.6rem;">
