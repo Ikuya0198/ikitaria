@@ -481,60 +481,55 @@
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Ikitaria</h1>
-            <!-- Original content: "Connect the Dots" -->
-            <p style="font-size:1.5rem; margin-bottom:1rem; color:var(--color-accent); letter-spacing:0.1em;">Connect
-                the Dots</p>
-            <p data-lang="ja">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
-            <p data-lang="en">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
+            <h1 data-lang="ja">Japan & Italy<br>Tradition / Innovation</h1>
+            <h1 data-lang="en">Japan & Italy<br>Tradition / Innovation</h1>
+            <p data-lang="ja">イタリアと日本の架け橋へ</p>
+            <p data-lang="en">Bridging Authentic Cultures</p>
+
+            <!-- NEW: Hero CTA -->
+            <a href="cooking-class.html" class="btn-news"
+                style="margin-top:2rem; background: rgba(255,255,255,0.1); backdrop-filter:blur(5px); border:1px solid #fff; color:#fff; display:inline-flex; align-items:center; gap:0.5rem; transition: all 0.3s ease;">
+                <span data-lang="ja">Winter Cooking Class 2026</span>
+                <span data-lang="en">Winter Cooking Class 2026</span>
+                <span style="font-size:1.2em;">&rarr;</span>
+            </a>
         </div>
-        <div class="scroll-hint">SCROLL</div>
+        <div class="scroll-hint"><span>Scroll</span></div>
     </header>
 
-    <!-- News Release -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <span>Updates</span>
-                <h2 data-lang="ja">News Release</h2>
-                <h2 data-lang="en">News Release</h2>
-                <p data-lang="ja">Ikitariaの最新情報・イベントをお知らせします。</p>
-                <p data-lang="en">Latest news and events from Ikitaria.</p>
+    <!-- NEW: Featured Event Section (Replaces generic News) -->
+    <section class="section-padding container">
+        <div class="glass-card news-highlight"
+            style="display:flex; align-items:center; gap:2rem; padding:0; overflow:hidden; border:1px solid rgba(197, 160, 89, 0.3);">
+            <!-- Image Side (Hidden on mobile) -->
+            <div style="width:40%; min-height:300px; background: url('image/cooking-bg.png') center/cover no-repeat; position:relative;"
+                class="featured-img">
+                <div style="position:absolute; inset:0; background:rgba(0,0,0,0.3);"></div>
             </div>
 
-            <div class="glass-card news-highlight">
+            <!-- Content Side -->
+            <div style="flex:1; padding:2.5rem;">
                 <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-                    <span class="news-tag" data-lang="ja">最新イベント</span><span class="news-tag" data-lang="en">Latest
-                        Event</span>
-                    <span style="font-size:0.9rem; color:var(--color-text-muted);" data-lang="ja">2026年2月開催</span><span
-                        style="font-size:0.9rem; color:var(--color-text-muted);" data-lang="en">February 2026</span>
-                </div>
-                <h3 style="font-size:1.5rem; margin-bottom:1rem; color:#fff;" data-lang="ja">イタリア料理教室 — 予約受付中</h3>
-                <h3 style="font-size:1.5rem; margin-bottom:1rem; color:#fff;" data-lang="en">Italian Cooking Class — Now
-                    Accepting Reservations</h3>
-                <p data-lang="ja" style="color:#ddd; max-width:800px; margin-bottom:1rem;">
-                    Ikitariaが開催する本格イタリア料理教室では、プレミアムなイタリア食材を使用し、本場の味を学べます。少人数制で丁寧に実施し、調理後は皆さまで試食を楽しみます。現地の高品質なオリーブオイルとワインのテイスティング、現地の本格的な食材に対するご説明も実施いたします。
-                </p>
-                <p data-lang="en" style="color:#ddd; max-width:800px; margin-bottom:1rem;">
                     At Ikitaria's authentic Italian cooking class, you'll learn genuine Italian flavors using premium
                     ingredients. Our small group setting ensures careful instruction, followed by a group tasting of
                     your creations. The class includes high-quality olive oil and wine tastings from Italy, plus
                     detailed explanations of authentic ingredients.
-                </p>
-                <!-- Compact Details Info -->
-                <div
-                    style="font-size:0.9rem; color:var(--color-accent); margin-bottom:1rem; display:flex; gap:1rem; flex-wrap:wrap;">
-                    <span data-lang="ja">📅 2月7日（土）</span><span data-lang="en">📅 Feb 7th (Sat)</span>
-                    <span data-lang="ja">📍 上板橋駅徒歩6分</span><span data-lang="en">📍 6 min from Kamiitabashi St.</span>
-                    <span>💴 ¥6,900</span>
-                </div>
+                    </p>
+                    <!-- Compact Details Info -->
+                    <div
+                        style="font-size:0.9rem; color:var(--color-accent); margin-bottom:1rem; display:flex; gap:1rem; flex-wrap:wrap;">
+                        <span data-lang="ja">📅 2月7日（土）</span><span data-lang="en">📅 Feb 7th (Sat)</span>
+                        <span data-lang="ja">📍 上板橋駅徒歩6分</span><span data-lang="en">📍 6 min from Kamiitabashi
+                            St.</span>
+                        <span>💴 ¥6,900</span>
+                    </div>
 
-                <a href="cooking-class.html" class="btn-news">
-                    <span data-lang="ja">詳細を見る・予約する →</span>
-                    <span data-lang="en">View Details & Reserve →</span>
-                </a>
+                    <a href="cooking-class.html" class="btn-news">
+                        <span data-lang="ja">詳細を見る・予約する →</span>
+                        <span data-lang="en">View Details & Reserve →</span>
+                    </a>
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- About Us & Our Philosophy -->
