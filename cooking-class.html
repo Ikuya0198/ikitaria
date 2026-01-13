@@ -126,6 +126,10 @@
             color: var(--color-accent);
         }
 
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
         /* Glassmorphism 2.0 */
         .glass-card {
             background: rgba(30, 30, 30, 0.4);
@@ -186,6 +190,7 @@
             align-items: center;
             gap: 0.8rem;
             opacity: 0.8;
+            color: #fff;
         }
 
         .back-link:hover {
@@ -242,8 +247,8 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('https://ikuya0198.github.io/ikitaria/image/italianfood.jpg') center/cover no-repeat;
-            opacity: 0.55;
+            background: url('image/cooking-bg.png') center/cover no-repeat;
+            opacity: 0.6;
             transform: scale(1.1);
             animation: cinematicZoom 30s infinite alternate ease-in-out;
         }
@@ -430,6 +435,59 @@
             color: var(--color-text-muted);
         }
 
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.2rem;
+            font-family: var(--font-body);
+            font-weight: 300;
+            padding: 1rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--color-accent);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            padding-right: 2rem;
+        }
+
+        .faq-answer p {
+            margin-bottom: 1rem;
+        }
+
         /* ===========================================
            Bespoke Form (Application Page)
         ============================================ */
@@ -581,6 +639,12 @@
             .container {
                 width: 90%;
             }
+
+            .hero-bg {
+                background-position: 70% center;
+            }
+
+            /* Show more of table on mobile */
         }
 
         @keyframes cinematicZoom {
@@ -738,8 +802,45 @@
         </div>
     </div>
 
-    <!-- Schedule -->
+    <!-- Benefits (New Section) -->
     <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <p>Included</p>
+                <h2 data-lang="ja">特別な体験</h2>
+                <h2 data-lang="en">Exclusive Benefits</h2>
+            </div>
+
+            <div class="grid-3" style="background:none; border:none; gap: 2rem;">
+                <div class="glass-card" style="padding: 2rem; text-align: left;">
+                    <h3 data-lang="ja" style="margin-bottom:1rem; color:var(--color-accent);">01. Premium Ingredients
+                    </h3>
+                    <h3 data-lang="en" style="margin-bottom:1rem; color:var(--color-accent);">01. Premium Ingredients
+                    </h3>
+                    <p data-lang="ja">イタリアから直輸入された最高品質の小麦粉、オリーブオイルを使用。スーパーでは手に入らない本物の味を体験できます。</p>
+                    <p data-lang="en">Experience authentic flavors with premium flour and olive oil imported directly
+                        from Italian artisans.</p>
+                </div>
+                <div class="glass-card" style="padding: 2rem; text-align: left;">
+                    <h3 data-lang="ja" style="margin-bottom:1rem; color:var(--color-accent);">02. Wine Pairing</h3>
+                    <h3 data-lang="en" style="margin-bottom:1rem; color:var(--color-accent);">02. Wine Pairing</h3>
+                    <p data-lang="ja">料理に合わせてソムリエがセレクトしたイタリアワインをご用意。料理とワインのマリアージュをお楽しみください。</p>
+                    <p data-lang="en">Enjoy a selection of Italian wines curated by our sommelier to perfectly
+                        complement your dishes.</p>
+                </div>
+                <div class="glass-card" style="padding: 2rem; text-align: left;">
+                    <h3 data-lang="ja" style="margin-bottom:1rem; color:var(--color-accent);">03. Exclusive Offer</h3>
+                    <h3 data-lang="en" style="margin-bottom:1rem; color:var(--color-accent);">03. Exclusive Offer</h3>
+                    <p data-lang="ja">当日使用したプレミアム食材を、参加者限定の特別価格（10%OFF）でご購入いただけます。</p>
+                    <p data-lang="en">Purchase the premium ingredients used in class at a special participant-only
+                        discount (10% OFF).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="section-padding" style="background: rgba(255,255,255,0.02);">
         <div class="container">
             <div class="section-title">
                 <p>Itinerary</p>
@@ -747,35 +848,80 @@
                 <h2 data-lang="en">Schedule</h2>
             </div>
 
-            <div class="glass-card">
-                <div class="schedule-list">
-                    <div class="schedule-row">
-                        <div class="schedule-time">00:00</div>
-                        <div class="schedule-content">
-                            <h4 data-lang="ja">チェックイン & ウェルカムドリンク</h4>
-                            <h4 data-lang="en">Check-in & Welcome Drink</h4>
-                            <p data-lang="ja">エプロンに着替え、イタリア産スパークリングで乾杯</p>
-                            <p data-lang="en">Preparation and toast with Italian sparkling wine</p>
-                        </div>
+            <div class="schedule-list">
+                <div class="schedule-row">
+                    <div class="schedule-time">00:00</div>
+                    <div class="schedule-content">
+                        <h4 data-lang="ja">チェックイン & ウェルカムドリンク</h4>
+                        <h4 data-lang="en">Check-in & Welcome Drink</h4>
+                        <p data-lang="ja">エプロンに着替え、イタリア産スパークリングで乾杯</p>
+                        <p data-lang="en">Preparation and toast with Italian sparkling wine</p>
                     </div>
-                    <div class="schedule-row">
-                        <div class="schedule-time">00:30</div>
-                        <div class="schedule-content">
-                            <h4 data-lang="ja">デモンストレーション・調理</h4>
-                            <h4 data-lang="en">Demonstration & Cooking</h4>
-                            <p data-lang="ja">シェフの手元を間近で見学し、実践します</p>
-                            <p data-lang="en">Observe chef's techniques closely and practice</p>
-                        </div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">00:30</div>
+                    <div class="schedule-content">
+                        <h4 data-lang="ja">デモンストレーション・調理</h4>
+                        <h4 data-lang="en">Demonstration & Cooking</h4>
+                        <p data-lang="ja">シェフの手元を間近で見学し、実践します</p>
+                        <p data-lang="en">Observe chef's techniques closely and practice</p>
                     </div>
-                    <div class="schedule-row">
-                        <div class="schedule-time">02:30</div>
-                        <div class="schedule-content">
-                            <h4 data-lang="ja">実食・ワインペアリング</h4>
-                            <h4 data-lang="en">Dining & Pairing</h4>
-                            <p data-lang="ja">完成した料理を厳選ワインと共に楽しみます</p>
-                            <p data-lang="en">Enjoy the meal with selected wine pairings</p>
-                        </div>
+                </div>
+                <div class="schedule-row">
+                    <div class="schedule-time">02:30</div>
+                    <div class="schedule-content">
+                        <h4 data-lang="ja">実食・ワインペアリング</h4>
+                        <h4 data-lang="en">Dining & Pairing</h4>
+                        <p data-lang="ja">完成した料理を厳選ワインと共に楽しみます</p>
+                        <p data-lang="en">Enjoy the meal with selected wine pairings</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section (Restored & Enhanced) -->
+    <section class="section-padding">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-title">
+                <p>Q&A</p>
+                <h2 data-lang="ja">よくある質問</h2>
+                <h2 data-lang="en">FAQ</h2>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-lang="ja">料理初心者でも参加できますか？</span>
+                    <span data-lang="en">Can beginners join the class?</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-lang="ja">はい、大歓迎です。シェフが手元を見せながら丁寧に指導しますので、包丁をあまり使わない方でも安心してご参加いただけます。</p>
+                    <p data-lang="en">Absolutely. Our chef provides step-by-step guidance, making it perfect for
+                        beginners and experienced cooks alike.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-lang="ja">持ち物は必要ですか？</span>
+                    <span data-lang="en">What should I bring?</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-lang="ja">エプロン、ハンドタオル、筆記用具など必要なものはすべてご用意しております。手ぶらでお越しください。</p>
+                    <p data-lang="en">Nothing! We provide aprons, towels, and all necessary equipment. Just bring
+                        yourself.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span data-lang="ja">キャンセル料はかかりますか？</span>
+                    <span data-lang="en">Is there a cancellation fee?</span>
+                </button>
+                <div class="faq-answer">
+                    <p data-lang="ja">食材準備の都合上、開催7日前よりキャンセル料（全額）が発生いたします。それ以前のキャンセルは全額返金いたします。</p>
+                    <p data-lang="en">Due to ingredient preparation, a 100% cancellation fee applies from 7 days prior
+                        to the event. Full refunds are available before that.</p>
                 </div>
             </div>
         </div>
@@ -876,7 +1022,21 @@
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
 
-        // Magnetic Button Effect (Simple)
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(q => {
+            q.addEventListener('click', () => {
+                q.classList.toggle('active');
+                const answer = q.nextElementSibling;
+                if (q.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = 0;
+                }
+            });
+        });
+
+        // Magnetic Button Effect
         const btn = document.querySelector('.btn-magnetic');
         btn.addEventListener('mousemove', (e) => {
             const rect = btn.getBoundingClientRect();

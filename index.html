@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +9,50 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
 
     <style>
         /* ===========================================
-           Base Theme (Enhanced Luxury Style)
+           Design System (Unified with Cooking Class)
         ============================================ */
         :root {
-            --bg-light: #e8e8e8;
-            --bg-white: #f5f5f5;
-            --bg-cream: #ececec;
-            --text-main: #1a1a1a;
-            --text-soft: #4a4a4a;
-            --text-light: #7a7a7a;
-            --accent-gold: #c9a961;
-            --accent-darkgold: #9d7e3c;
-            --accent-burgundy: #6d3838;
-            --border-light: rgba(0,0,0,0.12);
-            --shadow-soft: 0 8px 32px rgba(0,0,0,0.08);
-            --shadow-medium: 0 12px 48px rgba(0,0,0,0.12);
-            --radius: 16px;
-            --radius-large: 24px;
-            --max-width: 1200px;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --color-bg: #0f0f0f;
+            --color-surface: #1a1a1a;
+            --color-surface-glass: rgba(26, 26, 26, 0.6);
+            --color-text-main: #f0f0f0;
+            --color-text-muted: #999;
+            --color-accent: #C5A059;
+            --color-accent-light: #e0b460;
+            --color-accent-dark: #8a703a;
+            --color-border: rgba(255, 255, 255, 0.08);
+
+            --font-heading: 'Playfair Display', serif;
+            --font-subheading: 'Cormorant Garamond', serif;
+            --font-body: 'Lato', sans-serif;
+
+            --max-width: 1400px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* Noise Texture */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -40,1261 +60,504 @@
         }
 
         body {
-            background: var(--bg-light);
-            font-family: 'Lato', sans-serif;
-            color: var(--text-main);
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            font-family: var(--font-body);
             line-height: 1.8;
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            letter-spacing: 0.02em;
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            color: #fff;
+            letter-spacing: -0.01em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            width: 88%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .text-gold {
+            color: var(--color-accent);
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(30, 30, 30, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 4rem;
+            transition: var(--transition);
         }
 
         /* ===========================================
-           Language Switcher
+           Header & Nav
         ============================================ */
-        .language-switcher {
+        .site-nav {
             position: fixed;
-            top: 30px;
-            right: 30px;
+            top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            display: flex;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem 0;
+            transition: var(--transition);
+            mix-blend-mode: exclusion;
+        }
+
+        .site-nav.scrolled {
+            padding: 1rem 0;
+            background: rgba(15, 15, 15, 0.8);
             backdrop-filter: blur(10px);
-            padding: 8px;
-            border-radius: 30px;
-            box-shadow: var(--shadow-soft);
+            mix-blend-mode: normal;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
         .lang-btn {
-            padding: 8px 16px;
+            background: none;
             border: none;
-            background: transparent;
-            color: var(--text-soft);
-            font-size: 14px;
-            font-weight: 500;
+            color: #fff;
+            opacity: 0.4;
             cursor: pointer;
-            border-radius: 20px;
-            transition: var(--transition);
-            font-family: 'Lato', sans-serif;
-        }
-
-        .lang-btn:hover {
-            background: var(--bg-cream);
-            color: var(--text-main);
         }
 
         .lang-btn.active {
-            background: var(--accent-gold);
-            color: white;
+            opacity: 1;
+            color: var(--color-accent);
         }
 
         /* ===========================================
-           Header Section (Enhanced)
+           Hero
         ============================================ */
-        header {
+        .hero {
+            height: 100vh;
             position: relative;
-            background: linear-gradient(135deg, rgba(20, 20, 20, 0.85), rgba(50, 30, 30, 0.85)),
-                        url('https://ikuya0198.github.io/ikitaria/image/main.jpg') center/cover no-repeat;
-            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: #fff;
             overflow: hidden;
         }
 
-        header::after {
-            content: '';
+        .hero-bg {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 150px;
-            background: linear-gradient(to top, var(--bg-light), transparent);
+            inset: 0;
+            background: url('https://ikuya0198.github.io/ikitaria/image/main.jpg') center/cover no-repeat;
+            opacity: 0.5;
+            transform: scale(1.1);
+            animation: cinematicZoom 40s infinite alternate ease-in-out;
         }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 1.2s ease-out;
-            padding: 0 20px;
-        }
-
-        header h1 {
-            font-size: clamp(48px, 8vw, 88px);
-            margin-bottom: 24px;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-
-        header p {
-            font-size: clamp(18px, 3vw, 24px);
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 300;
-            letter-spacing: 0.03em;
-        }
-
-        .scroll-indicator {
+        .hero-overlay {
             position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            cursor: pointer;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 0%, var(--color-bg) 100%);
+        }
+
+        .hero-content {
             z-index: 3;
+            text-align: center;
+            opacity: 0;
+            animation: fadeUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
         }
 
-        .scroll-indicator::after {
-            content: '↓';
-            font-size: 32px;
-            color: white;
-            opacity: 0.7;
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 7rem);
+            line-height: 1;
+            margin-bottom: 2rem;
+            text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
-        @keyframes fadeInUp {
+        .hero p {
+            font-family: var(--font-subheading);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--color-accent);
+            letter-spacing: 0.1em;
+        }
+
+        /* ===========================================
+           Sections
+        ============================================ */
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header span {
+            font-family: var(--font-subheading);
+            color: var(--color-accent);
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            position: relative;
+            height: 500px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            group: isolate;
+        }
+
+        .service-img {
+            position: absolute;
+            inset: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .service-content {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 3rem;
+        }
+
+        .service-card:hover .service-img {
+            transform: scale(1.1);
+        }
+
+        .service-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .btn-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        /* Company Table */
+        .company-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .company-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .company-table th,
+        .company-table td {
+            padding: 2rem 0;
+            text-align: left;
+        }
+
+        .company-table th {
+            width: 30%;
+            color: var(--color-text-muted);
+            font-weight: 400;
+        }
+
+        .company-table td {
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Animations */
+        @keyframes cinematicZoom {
+            0% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes fadeUp {
             from {
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        /* ===========================================
-           Section Layout (Enhanced)
-        ============================================ */
-        section {
-            max-width: var(--max-width);
-            margin: 100px auto;
-            padding: 0 30px;
-            animation: fadeIn 0.8s ease-out;
-            position: relative;
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-            border-radius: 2px;
-        }
-
-        section:first-of-type::before {
+        /* Lang Logic */
+        [data-lang]:not(.active) {
             display: none;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        body.lang-ja [data-lang="en"] {
+            display: none;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
+        body.lang-ja [data-lang="ja"] {
+            display: block;
         }
 
-        .section-title h2 {
-            font-size: clamp(36px, 5vw, 52px);
-            margin-bottom: 16px;
-            color: var(--accent-darkgold);
-            position: relative;
-            display: inline-block;
+        body.lang-en [data-lang="ja"] {
+            display: none;
         }
 
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--accent-gold);
-            border-radius: 2px;
+        body.lang-en [data-lang="en"] {
+            display: block;
         }
 
-        .section-title p {
-            color: var(--text-soft);
-            font-size: clamp(16px, 2vw, 20px);
-            max-width: 700px;
-            margin: 0 auto;
-            margin-top: 24px;
-        }
-
-        /* ===========================================
-           Card Style (Enhanced)
-        ============================================ */
-        .card {
-            background: var(--bg-white);
-            border-radius: var(--radius-large);
-            padding: clamp(30px, 5vw, 50px);
-            box-shadow: var(--shadow-soft);
-            margin-bottom: 40px;
-            transition: var(--transition);
-            border: 1px solid var(--border-light);
-        }
-
-        .card:hover {
-            box-shadow: var(--shadow-medium);
-            transform: translateY(-4px);
-        }
-
-        /* ===========================================
-           Grid Layouts
-        ============================================ */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
-            align-items: center;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        @media (max-width: 900px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        /* ===========================================
-           Image Blocks (Enhanced)
-        ============================================ */
-        .img-block {
-            width: 100%;
-            border-radius: var(--radius-large);
-            height: 400px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .img-block::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.1), transparent);
-            transition: var(--transition);
-        }
-
-        .img-block:hover::after {
-            background: linear-gradient(135deg, rgba(0,0,0,0), transparent);
-        }
-
-        /* ===========================================
-           Lists (Enhanced)
-        ============================================ */
-        .list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .list li {
-            padding-left: 32px;
-            margin-bottom: 16px;
-            position: relative;
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        .list li:before {
-            content: "◆";
-            color: var(--accent-gold);
-            position: absolute;
-            left: 0;
-            font-size: 14px;
-        }
-
-        /* ===========================================
-           Feature Cards
-        ============================================ */
-        .feature-card {
-            background: linear-gradient(135deg, var(--bg-white), var(--bg-cream));
-            border-radius: var(--radius-large);
-            padding: 40px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid var(--border-light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(201, 169, 97, 0.1), transparent 70%);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-card h3 {
-            font-size: 26px;
-            margin-bottom: 16px;
-            color: var(--accent-darkgold);
-        }
-
-        .feature-card p {
-            color: var(--text-soft);
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        /* ===========================================
-           CTA Button (Enhanced)
-        ============================================ */
-        .cta {
-            text-align: center;
-            margin: 60px 0;
-        }
-
-        .cta a, .btn-primary {
-            display: inline-block;
-            padding: 18px 48px;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 50px;
-            background: linear-gradient(135deg, var(--accent-darkgold), var(--accent-gold));
-            transition: var(--transition);
-            box-shadow: 0 8px 20px rgba(157, 126, 60, 0.3);
-            border: none;
-            cursor: pointer;
-            font-family: 'Lato', sans-serif;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta a::before, .btn-primary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-darkgold));
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .cta a:hover::before, .btn-primary:hover::before {
-            opacity: 1;
-        }
-
-        .cta a span, .btn-primary span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta a:hover, .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(157, 126, 60, 0.4);
-        }
-
-        /* ===========================================
-           Booking Section (New)
-        ============================================ */
-        .booking-section {
-            background: linear-gradient(135deg, var(--bg-white), var(--bg-cream));
-            border-radius: var(--radius-large);
-            padding: 60px;
-            margin: 80px 0;
-            box-shadow: var(--shadow-medium);
-            border: 2px solid var(--accent-gold);
-        }
-
-        .booking-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .booking-header h2 {
-            font-size: clamp(32px, 5vw, 48px);
-            color: var(--accent-darkgold);
-            margin-bottom: 20px;
-        }
-
-        .booking-header .date-badge {
-            display: inline-block;
-            background: var(--accent-gold);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .booking-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .booking-details {
-            background: white;
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .booking-details h3 {
-            font-size: 28px;
-            color: var(--accent-darkgold);
-            margin-bottom: 24px;
-        }
-
-        .detail-item {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .detail-item:last-child {
-            border-bottom: none;
-        }
-
-        .detail-icon {
-            font-size: 24px;
-            color: var(--accent-gold);
-            flex-shrink: 0;
-        }
-
-        .detail-content h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: var(--text-main);
-        }
-
-        .detail-content p {
-            color: var(--text-soft);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .form-container {
-            background: white;
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .form-container h3 {
-            font-size: 28px;
-            color: var(--accent-darkgold);
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .google-form-embed {
-            width: 100%;
-            min-height: 800px;
-            border: none;
-            border-radius: var(--radius);
-        }
-
-        .payment-section {
-            margin-top: 40px;
-            text-align: center;
-            padding: 30px;
-            background: var(--bg-cream);
-            border-radius: var(--radius);
-        }
-
-        .payment-section h4 {
-            font-size: 22px;
-            color: var(--accent-darkgold);
-            margin-bottom: 16px;
-        }
-
-        .payment-section p {
-            color: var(--text-soft);
-            margin-bottom: 24px;
-            font-size: 16px;
-        }
-
-        @media (max-width: 900px) {
-            .booking-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .booking-section {
-                padding: 30px 20px;
-            }
-        }
-
-        /* ===========================================
-           Footer (Enhanced)
-        ============================================ */
-        footer {
-            text-align: center;
-            padding: 60px 30px;
-            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 15px;
-            margin-top: 120px;
-        }
-
-        footer p {
-            margin-bottom: 8px;
-        }
-
-        /* ===========================================
-           Responsive Adjustments
-        ============================================ */
+        /* Responsive */
         @media (max-width: 768px) {
-            .language-switcher {
-                top: 20px;
-                right: 20px;
-                padding: 6px;
+            .hero h1 {
+                font-size: 3.5rem;
             }
 
-            .lang-btn {
-                padding: 6px 12px;
-                font-size: 13px;
+            .service-card {
+                height: 400px;
             }
 
-            section {
-                margin: 60px auto;
-                padding: 0 20px;
+            .glass-card {
+                padding: 2rem;
             }
 
-            section::before {
-                width: 60px;
-                height: 3px;
-                top: -40px;
+            .company-table th,
+            .company-table td {
+                display: block;
+                width: 100%;
+                padding: 0.5rem 0;
             }
 
-            .section-title {
-                margin-bottom: 40px;
+            .company-table tr {
+                padding: 1.5rem 0;
+                display: block;
             }
-
-            .section-title h2 {
-                font-size: clamp(28px, 5vw, 36px);
-            }
-
-            .section-title p {
-                font-size: 16px;
-            }
-
-            .card {
-                padding: 25px;
-            }
-
-            .feature-card {
-                padding: 25px;
-            }
-
-            header {
-                min-height: 70vh;
-            }
-
-            footer {
-                margin-top: 80px;
-                padding: 40px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            section {
-                margin: 40px auto;
-                padding: 0 15px;
-            }
-
-            .card {
-                padding: 20px;
-            }
-
-            .grid-2, .grid-3 {
-                gap: 20px;
-            }
-
-            .section-title h2 {
-                font-size: clamp(24px, 5vw, 32px);
-            }
-
-            .img-block {
-                height: 280px;
-            }
-
-            .google-form-embed {
-                min-height: 1000px;
-            }
-        }
-
-        /* ===========================================
-           Accessibility Improvements
-        ============================================ */
-        a:focus, button:focus, .lang-btn:focus {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 3px;
-        }
-
-        a:focus-visible, button:focus-visible {
-            outline: 3px solid var(--accent-gold);
-            outline-offset: 3px;
-        }
-
-        .cta a:focus {
-            outline-color: white;
-        }
-
-        /* Skip to main content link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-gold);
-            color: white;
-            padding: 8px 16px;
-            text-decoration: none;
-            z-index: 10000;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* ===========================================
-           FAQ Section
-        ============================================ */
-        .faq-item {
-            background: var(--bg-white);
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            transition: var(--transition);
-        }
-
-        .faq-item:hover {
-            box-shadow: var(--shadow-soft);
-        }
-
-        .faq-question {
-            width: 100%;
-            text-align: left;
-            padding: 24px;
-            background: none;
-            border: none;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-main);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .faq-question:hover {
-            color: var(--accent-darkgold);
-        }
-
-        .faq-question::after {
-            content: '+';
-            font-size: 28px;
-            color: var(--accent-gold);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-question.active::after {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-answer.active {
-            max-height: 500px;
-        }
-
-        .faq-answer-content {
-            padding: 0 24px 24px;
-            color: var(--text-soft);
-            line-height: 1.8;
-        }
-
-        /* ===========================================
-           Utility Classes
-        ============================================ */
-        .text-center { text-align: center; }
-        .mb-20 { margin-bottom: 20px; }
-        .mb-40 { margin-bottom: 40px; }
-        .mt-40 { margin-top: 40px; }
-
-        /* Hide non-active languages */
-        body:not(.lang-ja) [data-lang="ja"],
-        body:not(.lang-en) [data-lang="en"] {
-            display: none !important;
         }
     </style>
 </head>
 
 <body class="lang-ja">
+    <div class="noise-overlay"></div>
 
-<!-- Language Switcher -->
-<div class="language-switcher">
-    <button class="lang-btn active" data-lang-selector="ja">🇯🇵 日本語</button>
-    <button class="lang-btn" data-lang-selector="en">🇬🇧 English</button>
-</div>
-
-<!-- ===========================================
-     HERO
-============================================ -->
-<header>
-    <div class="header-content">
-        <h1>Ikitaria</h1>
-        <p style="font-size: clamp(20px, 3.5vw, 28px); color: var(--accent-gold); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 20px;">Connect the Dots</p>
-        <p data-lang="ja">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
-        <p data-lang="en">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
-    </div>
-    <div class="scroll-indicator"></div>
-</header>
-
-<!-- ===========================================
-     NEWS RELEASE
-============================================ -->
-<section>
-    <div class="section-title">
-        <h2 data-lang="ja">News Release</h2>
-        <h2 data-lang="en">News Release</h2>
-
-        <p data-lang="ja">Ikitariaの最新情報・イベントをお知らせします。</p>
-        <p data-lang="en">Latest news and events from Ikitaria.</p>
-    </div>
-
-    <div class="card" style="border-left: 4px solid var(--accent-gold);">
-        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
-            <span style="background: var(--accent-gold); color: white; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;" data-lang="ja">最新イベント</span>
-            <span style="background: var(--accent-gold); color: white; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;" data-lang="en">Latest Event</span>
-
-            <span style="color: var(--text-soft); font-size: 14px;" data-lang="ja">2026年2月開催</span>
-            <span style="color: var(--text-soft); font-size: 14px;" data-lang="en">February 2026</span>
-        </div>
-
-        <h3 style="font-size: 28px; color: var(--accent-darkgold); margin-bottom: 16px;" data-lang="ja">イタリア料理教室 — 予約受付中</h3>
-        <h3 style="font-size: 28px; color: var(--accent-darkgold); margin-bottom: 16px;" data-lang="en">Italian Cooking Class — Now Accepting Reservations</h3>
-
-        <p data-lang="ja" style="margin-bottom: 24px; font-size: 17px; line-height: 1.8;">
-            Ikitariaが開催する本格イタリア料理教室では、プレミアムなイタリア食材を使用し、本場の味を学べます。少人数制で丁寧に実施し、調理後は皆さまで試食を楽しみます。現地の高品質なオリーブオイルとワインのテイスティング、現地の本格的な食材に対するご説明も実施いたします。
-        </p>
-        <p data-lang="en" style="margin-bottom: 24px; font-size: 17px; line-height: 1.8;">
-            At Ikitaria's authentic Italian cooking class, you'll learn genuine Italian flavors using premium ingredients. Our small group setting ensures careful instruction, followed by a group tasting of your creations. The class includes high-quality olive oil and wine tastings from Italy, plus detailed explanations of authentic ingredients.
-        </p>
-
-        <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 30px;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 20px;">📅</span>
-                <span style="color: var(--text-soft);" data-lang="ja">2月7日（土）</span>
-                <span style="color: var(--text-soft);" data-lang="en">February 7th (Sat)</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 20px;">📍</span>
-                <span style="color: var(--text-soft);" data-lang="ja">上板橋駅徒歩6分</span>
-                <span style="color: var(--text-soft);" data-lang="en">6 min from Kamiitabashi St.</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="font-size: 20px;">💴</span>
-                <span style="color: var(--text-soft);">¥6,900/人（税込 / per person, tax included）</span>
+    <nav class="site-nav">
+        <div class="container nav-content">
+            <div class="logo">IKITARIA</div>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang-selector="ja">JP</button>
+                <button class="lang-btn" data-lang-selector="en">EN</button>
             </div>
         </div>
+    </nav>
 
-        <div style="text-align: center;">
-            <a href="cooking-class.html" style="display: inline-block; padding: 14px 40px; color: #fff; font-size: 16px; font-weight: 500; text-decoration: none; border-radius: 50px; background: linear-gradient(135deg, var(--accent-darkgold), var(--accent-gold)); transition: var(--transition); box-shadow: 0 8px 20px rgba(157, 126, 60, 0.3);">
-                <span data-lang="ja">詳細を見る・予約する →</span>
-                <span data-lang="en">View Details & Reserve →</span>
-            </a>
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Japan &times; Italy</h1>
+            <p data-lang="ja">本物の架け橋となる</p>
+            <p data-lang="en">Bridging Cultures through Excellence</p>
         </div>
-    </div>
-</section>
+    </header>
 
-<!-- ===========================================
-     ABOUT
-============================================ -->
-<section>
-    <div class="section-title">
-        <h2 data-lang="ja">About Us</h2>
-        <h2 data-lang="en">About Us</h2>
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span>Our Philosophy</span>
+                <h2 data-lang="ja">情熱と品質</h2>
+                <h2 data-lang="en">Passion & Quality</h2>
+            </div>
+            <div class="glass-card" style="text-align:center; max-width:900px; margin:0 auto;">
+                <p style="font-size:1.2rem; line-height:2;" data-lang="ja">
+                    Ikitariaは、日本とイタリアの食文化を最高品質で繋ぐプレミアム商社です。<br>
+                    現地生産者との深い信頼関係に基づき、<br>
+                    ストーリーのある本物の食材だけをお届けします。<br>
+                    私たちの使命は、食を通じて二つの国の魂を響き合わせることです。
+                </p>
+                <p style="font-size:1.2rem; line-height:2;" data-lang="en">
+                    Ikitaria is a premium trading house connecting Japanese and Italian culinary cultures.<br>
+                    Built on deep trust with local producers,<br>
+                    we deliver only authentic ingredients with a story.<br>
+                    Our mission is to resonate the souls of two nations through food.
+                </p>
+            </div>
+        </div>
+    </section>
 
-        <p data-lang="ja">Ikitariaは高品質な製品を直接届けることで、低価格でより高品質なものを届けるヨーロッパとアジアをつなぐ企業です。</p>
-        <p data-lang="en">Ikitaria connects Europe and Asia, delivering high-quality products directly at lower prices.</p>
-    </div>
-
-    <div class="card">
-        <p data-lang="ja">
-            私たちは「文化・味・技術・美」を本気で守り抜くプレミアム商社です。高品質なイタリア食材を直接生産者からつなぎ、文化やさまざまな技術、あらゆる付加価値を日本、アジアへ繋いでいきます。小ロットから大規模商流まで幅広く対応し、さまざまなご要望に柔軟に対応いたします。
-        </p>
-        <p data-lang="en">
-            We are a premium trading company committed to preserving "culture, taste, craftsmanship, and beauty." We connect high-quality Italian ingredients directly from producers, bridging culture, various technologies, and all added values to Japan and Asia. We flexibly handle everything from small batches to large-scale distribution, accommodating various requests.
-        </p>
-    </div>
-</section>
-
-<!-- ===========================================
-     OUR STORY
-============================================ -->
-<section>
-    <div class="grid-2">
-        <div>
-            <div class="section-title" style="text-align:left;">
-                <h2 data-lang="ja">Our Story</h2>
-                <h2 data-lang="en">Our Story</h2>
+    <section class="section-padding" style="background:#111;">
+        <div class="container">
+            <div class="section-header">
+                <span>Services</span>
+                <h2 data-lang="ja">事業内容</h2>
+                <h2 data-lang="en">Our Business</h2>
             </div>
 
-            <p data-lang="ja" class="mb-20">
-                Ikitariaは、日本人とイタリア人の2名による小さなチームから始まりました。
-                私たちが扱うのは「モノ」ではなく、「文化」と「背景」と「本物の価値」です。
-            </p>
-            <p data-lang="ja">
-                イタリアの生産者が込める情熱、日本の職人が守る繊細さ。
-                この2つが出会った瞬間、世界にひとつだけの魅力が生まれます。
-            </p>
-
-            <p data-lang="en" class="mb-20">
-                Ikitaria began as a small team of two—a Japanese and an Italian.
-                What we handle is not just "products," but "culture," "background," and "authentic value."
-            </p>
-            <p data-lang="en">
-                The passion of Italian producers and the delicacy preserved by Japanese artisans.
-                When these two meet, a unique charm is born.
-            </p>
-        </div>
-
-        <div>
-            <div class="img-block" style="background-image:url('https://ikuya0198.github.io/ikitaria/image/business.jpg');" role="img" aria-label="オリーブの木"></div>
-        </div>
-    </div>
-</section>
-
-<!-- ===========================================
-     MAIN BUSINESS
-============================================ -->
-<section>
-    <div class="section-title">
-        <h2 data-lang="ja">Main Business</h2>
-        <h2 data-lang="en">Main Business</h2>
-
-        <p data-lang="ja">小ロットから大規模B2Bまで、柔軟な対応が可能です。</p>
-        <p data-lang="en">Flexible support from small batches to large-scale B2B.</p>
-    </div>
-
-    <div class="grid-3">
-        <div class="feature-card">
-            <h3 data-lang="ja">輸出入事業</h3>
-            <h3 data-lang="en">Import/Export</h3>
-
-            <p data-lang="ja">オリーブオイルやモーターパーツなど、高品質な製品の輸出入を行っています。</p>
-            <p data-lang="en">We handle import/export of high-quality products such as olive oil and motor parts.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3 data-lang="ja">自社生産事業</h3>
-            <h3 data-lang="en">In-house Production</h3>
-
-            <p data-lang="ja">自社農場、自社契約農場、工場での生産を通じて、高品質な製品を提供します。</p>
-            <p data-lang="en">We provide high-quality products through our own farms, contract farms, and factory production.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3 data-lang="ja">事業サポート</h3>
-            <h3 data-lang="en">Business Support</h3>
-
-            <p data-lang="ja">市場リサーチ、販売促進など、日本市場での拡販活動の実績があります。</p>
-            <p data-lang="en">We have experience in market research, sales promotion, and expansion activities in the Japanese market.</p>
-        </div>
-    </div>
-</section>
-
-<!-- ===========================================
-     PARTNER SECTION
-============================================ -->
-<section>
-    <div class="grid-2">
-        <div>
-            <div class="section-title" style="text-align:left;">
-                <h2 data-lang="ja">Partner</h2>
-                <h2 data-lang="en">Partner</h2>
-            </div>
-
-            <p data-lang="ja" class="mb-20">
-                OEMのサポートや、各マーケットに興味のある顧客様へ、さまざまなサービスを提供しています。
-            </p>
-
-            <p data-lang="en" class="mb-20">
-                We provide various services for OEM support and customers interested in different markets.
-            </p>
-
-            <p data-lang="ja">
-                直接高品質な材料の調達を検討している方、現地でのサポートが必要な方など、各種お問い合わせください。
-            </p>
-
-            <p data-lang="en">
-                For those considering direct procurement of high-quality materials or needing local support, please contact us for various inquiries.
-            </p>
-        </div>
-
-        <div>
-            <div class="img-block" style="background-image:url('https://ikuya0198.github.io/ikitaria/image/partner.jpg');" role="img" aria-label="イタリア料理"></div>
-        </div>
-    </div>
-</section>
-
-<!-- ===========================================
-     OUR PHILOSOPHY
-============================================ -->
-<section>
-    <div class="section-title">
-        <h2 data-lang="ja">Our Philosophy</h2>
-        <h2 data-lang="en">Our Philosophy</h2>
-
-        <p data-lang="ja">「本物であること」「誠実さ」「美しさ」</p>
-        <p data-lang="en">"Authenticity" "Integrity" "Beauty"</p>
-    </div>
-
-    <div class="card">
-        <p data-lang="ja" class="mb-20">
-            私たちが扱うのは、単なる"商品"ではありません。
-            その土地で生まれ、職人が磨き、文化が育てた「本物」だけを扱います。
-        </p>
-        <p data-lang="ja" class="mb-20">
-            生産者の思いと、バイヤーの期待を同じ温度で理解し、
-            その橋渡し役として最も誠実なスタンスで向き合います。
-        </p>
-        <p data-lang="ja">
-            Ikitariaは、静かで上質な価値の流れを創る商社です。
-        </p>
-
-        <p data-lang="en" class="mb-20">
-            What we handle is not just "products."
-            We deal only with "authenticity" — born in its land, refined by artisans, and nurtured by culture.
-        </p>
-        <p data-lang="en" class="mb-20">
-            We understand both the producers' passion and the buyers' expectations at the same temperature,
-            bridging them with the utmost integrity.
-        </p>
-        <p data-lang="en">
-            Ikitaria creates a flow of quiet, premium value.
-        </p>
-    </div>
-</section>
-
-<!-- ===========================================
-     FAQ
-============================================ -->
-<section>
-    <div class="section-title">
-        <h2 data-lang="ja">よくある質問</h2>
-        <h2 data-lang="en">Frequently Asked Questions</h2>
-
-        <p data-lang="ja">お客様からよくいただく質問をまとめました。</p>
-        <p data-lang="en">Here are answers to our most frequently asked questions.</p>
-    </div>
-
-    <div>
-        <div class="faq-item">
-            <button class="faq-question" data-lang="ja">
-                最小発注量はありますか？
-            </button>
-            <button class="faq-question" data-lang="en">
-                Is there a minimum order quantity?
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content" data-lang="ja">
-                    小ロットから大規模商流まで幅広く対応しております。製品や数量によって異なりますので、まずはお気軽にお問い合わせください。
+            <div class="services-grid">
+                <!-- Trading -->
+                <div class="service-card glass-card" style="padding:0; border:none;">
+                    <div class="service-img"
+                        style="background: url('https://images.unsplash.com/photo-1542157134-8b63e6e81fdd?auto=format&fit=crop&q=80') center/cover;">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-lang="ja">食品輸入卸売</h3>
+                        <h3 data-lang="en">Import & Wholesale</h3>
+                        <p data-lang="ja">厳選されたオリーブオイル、パスタ、ワインの輸入</p>
+                        <p data-lang="en">Import of premium olive oil, pasta, and wine.</p>
+                        <a href="#" class="btn-arrow">Read More &rarr;</a>
+                    </div>
                 </div>
-                <div class="faq-answer-content" data-lang="en">
-                    We handle everything from small batches to large-scale distribution. Requirements vary by product and quantity, so please feel free to contact us for details.
+
+                <!-- Cooking Class -->
+                <div class="service-card glass-card" style="padding:0; border:none;">
+                    <div class="service-img" style="background: url('image/cooking-bg.png') center/cover;"></div>
+                    <div class="service-content">
+                        <h3 data-lang="ja">料理教室</h3>
+                        <h3 data-lang="en">Cooking Class</h3>
+                        <p data-lang="ja">本場のシェフによるプレミアム・レッスン</p>
+                        <p data-lang="en">Premium lessons by authentic chefs.</p>
+                        <a href="cooking-class.html" class="btn-arrow">View Details &rarr;</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <button class="faq-question" data-lang="ja">
-                料理教室の参加に必要なものはありますか？
-            </button>
-            <button class="faq-question" data-lang="en">
-                What do I need to bring to the cooking class?
-            </button>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content" data-lang="ja">
-                    エプロンや調理器具は全てご用意しておりますので、手ぶらでお越しいただけます。筆記用具をお持ちいただくと、メモを取るのに便利です。
-                </div>
-                <div class="faq-answer-content" data-lang="en">
-                    All aprons and cooking utensils are provided, so you can come empty-handed. Bringing a pen and paper for notes is recommended.
-                </div>
-                </div>
+    <section class="section-padding">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-header">
+                <span>Profile</span>
+                <h2 data-lang="ja">会社概要</h2>
+                <h2 data-lang="en">Company Profile</h2>
             </div>
+
+            <table class="company-table">
+                <tr>
+                    <th data-lang="ja">会社名</th>
+                    <th data-lang="en">Company Name</th>
+                    <td>Ikitaria 株式会社 (Ikitaria Inc.)</td>
+                </tr>
+                <tr>
+                    <th data-lang="ja">所在地</th>
+                    <th data-lang="en">Address</th>
+                    <td data-lang="ja">東京都渋谷区恵比寿 1-1-1</td>
+                    <td data-lang="en">1-1-1 Ebisu, Shibuya-ku, Tokyo</td>
+                </tr>
+                <tr>
+                    <th data-lang="ja">代表者</th>
+                    <th data-lang="en">CEO</th>
+                    <td data-lang="ja">佐藤 郁也</td>
+                    <td data-lang="en">Ikuya Sato</td>
+                </tr>
+                <tr>
+                    <th data-lang="ja">事業内容</th>
+                    <th data-lang="en">Business</th>
+                    <td data-lang="ja">イタリア食品の輸入販売、料理教室運営、コンサルティング</td>
+                    <td data-lang="en">Import/Export of Italian foods, Culinary school operation</td>
+                </tr>
+            </table>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <button class="faq-question" data-lang="ja">
-                納期はどのくらいかかりますか？
-            </button>
-            <button class="faq-question" data-lang="en">
-                What is the typical delivery time?
-            </button>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content" data-lang="ja">
-                    製品や数量、配送先によって異なります。通常、イタリアからの輸入の場合は2〜3ヶ月程度です。詳細はお問い合わせください。
-                </div>
-                <div class="faq-answer-content" data-lang="en">
-                    Delivery times vary by product, quantity, and destination. Typically, imports from Italy take 2-3 months. Please contact us for specific details.
-                </div>
-                </div>
-            </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Ikitaria Inc. All Rights Reserved.</p>
         </div>
+    </footer>
 
-        <div class="faq-item">
-            <button class="faq-question" data-lang="ja">
-                OEM製造は対応していますか？
-            </button>
-            <button class="faq-question" data-lang="en">
-                Do you offer OEM manufacturing services?
-            </button>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content" data-lang="ja">
-                    はい、自社農場、自社契約農場、工場での生産を通じて、OEM製造に対応しております。小ロットからご相談可能です。
-                </div>
-                <div class="faq-answer-content" data-lang="en">
-                    Yes, we offer OEM manufacturing through our own farms, contract farms, and factory production. We can accommodate small batches.
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" data-lang="ja">
-                現地でのサポートは受けられますか？
-            </button>
-            <button class="faq-question" data-lang="en">
-                Do you provide local support?
-            </button>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content" data-lang="ja">
-                    はい、市場リサーチ、販売促進、日本市場での拡販活動など、現地でのサポートを提供しております。詳細はお問い合わせください。
-                </div>
-                <div class="faq-answer-content" data-lang="en">
-                    Yes, we provide local support including market research, sales promotion, and expansion activities in the Japanese market. Please contact us for details.
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" data-lang="ja">
-                サンプルの提供は可能ですか？
-            </button>
-            <button class="faq-question" data-lang="en">
-                Can you provide samples?
-            </button>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-content" data-lang="ja">
-                    はい、製品によってサンプルの提供が可能です。サンプル費用や配送料については、お問い合わせ時にご案内いたします。
-                </div>
-                <div class="faq-answer-content" data-lang="en">
-                    Yes, samples are available for most products. Sample costs and shipping fees will be provided upon inquiry.
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===========================================
-     CONTACT
-============================================ -->
-<section id="contact">
-    <div class="section-title">
-        <h2 data-lang="ja">Contact</h2>
-        <h2 data-lang="en">Contact</h2>
-
-        <p data-lang="ja">ご相談・見積もり・サンプル依頼など、お気軽にお問い合わせください。</p>
-        <p data-lang="en">For inquiries, quotes, sample requests, please feel free to contact us.</p>
-    </div>
-
-    <div class="card">
-        <p style="font-size:22px; font-weight:600; margin-bottom:8px;">Email</p>
-        <p style="margin-bottom:30px; font-size:18px; color:var(--accent-darkgold);">info@ikitaria.com</p>
-
-        <div class="cta">
-            <a href="mailto:info@ikitaria.com">
-                <span data-lang="ja">メールを送る</span>
-                <span data-lang="en">Send Email</span>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ===========================================
-     FOOTER
-============================================ -->
-<footer>
-    <p>© 2025 Ikitaria. All Rights Reserved.</p>
-    <p style="margin-top:12px; opacity:0.6;">Japan × Italy Premium Trading House</p>
-</footer>
-
-<!-- ===========================================
-     JavaScript for Language Switching
-============================================ -->
-<script>
-    // Language switcher functionality
-    const langButtons = document.querySelectorAll('[data-lang-selector]');
-
-    // Set initial language (Japanese)
-    let currentLang = 'ja';
-
-    langButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const selectedLang = button.getAttribute('data-lang-selector');
-
-            // Update active button
-            langButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            // Update body class to show selected language
-            document.body.className = document.body.className.replace(/lang-\w+/g, '');
-            document.body.classList.add('lang-' + selectedLang);
-
-            currentLang = selectedLang;
-        });
-    });
-
-    // FAQ Accordion functionality
-    const faqQuestions = document.querySelectorAll('.faq-question');
-
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const faqItem = question.parentElement;
-            const answer = faqItem.querySelector('.faq-answer');
-            const isActive = answer.classList.contains('active');
-
-            // Close all other FAQ items
-            document.querySelectorAll('.faq-answer').forEach(item => {
-                item.classList.remove('active');
+    <script>
+        // Language Toggle
+        const langBtns = document.querySelectorAll('.lang-btn');
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.langSelector;
+                document.body.className = 'lang-' + lang;
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
             });
-            document.querySelectorAll('.faq-question').forEach(q => {
-                q.classList.remove('active');
-            });
-
-            // Toggle current item
-            if (!isActive) {
-                answer.classList.add('active');
-                question.classList.add('active');
-            }
         });
-    });
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href !== '#' && href !== '#contact' && href !== '#booking') return;
-
-            e.preventDefault();
-            const target = document.querySelector(href);
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+        // Sticky Nav
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.site-nav');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
-    });
-
-    // Scroll indicator click
-    document.querySelector('.scroll-indicator')?.addEventListener('click', () => {
-        window.scrollTo({
-            top: window.innerHeight,
-            behavior: 'smooth'
-        });
-    });
-
-    // Animation on scroll (simple implementation)
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-        observer.observe(section);
-    });
-</script>
-
+    </script>
 </body>
+
 </html>
