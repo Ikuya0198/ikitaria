@@ -510,6 +510,18 @@
             border-bottom-color: var(--color-accent);
         }
 
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 0.8rem;
+        }
+
+        textarea.form-control:focus {
+            border-color: var(--color-accent);
+        }
+
         .form-label {
             position: absolute;
             top: 0.6rem;
@@ -784,52 +796,97 @@
                         <form id="surveyForm" autocomplete="off">
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
-                                <label for="name" class="form-label" data-lang="ja">お名前 / Name</label><label for="name"
-                                    class="form-label" data-lang="en">Name</label>
+                                <label for="name" class="form-label" data-lang="ja">お名前（フルネーム）*</label><label for="name"
+                                    class="form-label" data-lang="en">Full Name *</label>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom:1.5rem;">
+                                <input type="text" id="name_kana" name="name_kana" class="form-control" placeholder=" " required>
+                                <label for="name_kana" class="form-label" data-lang="ja">フリガナ *</label><label for="name_kana"
+                                    class="form-label" data-lang="en">Name (Katakana) *</label>
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <input type="email" id="email" name="email" class="form-control" placeholder=" "
                                     required>
-                                <label for="email" class="form-label" data-lang="ja">メールアドレス / Email</label><label
-                                    for="email" class="form-label" data-lang="en">Email</label>
+                                <label for="email" class="form-label" data-lang="ja">メールアドレス *</label><label
+                                    for="email" class="form-label" data-lang="en">Email *</label>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom:1.5rem;">
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder=" " required>
+                                <label for="phone" class="form-label" data-lang="ja">電話番号 *</label><label
+                                    for="phone" class="form-label" data-lang="en">Phone Number *</label>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom:1.5rem;">
+                                <label for="datetime_select" class="form-label" style="display:none;"></label>
+                                <select id="datetime_select" name="preferred_datetime" class="form-control" required
+                                    style="padding-top:0.6rem;">
+                                    <option value="" disabled selected hidden data-lang="ja">希望日時 *</option>
+                                    <option value="" disabled selected hidden data-lang="en">Preferred Date & Time *</option>
+                                    <option value="2月7日（土）昼の部 11:00-14:00">2月7日（土）昼の部 11:00-14:00 / Feb 7 (Sat) Day 11:00-14:00</option>
+                                    <option value="2月7日（土）夜の部 17:00-20:00">2月7日（土）夜の部 17:00-20:00 / Feb 7 (Sat) Evening 17:00-20:00</option>
+                                </select>
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <label for="participants_select" class="form-label" style="display:none;"></label>
                                 <select id="participants_select" name="participants" class="form-control" required
                                     style="padding-top:0.6rem;">
-                                    <option value="" disabled selected hidden>参加人数 / Guests</option>
-                                    <option value="1">1 Person</option>
-                                    <option value="2">2 People</option>
-                                    <option value="3">3 People</option>
-                                    <option value="4">4 People</option>
+                                    <option value="" disabled selected hidden data-lang="ja">参加人数 *</option>
+                                    <option value="" disabled selected hidden data-lang="en">Number of Guests *</option>
+                                    <option value="1">1名 / 1 Person</option>
+                                    <option value="2">2名 / 2 People</option>
+                                    <option value="3">3名 / 3 People</option>
+                                    <option value="4">4名 / 4 People</option>
+                                    <option value="5">5名 / 5 People</option>
+                                    <option value="6">6名 / 6 People</option>
                                 </select>
                             </div>
 
-                            <div class="form-group" style="margin-bottom:2rem;">
-                                <input type="text" id="requests" name="comments" class="form-control" placeholder=" ">
-                                <label for="requests" class="form-label" data-lang="ja">ご要望 / Requests</label><label
-                                    for="requests" class="form-label" data-lang="en">Requests</label>
+                            <div class="form-group" style="margin-bottom:1.5rem;">
+                                <input type="text" id="allergies" name="allergies" class="form-control" placeholder=" ">
+                                <label for="allergies" class="form-label" data-lang="ja">食物アレルギー・苦手な食材</label><label
+                                    for="allergies" class="form-label" data-lang="en">Food Allergies / Dislikes</label>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom:1.5rem;">
+                                <label for="experience_select" class="form-label" style="display:none;"></label>
+                                <select id="experience_select" name="cooking_experience" class="form-control"
+                                    style="padding-top:0.6rem;">
+                                    <option value="" disabled selected hidden>料理経験（任意）/ Cooking Experience (Optional)</option>
+                                    <option value="初心者">初心者 / Beginner</option>
+                                    <option value="中級者">中級者 / Intermediate</option>
+                                    <option value="上級者">上級者 / Advanced</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="margin-bottom:1.5rem;">
+                                <textarea id="requests" name="comments" class="form-control" placeholder=" " rows="3"></textarea>
+                                <label for="requests" class="form-label" data-lang="ja">ご質問・ご要望</label><label
+                                    for="requests" class="form-label" data-lang="en">Questions / Requests</label>
+                            </div>
+
+                            <div style="margin-bottom:1.5rem; padding:1rem; background:rgba(197,160,89,0.1); border-left:3px solid var(--color-accent); font-size:0.85rem; line-height:1.6;">
+                                <p data-lang="ja" style="margin:0; color:var(--color-text-main);">
+                                    <strong style="color:var(--color-accent);">💳 お支払いについて</strong><br>
+                                    ご予約確定後、当日会場にて現金またはクレジットカードでお支払いください。<br>
+                                    参加費：¥6,800 × 参加人数
+                                </p>
+                                <p data-lang="en" style="margin:0; color:var(--color-text-main);">
+                                    <strong style="color:var(--color-accent);">💳 Payment</strong><br>
+                                    After reservation confirmation, please pay on-site in cash or by credit card.<br>
+                                    Fee: ¥6,800 × Number of Guests
+                                </p>
                             </div>
 
                             <button type="submit" class="btn-magnetic" style="margin:0; width:100%; max-width:100%;">
-                                <span data-lang="ja">申し込む</span><span data-lang="en">Sign Up</span>
+                                <span data-lang="ja">予約を申し込む</span><span data-lang="en">Submit Reservation</span>
                             </button>
                         </form>
 
                         <div id="formMessage" style="text-align:center; margin-top:1rem; min-height:20px;"></div>
-
-                        <!-- Payment Link -->
-                        <div class="payment-info confirm-hidden" style="display:none; margin-top:1rem; padding:1rem;">
-                            <p data-lang="ja" style="font-size:0.8rem;">お申し込みありがとうございます。<br>続けてお支払いをお願いします。</p>
-                            <p data-lang="en" style="font-size:0.8rem;">Thank you. Please proceed to payment.</p>
-                            <a href="https://buy.stripe.com/test_ikitaria_cooking_class_15000yen" target="_blank"
-                                class="btn-magnetic"
-                                style="background:#fff; color:#000; margin-top:0.5rem; border:1px solid #ccc; font-size:0.85rem; padding:0.8rem;">
-                                <span data-lang="ja">Stripe決済 (¥4,980)</span><span data-lang="en">Pay (¥4,980)</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -843,75 +900,49 @@
             <span class="grid-icon">📅</span>
             <h3 data-lang="ja">開催日時</h3>
             <h3 data-lang="en">Date & Time</h3>
-            <p data-lang="ja">2026年2月（複数日程あり）<br>各回 10:00-15:00（5時間）</p>
-            <p data-lang="en">Feb 2026 (Multiple dates)<br>10:00-15:00 (5 hours)</p>
+            <p data-lang="ja">2026年2月7日（土）<br>【昼の部】11:00-14:00 / 【夜の部】17:00-20:00（各3時間）</p>
+            <p data-lang="en">February 7, 2026 (Sat)<br>Day: 11:00-14:00 / Evening: 17:00-20:00 (3 hours each)</p>
         </div>
         <div class="grid-item">
             <span class="grid-icon">📍</span>
             <h3 data-lang="ja">場所</h3>
             <h3 data-lang="en">Venue</h3>
-            <p data-lang="ja">東京都内のクッキングスタジオ<br><span style="opacity:0.6; font-size:0.8em">（詳細はお申し込み後にご案内）</span></p>
-            <p data-lang="en">Cooking studio in Tokyo<br><span style="opacity:0.6; font-size:0.8em">(Details upon
-                    registration)</span></p>
+            <p data-lang="ja">Studio Éclat（スタジオエクラ）<br>上板橋駅（東武東上線）徒歩6分<br><span style="font-size:0.75rem; color:var(--color-text-muted);">※応募状況により都内周辺15分以内の素敵なスタジオに変更の可能性があります</span></p>
+            <p data-lang="en">Studio Éclat<br>6 min walk from Kamiitabashi Station<br><span style="font-size:0.75rem; color:var(--color-text-muted);">※Venue may change to another lovely studio within 15 min in Tokyo area based on demand</span></p>
         </div>
         <div class="grid-item">
             <span class="grid-icon">💴</span>
             <h3 data-lang="ja">参加費</h3>
             <h3 data-lang="en">Fee</h3>
-            <p style="font-size:1.1rem; color:var(--color-accent); margin-bottom:0.1rem;">¥4,980 <span
-                    style="font-size:0.75rem; color:var(--color-text-muted);">(Inc. Tax)</span></p>
-            <p data-lang="ja">食材・ワイン・レシピ・エプロン込</p>
-            <p data-lang="en">Includes ingredients, wine, recipe</p>
+            <p style="font-size:1.1rem; color:var(--color-accent); margin-bottom:0.5rem;">¥6,800 <span
+                    style="font-size:0.75rem; color:var(--color-text-muted);">/人（税込）</span></p>
+            <p data-lang="ja" style="font-size:0.85rem; line-height:1.6;">
+                食材費、会場費用、全て込み<br>
+                <span style="color: var(--color-accent); font-weight: 600;">💳 当日会場でお支払い</span><br>
+                <span style="font-size:0.75rem; color:var(--color-text-muted);">現金・クレジットカード可</span>
+            </p>
+            <p data-lang="en" style="font-size:0.85rem; line-height:1.6;">
+                All-inclusive price<br>
+                <span style="color: var(--color-accent); font-weight: 600;">💳 Pay on-site</span><br>
+                <span style="font-size:0.75rem; color:var(--color-text-muted);">Cash / Credit card accepted</span>
+            </p>
         </div>
     </div>
 
-    <!-- What's Included (2-Column Grid) -->
+    <!-- What's Included -->
     <section class="section-padding">
         <div class="container">
             <div class="section-title" style="margin-bottom:2rem;">
                 <p>Included</p>
                 <h2 data-lang="ja">含まれるもの</h2>
-                <h2 data-lang="en">Included</h2>
+                <h2 data-lang="en">What's Included</h2>
             </div>
-            <div class="glass-card info-list info-list-grid" style="max-width:900px;">
-                <!-- Row 1 Col 1 -->
-                <div class="info-row" style="border:none; padding:0.5rem 0;">
+            <div class="glass-card info-list" style="max-width:700px;">
+                <div class="info-row" style="border:none; padding:1rem 0;">
                     <span class="info-check">✓</span>
                     <div class="info-content">
-                        <span class="info-label" data-lang="ja">プレミアムイタリア食材（実習用）</span><span class="info-label"
-                            data-lang="en">Premium Ingredients</span>
-                    </div>
-                </div>
-                <!-- Row 1 Col 2 -->
-                <div class="info-row" style="border:none; padding:0.5rem 0;">
-                    <span class="info-check">✓</span>
-                    <div class="info-content">
-                        <span class="info-label" data-lang="ja">オリーブオイル3種テイスティング</span><span class="info-label"
-                            data-lang="en">Olive Oil Tasting (3 types)</span>
-                    </div>
-                </div>
-                <!-- Row 2 Col 1 -->
-                <div class="info-row" style="border:none; padding:0.5rem 0;">
-                    <span class="info-check">✓</span>
-                    <div class="info-content">
-                        <span class="info-label" data-lang="ja">イタリアワイン2種テイスティング</span><span class="info-label"
-                            data-lang="en">Wine Tasting (2 types)</span>
-                    </div>
-                </div>
-                <!-- Row 2 Col 2 -->
-                <div class="info-row" style="border:none; padding:0.5rem 0;">
-                    <span class="info-check">✓</span>
-                    <div class="info-content">
-                        <span class="info-label" data-lang="ja">オリジナルレシピ集</span><span class="info-label"
-                            data-lang="en">Recipe Booklet</span>
-                    </div>
-                </div>
-                <!-- Row 3 Col 1 -->
-                <div class="info-row" style="border:none; padding:0.5rem 0;">
-                    <span class="info-check">✓</span>
-                    <div class="info-content">
-                        <span class="info-label" data-lang="ja">エプロン・調理器具レンタル</span><span class="info-label"
-                            data-lang="en">Apron & Tools Rental</span>
+                        <span class="info-label" data-lang="ja">調理器具のレンタル</span>
+                        <span class="info-label" data-lang="en">Cooking Tools Rental</span>
                     </div>
                 </div>
             </div>
@@ -1054,9 +1085,80 @@
         <!-- ... footer ... -->
 
         <script>
-        // ... existing scripts (Language, FAQ, Nav, Form) ...
+        // Language Toggle
+        const langBtns = document.querySelectorAll('.lang-btn');
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.langSelector;
+                document.body.className = 'lang-' + lang;
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
 
-        // NEW: Scroll Reveal Observer
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                q.classList.toggle('active');
+                const ans = q.nextElementSibling;
+                if (q.classList.contains('active')) {
+                    ans.style.maxHeight = ans.scrollHeight + 'px';
+                    ans.classList.add('active');
+                } else {
+                    ans.style.maxHeight = 0;
+                    ans.classList.remove('active');
+                }
+            });
+        });
+
+        // Sticky Nav
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.site-nav');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+
+        // Form Submission with Formspree
+        const form = document.getElementById('surveyForm');
+        const formMessage = document.getElementById('formMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span data-lang="ja">送信中...</span><span data-lang="en">Submitting...</span>';
+
+            try {
+                const response = await fetch('https://formspree.io/f/xqeekgde', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success message
+                    formMessage.innerHTML = '<p style="color: var(--color-accent); font-weight: 600;"><span data-lang="ja">✓ ご予約ありがとうございます！<br>確認メールをお送りしました。</span><span data-lang="en">✓ Thank you for your reservation!<br>Confirmation email has been sent.</span></p>';
+                    form.reset();
+                } else {
+                    throw new Error('Failed');
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                formMessage.innerHTML = '<p style="color: #ff6b6b;"><span data-lang="ja">送信に失敗しました。お手数ですが、直接メールでお問い合わせください。<br>info@ikitaria.com</span><span data-lang="en">Submission failed. Please contact us directly via email.<br>info@ikitaria.com</span></p>';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        });
+
+        // Scroll Reveal Observer
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -1067,7 +1169,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Only animate once
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -1075,9 +1177,6 @@
         document.querySelectorAll('.reveal-on-scroll').forEach(section => {
             observer.observe(section);
         });
-        
-        // Also animate grid items sequentially if possible, or just the whole block for now to be safe.
-        // Let's add specific stagger to grid-3 children if we want, but keeping it simple is safer.
         </script>
     </body>
 
