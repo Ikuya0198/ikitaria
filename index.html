@@ -783,8 +783,7 @@
 
         /* Hide non-active languages */
         body:not(.lang-ja) [data-lang="ja"],
-        body:not(.lang-en) [data-lang="en"],
-        body:not(.lang-it) [data-lang="it"] {
+        body:not(.lang-en) [data-lang="en"] {
             display: none !important;
         }
     </style>
@@ -796,7 +795,6 @@
 <div class="language-switcher">
     <button class="lang-btn active" data-lang-selector="ja">🇯🇵 日本語</button>
     <button class="lang-btn" data-lang-selector="en">🇬🇧 English</button>
-    <button class="lang-btn" data-lang-selector="it">🇮🇹 Italiano</button>
 </div>
 
 <!-- ===========================================
@@ -808,7 +806,6 @@
         <p style="font-size: clamp(20px, 3.5vw, 28px); color: var(--accent-gold); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 20px;">Connect the Dots</p>
         <p data-lang="ja">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
         <p data-lang="en">Japan × Italy — Premium Trading & Authentic Cultural Bridge</p>
-        <p data-lang="it">Giappone × Italia — Trading Premium e Ponte Culturale Autentico</p>
     </div>
     <div class="scroll-indicator"></div>
 </header>
@@ -820,27 +817,22 @@
     <div class="section-title">
         <h2 data-lang="ja">News Release</h2>
         <h2 data-lang="en">News Release</h2>
-        <h2 data-lang="it">Comunicati Stampa</h2>
 
         <p data-lang="ja">Ikitariaの最新情報・イベントをお知らせします。</p>
         <p data-lang="en">Latest news and events from Ikitaria.</p>
-        <p data-lang="it">Ultime notizie ed eventi da Ikitaria.</p>
     </div>
 
     <div class="card" style="border-left: 4px solid var(--accent-gold);">
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
             <span style="background: var(--accent-gold); color: white; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;" data-lang="ja">最新イベント</span>
             <span style="background: var(--accent-gold); color: white; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;" data-lang="en">Latest Event</span>
-            <span style="background: var(--accent-gold); color: white; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;" data-lang="it">Ultimo Evento</span>
 
             <span style="color: var(--text-soft); font-size: 14px;" data-lang="ja">2026年2月開催</span>
             <span style="color: var(--text-soft); font-size: 14px;" data-lang="en">February 2026</span>
-            <span style="color: var(--text-soft); font-size: 14px;" data-lang="it">Febbraio 2026</span>
         </div>
 
         <h3 style="font-size: 28px; color: var(--accent-darkgold); margin-bottom: 16px;" data-lang="ja">イタリア料理教室 — 予約受付中</h3>
         <h3 style="font-size: 28px; color: var(--accent-darkgold); margin-bottom: 16px;" data-lang="en">Italian Cooking Class — Now Accepting Reservations</h3>
-        <h3 style="font-size: 28px; color: var(--accent-darkgold); margin-bottom: 16px;" data-lang="it">Corso di Cucina Italiana — Prenota Ora</h3>
 
         <p data-lang="ja" style="margin-bottom: 24px; font-size: 17px; line-height: 1.8;">
             本格イタリア料理を学びながら、Ikitariaが厳選したプレミアム食材を体験できる特別なクラスです。オリーブオイル・ワインのテイスティングも含まれます。定員10名様限定の少人数制です。
@@ -848,32 +840,26 @@
         <p data-lang="en" style="margin-bottom: 24px; font-size: 17px; line-height: 1.8;">
             A special class where you can learn authentic Italian cooking while experiencing premium ingredients carefully selected by Ikitaria. Includes olive oil and wine tasting. Limited to 10 people per session.
         </p>
-        <p data-lang="it" style="margin-bottom: 24px; font-size: 17px; line-height: 1.8;">
-            Una classe speciale dove puoi imparare la cucina italiana autentica sperimentando ingredienti premium selezionati con cura da Ikitaria. Include degustazione di olio d'oliva e vino. Limitato a 10 persone per sessione.
-        </p>
 
         <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 30px;">
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="font-size: 20px;">📅</span>
                 <span style="color: var(--text-soft);" data-lang="ja">2月7日・8日</span>
                 <span style="color: var(--text-soft);" data-lang="en">February 7th & 8th</span>
-                <span style="color: var(--text-soft);" data-lang="it">7 e 8 febbraio</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="font-size: 20px;">📍</span>
                 <span style="color: var(--text-soft);" data-lang="ja">東京駅から20分以内</span>
                 <span style="color: var(--text-soft);" data-lang="en">Within 20 min from Tokyo Station</span>
-                <span style="color: var(--text-soft);" data-lang="it">Entro 20 min dalla Stazione di Tokyo</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="font-size: 20px;">💴</span>
-                <span style="color: var(--text-soft);">¥4,980（税込 / tax included / tasse incluse）</span>
+                <span style="color: var(--text-soft);">¥4,980（税込 / tax included）</span>
             </div>
             <div style="display: flex; align-items: center; gap: 8px;">
                 <span style="font-size: 20px;">👥</span>
                 <span style="color: var(--text-soft);" data-lang="ja">定員10名</span>
                 <span style="color: var(--text-soft);" data-lang="en">Max 10 people</span>
-                <span style="color: var(--text-soft);" data-lang="it">Max 10 persone</span>
             </div>
         </div>
 
@@ -881,7 +867,6 @@
             <a href="cooking-class.html" style="display: inline-block; padding: 14px 40px; color: #fff; font-size: 16px; font-weight: 500; text-decoration: none; border-radius: 50px; background: linear-gradient(135deg, var(--accent-darkgold), var(--accent-gold)); transition: var(--transition); box-shadow: 0 8px 20px rgba(157, 126, 60, 0.3);">
                 <span data-lang="ja">詳細を見る・予約する →</span>
                 <span data-lang="en">View Details & Reserve →</span>
-                <span data-lang="it">Vedi Dettagli e Prenota →</span>
             </a>
         </div>
     </div>
@@ -894,11 +879,9 @@
     <div class="section-title">
         <h2 data-lang="ja">About Us</h2>
         <h2 data-lang="en">About Us</h2>
-        <h2 data-lang="it">Chi Siamo</h2>
 
         <p data-lang="ja">Ikitariaは高品質な製品を直接届けることで、低価格でより高品質なものを届けるヨーロッパとアジアをつなぐ企業です。</p>
         <p data-lang="en">Ikitaria connects Europe and Asia, delivering high-quality products directly at lower prices.</p>
-        <p data-lang="it">Ikitaria collega Europa e Asia, fornendo prodotti di alta qualità direttamente a prezzi più bassi.</p>
     </div>
 
     <div class="card">
@@ -907,9 +890,6 @@
         </p>
         <p data-lang="en">
             We are a premium trading company committed to preserving "culture, taste, craftsmanship, and beauty." We connect high-quality Italian ingredients directly from producers, bridging culture, various technologies, and all added values to Japan and Asia. We flexibly handle everything from small batches to large-scale distribution, accommodating various requests.
-        </p>
-        <p data-lang="it">
-            Siamo un'azienda commerciale premium impegnata a preservare "cultura, gusto, artigianato e bellezza." Colleghiamo ingredienti italiani di alta qualità direttamente dai produttori, creando ponti di cultura, tecnologie varie e tutti i valori aggiunti verso il Giappone e l'Asia. Gestiamo in modo flessibile tutto, dai piccoli lotti alla distribuzione su larga scala, soddisfacendo varie richieste.
         </p>
     </div>
 </section>
@@ -923,7 +903,6 @@
             <div class="section-title" style="text-align:left;">
                 <h2 data-lang="ja">Our Story</h2>
                 <h2 data-lang="en">Our Story</h2>
-                <h2 data-lang="it">La Nostra Storia</h2>
             </div>
 
             <p data-lang="ja" class="mb-20">
@@ -943,15 +922,6 @@
                 The passion of Italian producers and the delicacy preserved by Japanese artisans.
                 When these two meet, a unique charm is born.
             </p>
-
-            <p data-lang="it" class="mb-20">
-                Ikitaria è iniziata come un piccolo team di due persone: un giapponese e un italiano.
-                Quello che trattiamo non sono solo "prodotti," ma "cultura," "storia" e "valore autentico."
-            </p>
-            <p data-lang="it">
-                La passione dei produttori italiani e la delicatezza preservata dagli artigiani giapponesi.
-                Quando questi due si incontrano, nasce un fascino unico.
-            </p>
         </div>
 
         <div>
@@ -967,42 +937,34 @@
     <div class="section-title">
         <h2 data-lang="ja">Main Business</h2>
         <h2 data-lang="en">Main Business</h2>
-        <h2 data-lang="it">Attività Principali</h2>
 
         <p data-lang="ja">小ロットから大規模B2Bまで、柔軟な対応が可能です。</p>
         <p data-lang="en">Flexible support from small batches to large-scale B2B.</p>
-        <p data-lang="it">Supporto flessibile dai piccoli lotti al B2B su larga scala.</p>
     </div>
 
     <div class="grid-3">
         <div class="feature-card">
             <h3 data-lang="ja">輸出入事業</h3>
             <h3 data-lang="en">Import/Export</h3>
-            <h3 data-lang="it">Import/Export</h3>
 
             <p data-lang="ja">オリーブオイルやモーターパーツなど、高品質な製品の輸出入を行っています。</p>
             <p data-lang="en">We handle import/export of high-quality products such as olive oil and motor parts.</p>
-            <p data-lang="it">Gestiamo l'import/export di prodotti di alta qualità come olio d'oliva e parti di motori.</p>
         </div>
 
         <div class="feature-card">
             <h3 data-lang="ja">自社生産事業</h3>
             <h3 data-lang="en">In-house Production</h3>
-            <h3 data-lang="it">Produzione Interna</h3>
 
             <p data-lang="ja">自社農場、自社契約農場、工場での生産を通じて、高品質な製品を提供します。</p>
             <p data-lang="en">We provide high-quality products through our own farms, contract farms, and factory production.</p>
-            <p data-lang="it">Forniamo prodotti di alta qualità attraverso le nostre fattorie, fattorie a contratto e produzione in fabbrica.</p>
         </div>
 
         <div class="feature-card">
             <h3 data-lang="ja">事業サポート</h3>
             <h3 data-lang="en">Business Support</h3>
-            <h3 data-lang="it">Supporto Aziendale</h3>
 
             <p data-lang="ja">市場リサーチ、販売促進など、日本市場での拡販活動の実績があります。</p>
             <p data-lang="en">We have experience in market research, sales promotion, and expansion activities in the Japanese market.</p>
-            <p data-lang="it">Abbiamo esperienza in ricerche di mercato, promozione delle vendite e attività di espansione nel mercato giapponese.</p>
         </div>
     </div>
 </section>
@@ -1016,7 +978,6 @@
             <div class="section-title" style="text-align:left;">
                 <h2 data-lang="ja">Partner</h2>
                 <h2 data-lang="en">Partner</h2>
-                <h2 data-lang="it">Partner</h2>
             </div>
 
             <p data-lang="ja" class="mb-20">
@@ -1027,20 +988,12 @@
                 We provide various services for OEM support and customers interested in different markets.
             </p>
 
-            <p data-lang="it" class="mb-20">
-                Forniamo vari servizi per il supporto OEM e clienti interessati a diversi mercati.
-            </p>
-
             <p data-lang="ja">
                 直接高品質な材料の調達を検討している方、現地でのサポートが必要な方など、各種お問い合わせください。
             </p>
 
             <p data-lang="en">
                 For those considering direct procurement of high-quality materials or needing local support, please contact us for various inquiries.
-            </p>
-
-            <p data-lang="it">
-                Per coloro che stanno considerando l'approvvigionamento diretto di materiali di alta qualità o che necessitano di supporto locale, contattateci per varie richieste.
             </p>
         </div>
 
@@ -1057,11 +1010,9 @@
     <div class="section-title">
         <h2 data-lang="ja">Our Philosophy</h2>
         <h2 data-lang="en">Our Philosophy</h2>
-        <h2 data-lang="it">La Nostra Filosofia</h2>
 
         <p data-lang="ja">「本物であること」「誠実さ」「美しさ」</p>
         <p data-lang="en">"Authenticity" "Integrity" "Beauty"</p>
-        <p data-lang="it">"Autenticità" "Integrità" "Bellezza"</p>
     </div>
 
     <div class="card">
@@ -1088,18 +1039,6 @@
         <p data-lang="en">
             Ikitaria creates a flow of quiet, premium value.
         </p>
-
-        <p data-lang="it" class="mb-20">
-            Quello che trattiamo non sono solo "prodotti."
-            Trattiamo solo "autenticità" — nata nella sua terra, raffinata dagli artigiani e nutrita dalla cultura.
-        </p>
-        <p data-lang="it" class="mb-20">
-            Comprendiamo sia la passione dei produttori che le aspettative degli acquirenti alla stessa temperatura,
-            facendo da ponte con la massima integrità.
-        </p>
-        <p data-lang="it">
-            Ikitaria crea un flusso di valore discreto e premium.
-        </p>
     </div>
 </section>
 
@@ -1110,11 +1049,9 @@
     <div class="section-title">
         <h2 data-lang="ja">よくある質問</h2>
         <h2 data-lang="en">Frequently Asked Questions</h2>
-        <h2 data-lang="it">Domande Frequenti</h2>
 
         <p data-lang="ja">お客様からよくいただく質問をまとめました。</p>
         <p data-lang="en">Here are answers to our most frequently asked questions.</p>
-        <p data-lang="it">Ecco le risposte alle domande più frequenti.</p>
     </div>
 
     <div>
@@ -1125,18 +1062,12 @@
             <button class="faq-question" data-lang="en">
                 Is there a minimum order quantity?
             </button>
-            <button class="faq-question" data-lang="it">
-                C'è una quantità minima d'ordine?
-            </button>
             <div class="faq-answer">
                 <div class="faq-answer-content" data-lang="ja">
                     小ロットから大規模商流まで幅広く対応しております。製品や数量によって異なりますので、まずはお気軽にお問い合わせください。
                 </div>
                 <div class="faq-answer-content" data-lang="en">
                     We handle everything from small batches to large-scale distribution. Requirements vary by product and quantity, so please feel free to contact us for details.
-                </div>
-                <div class="faq-answer-content" data-lang="it">
-                    Gestiamo tutto, dai piccoli lotti alla distribuzione su larga scala. I requisiti variano in base al prodotto e alla quantità, quindi non esitate a contattarci per i dettagli.
                 </div>
             </div>
         </div>
@@ -1148,8 +1079,6 @@
             <button class="faq-question" data-lang="en">
                 What do I need to bring to the cooking class?
             </button>
-            <button class="faq-question" data-lang="it">
-                Cosa devo portare al corso di cucina?
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content" data-lang="ja">
@@ -1158,8 +1087,6 @@
                 <div class="faq-answer-content" data-lang="en">
                     All aprons and cooking utensils are provided, so you can come empty-handed. Bringing a pen and paper for notes is recommended.
                 </div>
-                <div class="faq-answer-content" data-lang="it">
-                    Tutti i grembiuli e gli utensili da cucina sono forniti, quindi puoi venire a mani vuote. È consigliato portare penna e carta per prendere appunti.
                 </div>
             </div>
         </div>
@@ -1171,8 +1098,6 @@
             <button class="faq-question" data-lang="en">
                 What is the typical delivery time?
             </button>
-            <button class="faq-question" data-lang="it">
-                Qual è il tempo di consegna tipico?
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content" data-lang="ja">
@@ -1181,8 +1106,6 @@
                 <div class="faq-answer-content" data-lang="en">
                     Delivery times vary by product, quantity, and destination. Typically, imports from Italy take 2-3 months. Please contact us for specific details.
                 </div>
-                <div class="faq-answer-content" data-lang="it">
-                    I tempi di consegna variano in base al prodotto, alla quantità e alla destinazione. Tipicamente, le importazioni dall'Italia richiedono 2-3 mesi. Contattateci per dettagli specifici.
                 </div>
             </div>
         </div>
@@ -1194,8 +1117,6 @@
             <button class="faq-question" data-lang="en">
                 Do you offer OEM manufacturing services?
             </button>
-            <button class="faq-question" data-lang="it">
-                Offrite servizi di produzione OEM?
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content" data-lang="ja">
@@ -1204,8 +1125,6 @@
                 <div class="faq-answer-content" data-lang="en">
                     Yes, we offer OEM manufacturing through our own farms, contract farms, and factory production. We can accommodate small batches.
                 </div>
-                <div class="faq-answer-content" data-lang="it">
-                    Sì, offriamo produzione OEM attraverso le nostre fattorie, fattorie a contratto e produzione in fabbrica. Possiamo accogliere piccoli lotti.
                 </div>
             </div>
         </div>
@@ -1217,8 +1136,6 @@
             <button class="faq-question" data-lang="en">
                 Do you provide local support?
             </button>
-            <button class="faq-question" data-lang="it">
-                Fornite supporto locale?
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content" data-lang="ja">
@@ -1227,8 +1144,6 @@
                 <div class="faq-answer-content" data-lang="en">
                     Yes, we provide local support including market research, sales promotion, and expansion activities in the Japanese market. Please contact us for details.
                 </div>
-                <div class="faq-answer-content" data-lang="it">
-                    Sì, forniamo supporto locale inclusi ricerca di mercato, promozione delle vendite e attività di espansione nel mercato giapponese. Contattateci per i dettagli.
                 </div>
             </div>
         </div>
@@ -1240,8 +1155,6 @@
             <button class="faq-question" data-lang="en">
                 Can you provide samples?
             </button>
-            <button class="faq-question" data-lang="it">
-                Potete fornire campioni?
             </button>
             <div class="faq-answer">
                 <div class="faq-answer-content" data-lang="ja">
@@ -1250,8 +1163,6 @@
                 <div class="faq-answer-content" data-lang="en">
                     Yes, samples are available for most products. Sample costs and shipping fees will be provided upon inquiry.
                 </div>
-                <div class="faq-answer-content" data-lang="it">
-                    Sì, i campioni sono disponibili per la maggior parte dei prodotti. I costi dei campioni e le spese di spedizione saranno forniti su richiesta.
                 </div>
             </div>
         </div>
@@ -1265,11 +1176,9 @@
     <div class="section-title">
         <h2 data-lang="ja">Contact</h2>
         <h2 data-lang="en">Contact</h2>
-        <h2 data-lang="it">Contatti</h2>
 
         <p data-lang="ja">ご相談・見積もり・サンプル依頼など、お気軽にお問い合わせください。</p>
         <p data-lang="en">For inquiries, quotes, sample requests, please feel free to contact us.</p>
-        <p data-lang="it">Per richieste, preventivi, richieste di campioni, non esitate a contattarci.</p>
     </div>
 
     <div class="card">
@@ -1280,7 +1189,6 @@
             <a href="mailto:info@ikitaria.com">
                 <span data-lang="ja">メールを送る</span>
                 <span data-lang="en">Send Email</span>
-                <span data-lang="it">Invia Email</span>
             </a>
         </div>
     </div>
