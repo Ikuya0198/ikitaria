@@ -636,6 +636,18 @@
         }
 
         @media (max-width: 900px) {
+            .container {
+                width: 95%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
             .grid-3 {
                 grid-template-columns: 1fr;
                 background: none;
@@ -647,17 +659,51 @@
                 padding: 1.5rem;
             }
 
+            .grid-item h3 {
+                font-size: 0.95rem;
+            }
+
+            .grid-item p {
+                font-size: 0.8rem;
+            }
+
             .glass-card {
-                padding: 1.5rem;
+                padding: 1.2rem;
             }
 
             .section-padding {
                 padding: 30px 0;
             }
 
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
             .split-section {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2rem;
+            }
+
+            .concept-text {
+                font-size: 0.9rem;
+            }
+
+            .concept-text p {
+                margin-bottom: 1rem !important;
+            }
+
+            /* Hide or simplify philosophical box on mobile */
+            .concept-column > div:last-child {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .concept-column > div:last-child h4 {
+                font-size: 1rem;
+            }
+
+            .concept-column > div:last-child p {
+                font-size: 0.85rem;
             }
 
             .info-list-grid {
@@ -668,7 +714,64 @@
             .form-column {
                 position: static;
                 order: -1;
-                /* Form first on mobile */
+            }
+
+            .form-group {
+                margin-bottom: 1.2rem !important;
+            }
+
+            .form-control {
+                font-size: 0.9rem;
+            }
+
+            .form-label {
+                font-size: 0.8rem;
+            }
+
+            textarea.form-control {
+                min-height: 60px;
+            }
+
+            .btn-magnetic {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .faq-question {
+                font-size: 0.95rem;
+                padding: 1rem 0;
+            }
+
+            .faq-answer {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Extra small devices (phones in portrait) */
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .glass-card {
+                padding: 1rem;
+            }
+
+            .form-control {
+                font-size: 0.85rem;
+                padding: 0.5rem 0;
+            }
+
+            .concept-column > div:last-child {
+                padding: 0.8rem;
             }
         }
 
