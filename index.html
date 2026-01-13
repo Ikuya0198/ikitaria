@@ -15,28 +15,27 @@
 
     <style>
         /* ===========================================
-           Design System (Unified with Cooking Class)
+           Design System (Compact Luxury)
         ============================================ */
         :root {
             --color-bg: #0f0f0f;
             --color-surface: #1a1a1a;
             --color-surface-glass: rgba(26, 26, 26, 0.6);
             --color-text-main: #f0f0f0;
-            --color-text-muted: #999;
+            --color-text-muted: #aaa;
             --color-accent: #C5A059;
-            --color-accent-light: #e0b460;
-            --color-accent-dark: #8a703a;
+            --color-accent-dim: #8a703a;
             --color-border: rgba(255, 255, 255, 0.08);
 
             --font-heading: 'Playfair Display', serif;
             --font-subheading: 'Cormorant Garamond', serif;
             --font-body: 'Lato', sans-serif;
 
-            --max-width: 1400px;
-            --radius-md: 12px;
-            --radius-lg: 20px;
+            --max-width: 1200px;
+            /* Tighter container */
+            --radius: 12px;
 
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.3s ease;
         }
 
         /* Noise Texture */
@@ -52,7 +51,6 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -63,8 +61,10 @@
             background-color: var(--color-bg);
             color: var(--color-text-main);
             font-family: var(--font-body);
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+            /* Tighter line height */
+            font-size: 16px;
+            /* Base font size */
         }
 
         h1,
@@ -95,7 +95,7 @@
 
         /* Utility */
         .container {
-            width: 88%;
+            width: 90%;
             max-width: var(--max-width);
             margin: 0 auto;
             position: relative;
@@ -103,23 +103,35 @@
         }
 
         .section-padding {
-            padding: 120px 0;
+            padding: 80px 0;
         }
 
+        /* Reduced padding */
         .text-gold {
             color: var(--color-accent);
         }
 
-        /* Glass Cards */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        /* Glass Cards (Compact) */
         .glass-card {
             background: rgba(30, 30, 30, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
-            padding: 4rem;
-            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            /* Reduced padding */
         }
 
         /* ===========================================
@@ -131,15 +143,14 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             transition: var(--transition);
             mix-blend-mode: exclusion;
         }
 
         .site-nav.scrolled {
             padding: 1rem 0;
-            background: rgba(15, 15, 15, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 15, 15, 0.9);
             mix-blend-mode: normal;
             border-bottom: 1px solid var(--color-border);
         }
@@ -152,14 +163,14 @@
 
         .logo {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: 0.1em;
         }
 
         .lang-switch {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             font-size: 0.8rem;
             font-weight: 700;
         }
@@ -168,20 +179,23 @@
             background: none;
             border: none;
             color: #fff;
-            opacity: 0.4;
+            opacity: 0.5;
             cursor: pointer;
         }
 
         .lang-btn.active {
             opacity: 1;
             color: var(--color-accent);
+            border-bottom: 1px solid var(--color-accent);
         }
 
         /* ===========================================
-           Hero
+           Hero (Compact)
         ============================================ */
         .hero {
-            height: 100vh;
+            height: 80vh;
+            /* Reduced height */
+            min-height: 600px;
             position: relative;
             display: flex;
             align-items: center;
@@ -195,7 +209,6 @@
             background: url('https://ikuya0198.github.io/ikitaria/image/main.jpg') center/cover no-repeat;
             opacity: 0.5;
             transform: scale(1.1);
-            animation: cinematicZoom 40s infinite alternate ease-in-out;
         }
 
         .hero-overlay {
@@ -207,163 +220,233 @@
         .hero-content {
             z-index: 3;
             text-align: center;
-            opacity: 0;
-            animation: fadeUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
+            animation: fadeUp 1s ease-out forwards;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 7vw, 7rem);
-            line-height: 1;
-            margin-bottom: 2rem;
-            text-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            font-size: clamp(3rem, 5vw, 5rem);
+            /* Smaller H1 */
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
             font-family: var(--font-subheading);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-style: italic;
             color: var(--color-accent);
             letter-spacing: 0.1em;
         }
 
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            opacity: 0.6;
+        }
+
         /* ===========================================
-           Sections
+           Section Styles
         ============================================ */
         .section-header {
+            margin-bottom: 3rem;
             text-align: center;
-            margin-bottom: 6rem;
         }
 
         .section-header h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
         }
 
         .section-header span {
             font-family: var(--font-subheading);
             color: var(--color-accent);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-style: italic;
         }
 
-        /* Services Grid */
-        .services-grid {
+        .section-header p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-top: 1rem;
+        }
+
+        /* News Release (Highlight) */
+        .news-highlight {
+            border-left: 3px solid var(--color-accent);
+            background: linear-gradient(90deg, rgba(197, 160, 89, 0.1), transparent);
+        }
+
+        .news-tag {
+            background: var(--color-accent);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .btn-news {
+            display: inline-block;
+            padding: 0.8rem 2.5rem;
+            background: var(--color-accent);
+            color: #000;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-news:hover {
+            background: #fff;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .service-card {
-            position: relative;
-            height: 500px;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            group: isolate;
+        /* Feature Cards */
+        .feature-card {
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .service-img {
-            position: absolute;
-            inset: 0;
-            transition: transform 0.6s ease;
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
         }
 
-        .service-content {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 3rem;
-        }
-
-        .service-card:hover .service-img {
-            transform: scale(1.1);
-        }
-
-        .service-content h3 {
-            font-size: 2rem;
+        .feature-card h3 {
+            font-size: 1.3rem;
             margin-bottom: 1rem;
-        }
-
-        .service-content p {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-        }
-
-        .btn-arrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
             color: var(--color-accent);
-            font-weight: 700;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
         }
 
         /* Company Table */
         .company-table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 0.95rem;
         }
 
         .company-table tr {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .company-table th,
-        .company-table td {
-            padding: 2rem 0;
-            text-align: left;
-        }
-
         .company-table th {
             width: 30%;
             color: var(--color-text-muted);
+            padding: 1.2rem 0;
+            text-align: left;
             font-weight: 400;
         }
 
         .company-table td {
+            padding: 1.2rem 0;
+            color: #fff;
+        }
+
+        /* FAQ (Compact) */
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: #ddd;
             font-size: 1.1rem;
+            padding: 1.2rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-body);
+        }
+
+        .faq-question:hover {
+            color: var(--color-accent);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--color-accent);
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--color-text-muted);
+            padding-bottom: 0;
+        }
+
+        .faq-answer.active {
+            padding-bottom: 1.5rem;
         }
 
         /* Footer */
         footer {
-            padding: 4rem 0;
+            padding: 3rem 0;
+            margin-top: 5rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.3);
             font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Animations */
-        @keyframes cinematicZoom {
-            0% {
-                transform: scale(1.1);
+        /* Responsive */
+        @media (max-width: 900px) {
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            100% {
-                transform: scale(1.2);
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
+            .hero h1 {
+                font-size: 3rem;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
             }
         }
 
-        /* Lang Logic */
+        /* Lang */
         [data-lang]:not(.active) {
             display: none;
         }
@@ -384,30 +467,15 @@
             display: block;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3.5rem;
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
 
-            .service-card {
-                height: 400px;
-            }
-
-            .glass-card {
-                padding: 2rem;
-            }
-
-            .company-table th,
-            .company-table td {
-                display: block;
-                width: 100%;
-                padding: 0.5rem 0;
-            }
-
-            .company-table tr {
-                padding: 1.5rem 0;
-                display: block;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -434,103 +502,209 @@
             <p data-lang="ja">本物の架け橋となる</p>
             <p data-lang="en">Bridging Cultures through Excellence</p>
         </div>
+        <div class="scroll-hint">SCROLL</div>
     </header>
 
+    <!-- News Release -->
     <section class="section-padding">
         <div class="container">
             <div class="section-header">
-                <span>Our Philosophy</span>
-                <h2 data-lang="ja">情熱と品質</h2>
-                <h2 data-lang="en">Passion & Quality</h2>
+                <span>Updates</span>
+                <h2 data-lang="ja">最新情報</h2>
+                <h2 data-lang="en">News Release</h2>
             </div>
-            <div class="glass-card" style="text-align:center; max-width:900px; margin:0 auto;">
-                <p style="font-size:1.2rem; line-height:2;" data-lang="ja">
-                    Ikitariaは、日本とイタリアの食文化を最高品質で繋ぐプレミアム商社です。<br>
-                    現地生産者との深い信頼関係に基づき、<br>
-                    ストーリーのある本物の食材だけをお届けします。<br>
-                    私たちの使命は、食を通じて二つの国の魂を響き合わせることです。
+
+            <div class="glass-card news-highlight">
+                <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                    <span class="news-tag">EVENT</span>
+                    <span style="font-size:0.9rem; color:var(--color-text-muted);">2026.02</span>
+                </div>
+                <h3 style="font-size:1.5rem; margin-bottom:1rem; color:#fff;" data-lang="ja">イタリア料理教室 — 予約受付中</h3>
+                <h3 style="font-size:1.5rem; margin-bottom:1rem; color:#fff;" data-lang="en">Italian Cooking Class —
+                    Bookings Open</h3>
+                <p data-lang="ja" style="color:#ddd; max-width:800px;">
+                    本物のイタリア食材を使用し、シェフによる実演と試食を楽しむプレミアムな料理教室を開催します。
+                    オリーブオイルやワインのテイスティングも含んだ特別な体験をお届けします。
                 </p>
-                <p style="font-size:1.2rem; line-height:2;" data-lang="en">
-                    Ikitaria is a premium trading house connecting Japanese and Italian culinary cultures.<br>
-                    Built on deep trust with local producers,<br>
-                    we deliver only authentic ingredients with a story.<br>
-                    Our mission is to resonate the souls of two nations through food.
+                <p data-lang="en" style="color:#ddd; max-width:800px;">
+                    Join our premium cooking class using authentic ingredients. Experience chef demonstrations, tastings
+                    of olive oil and wines.
                 </p>
+                <a href="cooking-class.html" class="btn-news">
+                    <span data-lang="ja">詳細・予約へ &rarr;</span>
+                    <span data-lang="en">Details & Booking &rarr;</span>
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- Philosophy -->
     <section class="section-padding" style="background:#111;">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <div class="section-header" style="text-align:left; margin-bottom:2rem;">
+                        <span>Philosophy</span>
+                        <h2 data-lang="ja">理念</h2>
+                        <h2 data-lang="en">Our Philosophy</h2>
+                    </div>
+                    <p data-lang="ja" style="margin-bottom:1.5rem; color:#ccc;">
+                        Ikitariaは、日本とイタリアの食文化を最高品質で繋ぐプレミアム商社です。
+                        私たちが扱うのは「モノ」ではなく、その土地で生まれ、職人が磨き、文化が育てた「本物」です。
+                    </p>
+                    <p data-lang="ja" style="color:#ccc;">
+                        生産者の思いとバイヤーの期待を同じ温度で理解し、最も誠実なスタンスで向き合います。
+                        静かで上質な価値の流れを創ること、それが私たちの使命です。
+                    </p>
+                    <p data-lang="en" style="margin-bottom:1.5rem; color:#ccc;">
+                        Ikitaria is a premium trading house connecting Japanese and Italian culinary cultures.
+                        We deal only with "authenticity" — born in its land, refined by artisans, and nurtured by
+                        culture.
+                    </p>
+                    <p data-lang="en" style="color:#ccc;">
+                        We bridge producers and buyers with integrity, creating a flow of quiet, premium value.
+                    </p>
+                </div>
+                <!-- Image Block (Replaced with Glass Card for Text Density or Image) -->
+                <div class="glass-card" style="display:flex; align-items:center; justify-content:center; padding:3rem;">
+                    <h3
+                        style="font-family:var(--font-heading); font-size:2rem; font-style:italic; color:var(--color-accent); text-align:center;">
+                        "Authenticity"<br>"Integrity"<br>"Beauty"
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section-padding">
         <div class="container">
             <div class="section-header">
                 <span>Services</span>
                 <h2 data-lang="ja">事業内容</h2>
                 <h2 data-lang="en">Our Business</h2>
+                <p data-lang="ja">小ロットから大規模B2Bまで柔軟に対応します</p>
+                <p data-lang="en">Flexible support from small to large-scale B2B</p>
             </div>
 
-            <div class="services-grid">
-                <!-- Trading -->
-                <div class="service-card glass-card" style="padding:0; border:none;">
-                    <div class="service-img"
-                        style="background: url('https://images.unsplash.com/photo-1542157134-8b63e6e81fdd?auto=format&fit=crop&q=80') center/cover;">
-                    </div>
-                    <div class="service-content">
-                        <h3 data-lang="ja">食品輸入卸売</h3>
-                        <h3 data-lang="en">Import & Wholesale</h3>
-                        <p data-lang="ja">厳選されたオリーブオイル、パスタ、ワインの輸入</p>
-                        <p data-lang="en">Import of premium olive oil, pasta, and wine.</p>
-                        <a href="#" class="btn-arrow">Read More &rarr;</a>
-                    </div>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <h3 data-lang="ja">輸出入事業</h3>
+                    <h3 data-lang="en">Import/Export</h3>
+                    <p data-lang="ja">厳選されたオリーブオイル、パスタ、ワイン、モーターパーツ等の高品質な製品を輸入・輸出します。</p>
+                    <p data-lang="en">Import/export of premium olive oil, pasta, wines, and motor parts.</p>
                 </div>
-
-                <!-- Cooking Class -->
-                <div class="service-card glass-card" style="padding:0; border:none;">
-                    <div class="service-img" style="background: url('image/cooking-bg.png') center/cover;"></div>
-                    <div class="service-content">
-                        <h3 data-lang="ja">料理教室</h3>
-                        <h3 data-lang="en">Cooking Class</h3>
-                        <p data-lang="ja">本場のシェフによるプレミアム・レッスン</p>
-                        <p data-lang="en">Premium lessons by authentic chefs.</p>
-                        <a href="cooking-class.html" class="btn-arrow">View Details &rarr;</a>
-                    </div>
+                <div class="feature-card">
+                    <h3 data-lang="ja">自社生産・OEM</h3>
+                    <h3 data-lang="en">Production & OEM</h3>
+                    <p data-lang="ja">自社農場や提携工場での生産を通じ、オリジナル商品の開発やOEM供給に対応します。</p>
+                    <p data-lang="en">Development of original products and OEM supply through our farms and partner
+                        factories.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 data-lang="ja">事業サポート</h3>
+                    <h3 data-lang="en">Business Support</h3>
+                    <p data-lang="ja">日本市場でのリサーチ、販売促進、販路拡大のための現地サポートを提供します。</p>
+                    <p data-lang="en">Local support for market research, sales promotion, and channel expansion in
+                        Japan.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding">
-        <div class="container" style="max-width: 800px;">
+    <!-- Partners -->
+    <section class="section-padding" style="background:#111;">
+        <div class="container">
             <div class="section-header">
-                <span>Profile</span>
-                <h2 data-lang="ja">会社概要</h2>
-                <h2 data-lang="en">Company Profile</h2>
+                <span>Partners</span>
+                <h2 data-lang="ja">パートナーシップ</h2>
+                <h2 data-lang="en">Partnership</h2>
             </div>
+            <div class="glass-card text-center" style="max-width:800px; margin:0 auto;">
+                <p data-lang="ja">
+                    原材料の直接調達をお考えの方、イタリア製品のOEMをご検討の方へ、最適なソリューションを提案します。
+                    現地ネットワークを活かし、スムーズな取引をサポートします。
+                </p>
+                <p data-lang="en">
+                    We offer optimal solutions for those considering direct procurement or OEM of Italian products.
+                    Leveraging our local network to ensure smooth transactions.
+                </p>
+            </div>
+        </div>
+    </section>
 
-            <table class="company-table">
-                <tr>
-                    <th data-lang="ja">会社名</th>
-                    <th data-lang="en">Company Name</th>
-                    <td>Ikitaria 株式会社 (Ikitaria Inc.)</td>
-                </tr>
-                <tr>
-                    <th data-lang="ja">所在地</th>
-                    <th data-lang="en">Address</th>
-                    <td data-lang="ja">東京都渋谷区恵比寿 1-1-1</td>
-                    <td data-lang="en">1-1-1 Ebisu, Shibuya-ku, Tokyo</td>
-                </tr>
-                <tr>
-                    <th data-lang="ja">代表者</th>
-                    <th data-lang="en">CEO</th>
-                    <td data-lang="ja">佐藤 郁也</td>
-                    <td data-lang="en">Ikuya Sato</td>
-                </tr>
-                <tr>
-                    <th data-lang="ja">事業内容</th>
-                    <th data-lang="en">Business</th>
-                    <td data-lang="ja">イタリア食品の輸入販売、料理教室運営、コンサルティング</td>
-                    <td data-lang="en">Import/Export of Italian foods, Culinary school operation</td>
-                </tr>
-            </table>
+    <!-- Company & FAQ -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2" style="align-items:start;">
+                <!-- Company Profile -->
+                <div>
+                    <div class="section-header" style="text-align:left;">
+                        <span>Profile</span>
+                        <h2 data-lang="ja">会社概要</h2>
+                        <h2 data-lang="en">Company Profile</h2>
+                    </div>
+                    <table class="company-table">
+                        <tr>
+                            <th data-lang="ja">会社名</th>
+                            <th data-lang="en">Company</th>
+                            <td>Ikitaria Inc.</td>
+                        </tr>
+                        <tr>
+                            <th data-lang="ja">代表者</th>
+                            <th data-lang="en">CEO</th>
+                            <td data-lang="ja">佐藤 郁也</td>
+                            <td data-lang="en">Ikuya Sato</td>
+                        </tr>
+                        <tr>
+                            <th data-lang="ja">所在地</th>
+                            <th data-lang="en">Address</th>
+                            <td>Tokyo, Shibuya-ku</td>
+                        </tr>
+                        <tr>
+                            <th data-lang="ja">お問い合わせ</th>
+                            <th data-lang="en">Contact</th>
+                            <td class="text-gold">info@ikitaria.com</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- FAQ -->
+                <div>
+                    <div class="section-header" style="text-align:left;">
+                        <span>Q&A</span>
+                        <h2 data-lang="ja">よくある質問</h2>
+                        <h2 data-lang="en">FAQ</h2>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-lang="ja">最小発注量はありますか？</span><span data-lang="en">Minimum Order Quantity?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-lang="ja">小ロットからの対応も可能です。詳細はお問い合わせください。</p>
+                            <p data-lang="en">We accept small batches. Please contact us.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-lang="ja">納期はどのくらいですか？</span><span data-lang="en">Delivery Time?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-lang="ja">通常、イタリアからの輸入は2-3ヶ月ですが、在庫状況によります。</p>
+                            <p data-lang="en">Typically 2-3 months for imports, depending on stock.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span data-lang="ja">サンプルの提供は可能ですか？</span><span data-lang="en">Samples Available?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p data-lang="ja">はい、可能です。お気軽にご相談ください。</p>
+                            <p data-lang="en">Yes, samples are available upon request.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -552,7 +726,22 @@
             });
         });
 
-        // Sticky Nav
+        // FAQ
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                q.classList.toggle('active');
+                const ans = q.nextElementSibling;
+                if (q.classList.contains('active')) {
+                    ans.style.maxHeight = ans.scrollHeight + 'px';
+                    ans.classList.add('active');
+                } else {
+                    ans.style.maxHeight = 0;
+                    ans.classList.remove('active');
+                }
+            });
+        });
+
+        // Nav Scroll
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.site-nav');
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
