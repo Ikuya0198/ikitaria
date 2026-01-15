@@ -4,7 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italian Cooking Class 2026 | Ikitaria</title>
+    <title>Italian Cooking Class 2026 | Ikitaria - イタリア料理教室</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="イタリアの契約農場から直送の本格食材で学ぶプレミアム料理教室。2026年2月7日開催。オリーブオイル・ワインのテイスティング付き。¥6,800で本場の味を体験！ | Premium Italian cooking class with authentic ingredients from Italian farms. Feb 7, 2026.">
+    <meta name="keywords" content="イタリア料理教室,Italian cooking class,料理教室 東京,イタリアン,本格イタリアン,オリーブオイル,ワインテイスティング,Ikitaria,プレミアム料理教室,authentic Italian cuisine">
+    <meta name="author" content="Ikitaria">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ikitaria.jp/cooking-class.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ikitaria.jp/cooking-class.html">
+    <meta property="og:title" content="Italian Cooking Class 2026 | Ikitaria - 本格イタリア料理教室">
+    <meta property="og:description" content="イタリアの契約農場から直送の本格食材で学ぶプレミアム料理教室。2026年2月7日開催。残席わずか！お早めにお申し込みください。">
+    <meta property="og:image" content="https://ikitaria.jp/image/cooking-bg.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Ikitaria">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ikitaria.jp/cooking-class.html">
+    <meta name="twitter:title" content="Italian Cooking Class 2026 | Ikitaria">
+    <meta name="twitter:description" content="イタリアの契約農場から直送の本格食材で学ぶプレミアム料理教室。残席わずか！">
+    <meta name="twitter:image" content="https://ikitaria.jp/image/cooking-bg.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Italian Cooking Class 2026",
+      "description": "イタリアの契約農場から直送の本格食材で学ぶプレミアム料理教室。オリーブオイル・ワインテイスティング付き。",
+      "image": "https://ikitaria.jp/image/cooking-bg.png",
+      "startDate": "2026-02-07T11:00",
+      "endDate": "2026-02-07T20:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Studio Éclat（スタジオエクラ）",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Tokyo",
+          "addressCountry": "JP"
+        }
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "6800",
+        "priceCurrency": "JPY",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://ikitaria.jp/cooking-class.html",
+        "validFrom": "2026-01-01"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Ikitaria",
+        "url": "https://ikitaria.jp"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ikitaria"
+      }
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -817,25 +884,153 @@
                 transform: translateY(0);
             }
         }
+
+        /* Limited Seats Banner */
+        .limited-seats-banner {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s,
+                       gentlePulse 2s ease-in-out infinite 1.3s;
+            opacity: 0;
+        }
+
+        .limited-seats-content {
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.95) 0%, rgba(255, 149, 0, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 10px 40px rgba(255, 59, 48, 0.4),
+                        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .seats-icon {
+            font-size: 1.2rem;
+            animation: iconWiggle 0.5s ease-in-out infinite alternate;
+        }
+
+        .seats-text {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .seats-text strong {
+            font-weight: 700;
+            font-family: var(--font-heading);
+            letter-spacing: 0.1em;
+            font-size: 1rem;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% {
+                box-shadow: 0 10px 40px rgba(255, 59, 48, 0.4),
+                            0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 10px 50px rgba(255, 59, 48, 0.6),
+                            0 0 20px rgba(255, 255, 255, 0.3) inset;
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes iconWiggle {
+            0% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+
+        /* Mobile adjustments for banner */
+        @media (max-width: 900px) {
+            .limited-seats-banner {
+                top: 70px;
+            }
+
+            .limited-seats-content {
+                padding: 0.7rem 1.5rem;
+            }
+
+            .seats-text {
+                font-size: 0.85rem;
+            }
+
+            .seats-text strong {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .limited-seats-banner {
+                top: 65px;
+                width: 90%;
+            }
+
+            .limited-seats-content {
+                padding: 0.6rem 1.2rem;
+                gap: 0.6rem;
+            }
+
+            .seats-icon {
+                font-size: 1rem;
+            }
+
+            .seats-text {
+                font-size: 0.75rem;
+            }
+
+            .seats-text strong {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 
 <body class="lang-ja">
     <div class="noise-overlay"></div>
 
-    <nav class="site-nav">
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
         <div class="container nav-content">
-            <a href="index.html" class="back-link"><span>&larr; Home</span></a>
-            <div class="lang-switch">
-                <button class="lang-btn active" data-lang-selector="ja">JP</button>
-                <button class="lang-btn" data-lang-selector="en">EN</button>
+            <a href="index.html" class="back-link" aria-label="ホームページに戻る (Return to homepage)"><span>&larr; Home</span></a>
+            <div class="lang-switch" role="group" aria-label="Language selector">
+                <button class="lang-btn active" data-lang-selector="ja" aria-label="日本語 (Japanese)" aria-pressed="true">JP</button>
+                <button class="lang-btn" data-lang-selector="en" aria-label="English" aria-pressed="false">EN</button>
             </div>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-bg"></div>
+    <header class="hero" role="banner">
+        <div class="hero-bg" role="img" aria-label="イタリア料理の背景画像 (Italian cuisine background image)"></div>
         <div class="hero-overlay"></div>
+
+        <!-- Limited Seats Banner -->
+        <div class="limited-seats-banner" role="alert" aria-live="polite">
+            <div class="limited-seats-content">
+                <span class="seats-icon" aria-hidden="true">⚠️</span>
+                <span data-lang="ja" class="seats-text"><strong>残席わずか</strong> お早めにお申し込みください</span>
+                <span data-lang="en" class="seats-text"><strong>Limited Seats</strong> Book now before it's full</span>
+            </div>
+        </div>
+
         <div class="hero-content">
             <span class="hero-overline" data-lang="ja">Ikitaria Presents</span>
             <span class="hero-overline" data-lang="en">Ikitaria Presents</span>
@@ -864,35 +1059,35 @@
                     </div>
                     <div class="concept-text" style="text-align:left; max-width:100%; font-size:1rem;">
                         <p data-lang="ja" style="margin-bottom:1.5rem;">
-                            単なるレシピの習得ではない、<br>
-                            イタリアの食文化そのものを体験する旅へ。
+                            イタリアの本格的な農場から、<br>
+                            直接届く食材で特別な体験をしませんか？
                         </p>
                         <p data-lang="ja" style="margin-bottom:1.5rem;">
-                            厳選されたオリーブオイルの香り、本場のワインの余韻。<br>
-                            少人数制のプライベートな空間で、<br>
-                            シェフの技術と哲学を間近で感じる特別な一日を。
+                            太陽の光をたっぷり浴びたオリーブオイル、職人が丁寧に育てたワイン。<br>
+                            少人数だからこそ味わえる、アットホームな雰囲気の中で、<br>
+                            イタリアの「本物の味」を一緒に作りましょう！
                         </p>
                         <p data-lang="en" style="margin-bottom:1.5rem;">
-                            More than just a cooking lesson,<br>
-                            it is a journey into the heart of Italian culture.
+                            Experience authentic Italian ingredients<br>
+                            directly from Italian farms!
                         </p>
                         <p data-lang="en" style="margin-bottom:1.5rem;">
-                            The aroma of premium olive oil, the lingering finish of fine wine.<br>
-                            In an intimate, private setting,<br>
-                            experience the chef's technique and philosophy up close.
+                            Sun-kissed olive oil and artisan wines.<br>
+                            In a cozy, intimate setting,<br>
+                            let's cook "real Italian flavors" together!
                         </p>
                     </div>
 
                     <div style="margin-top:2.5rem; padding:1.5rem; background:rgba(197,160,89,0.05); border-left:3px solid var(--color-accent); border-radius:8px;">
-                        <h4 style="font-size:1.1rem; color:var(--color-accent); margin-bottom:1rem; font-family:var(--font-heading);" data-lang="ja">食を通じて文化を繋ぐ</h4>
-                        <h4 style="font-size:1.1rem; color:var(--color-accent); margin-bottom:1rem; font-family:var(--font-heading);" data-lang="en">Connecting Cultures Through Food</h4>
+                        <h4 style="font-size:1.1rem; color:var(--color-accent); margin-bottom:1rem; font-family:var(--font-heading);" data-lang="ja">🇮🇹 イタリアの農場から直送！</h4>
+                        <h4 style="font-size:1.1rem; color:var(--color-accent); margin-bottom:1rem; font-family:var(--font-heading);" data-lang="en">🇮🇹 Direct from Italian Farms!</h4>
                         <p data-lang="ja" style="font-size:0.95rem; line-height:1.8; color:var(--color-text-muted);">
-                            イタリアの食材には、何百年もの歴史と職人の情熱が込められています。一滴のオリーブオイル、一粒の塩に至るまで、すべてに物語があります。<br><br>
-                            この教室では、それらの背景にある文化と伝統を理解し、本物の味を体験していただきます。料理を学ぶことは、イタリアという国の心を知ることでもあるのです。
+                            使用する食材は、すべてイタリアの契約農場から直接仕入れています。生産者の顔が見える、安心で新鮮な素材ばかり。<br><br>
+                            「本場の味って、こんなに違うんだ！」そんな驚きと発見がいっぱいの、楽しい料理教室です。初心者の方も大歓迎！一緒に美味しい時間を過ごしましょう♪
                         </p>
                         <p data-lang="en" style="font-size:0.95rem; line-height:1.8; color:var(--color-text-muted);">
-                            Italian ingredients carry centuries of history and artisan passion. Every drop of olive oil, every grain of salt has a story to tell.<br><br>
-                            In this class, you'll understand the culture and traditions behind these ingredients and experience authentic flavors. Learning to cook is also about discovering the heart of Italy itself.
+                            All ingredients come directly from our partner farms in Italy. Fresh, traceable, and authentic!<br><br>
+                            "Authentic flavors are so different!" Full of surprises and discoveries. Beginners welcome! Let's enjoy delicious moments together ♪
                         </p>
                     </div>
                 </div>
@@ -906,43 +1101,42 @@
                             <h3 data-lang="en" style="font-size:1.5rem; margin:0;">Application</h3>
                         </div>
 
-                        <form id="surveyForm" autocomplete="off">
+                        <form id="surveyForm" autocomplete="off" role="form" aria-label="料理教室申し込みフォーム (Cooking class application form)">
                             <div class="form-group" style="margin-bottom:1.5rem;">
-                                <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
-                                <label for="name" class="form-label" data-lang="ja">お名前（フルネーム）*</label><label for="name"
-                                    class="form-label" data-lang="en">Full Name *</label>
+                                <input type="text" id="name" name="name" class="form-control" placeholder=" " required aria-required="true">
+                                <label for="name" class="form-label" data-lang="ja">お名前（フルネーム）*</label>
+                                <label for="name" class="form-label" data-lang="en">Full Name *</label>
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
-                                <input type="text" id="name_kana" name="name_kana" class="form-control" placeholder=" " required>
-                                <label for="name_kana" class="form-label" data-lang="ja">フリガナ *</label><label for="name_kana"
-                                    class="form-label" data-lang="en">Name (Katakana) *</label>
+                                <input type="text" id="name_kana" name="name_kana" class="form-control" placeholder=" " required aria-required="true">
+                                <label for="name_kana" class="form-label" data-lang="ja">フリガナ *</label>
+                                <label for="name_kana" class="form-label" data-lang="en">Name (Katakana) *</label>
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
-                                <input type="email" id="email" name="email" class="form-control" placeholder=" "
-                                    required>
-                                <label for="email" class="form-label" data-lang="ja">メールアドレス *</label><label
-                                    for="email" class="form-label" data-lang="en">Email *</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder=" " required aria-required="true">
+                                <label for="email" class="form-label" data-lang="ja">メールアドレス *</label>
+                                <label for="email" class="form-label" data-lang="en">Email *</label>
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
-                                <input type="tel" id="phone" name="phone" class="form-control" placeholder=" " required>
-                                <label for="phone" class="form-label" data-lang="ja">電話番号 *</label><label
-                                    for="phone" class="form-label" data-lang="en">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" placeholder=" " required aria-required="true">
+                                <label for="phone" class="form-label" data-lang="ja">電話番号 *</label>
+                                <label for="phone" class="form-label" data-lang="en">Phone Number *</label>
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
-                                <input type="date" id="birthdate" name="birthdate" class="form-control" placeholder=" " required
+                                <input type="date" id="birthdate" name="birthdate" class="form-control" placeholder=" " required aria-required="true"
                                     style="padding-top:0.6rem;">
-                                <label for="birthdate" class="form-label" data-lang="ja">生年月日 *</label><label
-                                    for="birthdate" class="form-label" data-lang="en">Date of Birth *</label>
+                                <label for="birthdate" class="form-label" data-lang="ja">生年月日 *</label>
+                                <label for="birthdate" class="form-label" data-lang="en">Date of Birth *</label>
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <label for="gender_select" class="form-label" style="display:none;"></label>
-                                <select id="gender_select" name="gender" class="form-control" required
-                                    style="padding-top:0.6rem;">
+                                <select id="gender_select" name="gender" class="form-control" required aria-required="true"
+                                    style="padding-top:0.6rem;" aria-label="性別を選択してください (Select gender)">
                                     <option value="" disabled selected hidden data-lang="ja">性別 *</option>
                                     <option value="" disabled selected hidden data-lang="en">Gender *</option>
                                     <option value="男性">男性 / Male</option>
@@ -954,8 +1148,8 @@
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <label for="datetime_select" class="form-label" style="display:none;"></label>
-                                <select id="datetime_select" name="preferred_datetime" class="form-control" required
-                                    style="padding-top:0.6rem;">
+                                <select id="datetime_select" name="preferred_datetime" class="form-control" required aria-required="true"
+                                    style="padding-top:0.6rem;" aria-label="希望日時を選択してください (Select preferred date and time)">
                                     <option value="" disabled selected hidden data-lang="ja">希望日時 *</option>
                                     <option value="" disabled selected hidden data-lang="en">Preferred Date & Time *</option>
                                     <option value="2月7日（土）昼の部 11:00-14:00">2月7日（土）昼の部 11:00-14:00 / Feb 7 (Sat) Day 11:00-14:00</option>
@@ -965,8 +1159,8 @@
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <label for="participants_select" class="form-label" style="display:none;"></label>
-                                <select id="participants_select" name="participants" class="form-control" required
-                                    style="padding-top:0.6rem;">
+                                <select id="participants_select" name="participants" class="form-control" required aria-required="true"
+                                    style="padding-top:0.6rem;" aria-label="参加人数を選択してください (Select number of participants)">
                                     <option value="" disabled selected hidden data-lang="ja">参加人数 *</option>
                                     <option value="" disabled selected hidden data-lang="en">Number of Guests *</option>
                                     <option value="1">1名 / 1 Person</option>
@@ -980,14 +1174,14 @@
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <input type="text" id="allergies" name="allergies" class="form-control" placeholder=" ">
-                                <label for="allergies" class="form-label" data-lang="ja">食物アレルギー・苦手な食材</label><label
-                                    for="allergies" class="form-label" data-lang="en">Food Allergies / Dislikes</label>
+                                <label for="allergies" class="form-label" data-lang="ja">食物アレルギー・苦手な食材</label>
+                                <label for="allergies" class="form-label" data-lang="en">Food Allergies / Dislikes</label>
                             </div>
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <label for="experience_select" class="form-label" style="display:none;"></label>
                                 <select id="experience_select" name="cooking_experience" class="form-control"
-                                    style="padding-top:0.6rem;">
+                                    style="padding-top:0.6rem;" aria-label="料理経験レベル（任意）(Cooking experience level - optional)">
                                     <option value="" disabled selected hidden>料理経験（任意）/ Cooking Experience (Optional)</option>
                                     <option value="初心者">初心者 / Beginner</option>
                                     <option value="中級者">中級者 / Intermediate</option>
@@ -997,8 +1191,8 @@
 
                             <div class="form-group" style="margin-bottom:1.5rem;">
                                 <textarea id="requests" name="comments" class="form-control" placeholder=" " rows="3"></textarea>
-                                <label for="requests" class="form-label" data-lang="ja">ご質問・ご要望</label><label
-                                    for="requests" class="form-label" data-lang="en">Questions / Requests</label>
+                                <label for="requests" class="form-label" data-lang="ja">ご質問・ご要望</label>
+                                <label for="requests" class="form-label" data-lang="en">Questions / Requests</label>
                             </div>
 
                             <div style="margin-bottom:1.5rem; padding:1rem; background:rgba(197,160,89,0.1); border-left:3px solid var(--color-accent); font-size:0.85rem; line-height:1.6;">
@@ -1014,12 +1208,12 @@
                                 </p>
                             </div>
 
-                            <button type="submit" class="btn-magnetic" style="margin:0; width:100%; max-width:100%;">
+                            <button type="submit" class="btn-magnetic" style="margin:0; width:100%; max-width:100%;" aria-label="予約を申し込む (Submit reservation form)">
                                 <span data-lang="ja">予約を申し込む</span><span data-lang="en">Submit Reservation</span>
                             </button>
                         </form>
 
-                        <div id="formMessage" style="text-align:center; margin-top:1rem; min-height:20px;"></div>
+                        <div id="formMessage" style="text-align:center; margin-top:1rem; min-height:20px;" role="status" aria-live="polite"></div>
                     </div>
                 </div>
             </div>
@@ -1125,28 +1319,28 @@
             </div>
 
             <div class="faq-item">
-                <button class="faq-question">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
                     <span data-lang="ja">料理初心者でも参加できますか？</span><span data-lang="en">Can beginners join?</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-1" role="region">
                     <p data-lang="ja">はい、大歓迎です。シェフが手元を見せながら丁寧に指導しますので、包丁をあまり使わない方でも安心してご参加いただけます。</p>
                     <p data-lang="en">Absolutely. Our chef provides step-by-step guidance suitable for all levels.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
                     <span data-lang="ja">持ち物は必要ですか？</span><span data-lang="en">What should I bring?</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-2" role="region">
                     <p data-lang="ja">エプロン、ハンドタオル、筆記用具など必要なものはすべてご用意しております。手ぶらでお越しください。</p>
                     <p data-lang="en">Nothing! We provide aprons, towels, and tools.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question">
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
                     <span data-lang="ja">キャンセル料はかかりますか？</span><span data-lang="en">Cancellation Policy?</span>
                 </button>
-                <div class="faq-answer">
+                <div class="faq-answer" id="faq-answer-3" role="region">
                     <p data-lang="ja">食材準備の都合上、開催7日前よりキャンセル料（全額）が発生いたします。それ以前のキャンセルは全額返金いたします。</p>
                     <p data-lang="en">A 100% cancellation fee applies from 7 days prior. Full refunds before that.</p>
                 </div>
@@ -1154,7 +1348,7 @@
         </div>
     </section>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>&copy; 2026 Ikitaria Premium Classes.</p>
         </div>
@@ -1251,21 +1445,30 @@
         <!-- ... footer ... -->
 
         <script>
-        // Language Toggle
+        // Language Toggle with ARIA support
         const langBtns = document.querySelectorAll('.lang-btn');
         langBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const lang = btn.dataset.langSelector;
                 document.body.className = 'lang-' + lang;
-                langBtns.forEach(b => b.classList.remove('active'));
+
+                // Update ARIA states
+                langBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-pressed', 'false');
+                });
                 btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
             });
         });
 
-        // FAQ Toggle
+        // FAQ Toggle with ARIA support
         document.querySelectorAll('.faq-question').forEach(q => {
             q.addEventListener('click', () => {
+                const isActive = q.classList.contains('active');
                 q.classList.toggle('active');
+                q.setAttribute('aria-expanded', !isActive);
+
                 const ans = q.nextElementSibling;
                 if (q.classList.contains('active')) {
                     ans.style.maxHeight = ans.scrollHeight + 'px';
@@ -1273,6 +1476,14 @@
                 } else {
                     ans.style.maxHeight = 0;
                     ans.classList.remove('active');
+                }
+            });
+
+            // Keyboard navigation support
+            q.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    q.click();
                 }
             });
         });
