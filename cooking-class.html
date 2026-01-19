@@ -625,6 +625,15 @@
             letter-spacing: 0.05em;
         }
 
+        /* Select and date fields - always move label up when they have focus or value */
+        select.form-control+.form-label,
+        input[type="date"].form-control+.form-label {
+            top: -0.9rem;
+            font-size: 0.7rem;
+            color: var(--color-accent);
+            letter-spacing: 0.05em;
+        }
+
         .btn-magnetic {
             display: block;
             background: var(--color-accent);
