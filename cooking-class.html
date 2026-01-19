@@ -1245,8 +1245,8 @@
                                     style="padding-top:0.6rem;" aria-label="希望日時を選択してください (Select preferred date and time)">
                                     <option value="" disabled selected hidden data-lang="ja">希望日時 *</option>
                                     <option value="" disabled selected hidden data-lang="en">Preferred Date & Time *</option>
-                                    <option value="2月7日（土）昼の部 11:00-14:00">2月7日（土）昼の部 11:00-14:00 / Feb 7 (Sat) Day 11:00-14:00</option>
-                                    <option value="2月7日（土）夜の部 17:00-20:00">2月7日（土）夜の部 17:00-20:00 / Feb 7 (Sat) Evening 17:00-20:00</option>
+                                    <option value="２月７日（土）ランチ">2月7日（土）昼の部 11:00-14:00 / Feb 7 (Sat) Day 11:00-14:00</option>
+                                    <option value="２月７日（土）ディナー">2月7日（土）夜の部 17:00-20:00 / Feb 7 (Sat) Evening 17:00-20:00</option>
                                 </select>
                             </div>
 
@@ -1684,10 +1684,8 @@
 
                 // 生年月日 (yyyy-mm-dd形式をGoogle Formsの形式に変換)
                 if (birthdate) {
-                    const [year, month, day] = birthdate.split('-');
-                    formData.append('entry.2108246111_year', year);
-                    formData.append('entry.2108246111_month', month);
-                    formData.append('entry.2108246111_day', day);
+                    // Google Formsのdate型には単一の文字列として送信
+                    formData.append('entry.2108246111', birthdate);
                 }
 
                 formData.append('entry.783419919', gender);        // 性別
