@@ -1447,14 +1447,12 @@
             window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
 
-        // Form Submission with Formspree
+        // Form Submission with Google Forms
         const form = document.getElementById('surveyForm');
         const formMessage = document.getElementById('formMessage');
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-
-            const formData = new FormData(form);
 
             // Show loading state
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -1463,21 +1461,76 @@
             submitBtn.innerHTML = '<span data-lang="ja">送信中...</span><span data-lang="en">Submitting...</span>';
 
             try {
-                const response = await fetch('https://formspree.io/f/xqeekgde', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+                // Google Forms endpoint
+                const googleFormsUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSd_adJy86pa_ENQiRbHehLE7wgMuVu9bcSn838yANeSP3Ihdw/formResponse';
 
-                if (response.ok) {
-                    // Success message
-                    formMessage.innerHTML = '<p style="color: var(--color-accent); font-weight: 600;"><span data-lang="ja">✓ ご予約ありがとうございます！<br>確認メールをお送りしました。</span><span data-lang="en">✓ Thank you for your reservation!<br>Confirmation email has been sent.</span></p>';
-                    form.reset();
-                } else {
-                    throw new Error('Failed');
+                // Get form values
+                const name = document.getElementById('name').value;
+                const nameKana = document.getElementById('name_kana').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const birthdate = document.getElementById('birthdate').value;
+                const gender = document.getElementById('gender_select').value;
+                const datetime = document.getElementById('datetime_select').value;
+                const participants = document.getElementById('participants_select').value;
+                const allergies = document.getElementById('allergies').value;
+                const experience = document.getElementById('experience_select').value;
+                const requests = document.getElementById('requests').value;
+
+                // Create form data with entry IDs (順番に推測して割り当て)
+                const formData = new FormData();
+                formData.append('entry.415599372', name);           // お名前
+                formData.append('entry.1881413898', nameKana);      // フリガナ
+                formData.append('entry.2118212817', email);         // メールアドレス
+                formData.append('entry.2134014192', phone);         // 電話番号
+
+                // 生年月日 (yyyy-mm-dd形式をGoogle Formsの形式に変換)
+                if (birthdate) {
+                    const [year, month, day] = birthdate.split('-');
+                    formData.append('entry.1102000674_year', year);
+                    formData.append('entry.1102000674_month', month);
+                    formData.append('entry.1102000674_day', day);
                 }
+
+                formData.append('entry.1947999768', gender);        // 性別
+                formData.append('entry.753779576', datetime);       // 参加日
+                formData.append('entry.1735607056', participants);  // 参加人数
+                formData.append('entry.1808811800', allergies);     // アレルギー
+                formData.append('entry.266270147', experience);     // 料理経験
+                formData.append('entry.1863986715', requests);      // その他ご要望
+
+                // Submit to Google Forms using iframe method (CORS回避)
+                const iframe = document.createElement('iframe');
+                iframe.name = 'hidden_iframe';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+
+                const tempForm = document.createElement('form');
+                tempForm.action = googleFormsUrl;
+                tempForm.method = 'POST';
+                tempForm.target = 'hidden_iframe';
+
+                // Add all form data as hidden inputs
+                for (let [key, value] of formData.entries()) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    tempForm.appendChild(input);
+                }
+
+                document.body.appendChild(tempForm);
+                tempForm.submit();
+
+                // Clean up
+                setTimeout(() => {
+                    document.body.removeChild(tempForm);
+                    document.body.removeChild(iframe);
+                }, 1000);
+
+                // Success message
+                formMessage.innerHTML = '<p style="color: var(--color-accent); font-weight: 600;"><span data-lang="ja">✓ ご予約ありがとうございます！<br>確認メールをお送りしました。</span><span data-lang="en">✓ Thank you for your reservation!<br>Confirmation email has been sent.</span></p>';
+                form.reset();
 
             } catch (error) {
                 console.error('Error:', error);
