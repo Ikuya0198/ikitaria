@@ -1684,25 +1684,27 @@
                 const experience = document.getElementById('experience_select').value;
                 const requests = document.getElementById('requests').value;
 
-                // Create form data with entry IDs (順番に推測して割り当て)
+                // Create form data with correct entry IDs
                 const formData = new FormData();
-                formData.append('entry.1732773471', name);           // お名前
-                formData.append('entry.722694772', nameKana);      // フリガナ
-                formData.append('entry.226629039', email);         // メールアドレス
-                formData.append('entry.805911951', phone);         // 電話番号
+                formData.append('entry.415599372', name);           // お名前
+                formData.append('entry.1881413898', nameKana);      // フリガナ
+                formData.append('entry.2118212817', email);         // メールアドレス
+                formData.append('entry.2134014192', phone);         // 電話番号
 
-                // 生年月日 (yyyy-mm-dd形式をGoogle Formsの形式に変換)
+                // 生年月日 (yyyy-mm-dd形式をGoogle Formsの日/月/年形式に変換)
                 if (birthdate) {
-                    // Google Formsのdate型には単一の文字列として送信
-                    formData.append('entry.2108246111', birthdate);
+                    const [year, month, day] = birthdate.split('-');
+                    formData.append('entry.1102000674_year', year);
+                    formData.append('entry.1102000674_month', month);
+                    formData.append('entry.1102000674_day', day);
                 }
 
-                formData.append('entry.783419919', gender);        // 性別
-                formData.append('entry.342087019', datetime);       // 参加日
-                formData.append('entry.24306979', participants);  // 参加人数
-                formData.append('entry.1178784559', allergies);     // アレルギー
-                formData.append('entry.552453126', experience);     // 料理経験
-                formData.append('entry.69281960', requests);      // その他ご要望
+                formData.append('entry.1947999768', gender);        // 性別
+                formData.append('entry.753779576', datetime);       // 参加日
+                formData.append('entry.1735607056', participants);  // 参加人数
+                formData.append('entry.1808811800', allergies);     // アレルギー
+                formData.append('entry.266270147', experience);     // 料理経験
+                formData.append('entry.1863986715', requests);      // その他ご要望
 
                 // Submit to Google Forms using iframe method (CORS回避)
                 const iframe = document.createElement('iframe');
