@@ -1668,8 +1668,8 @@
             submitBtn.innerHTML = '<span data-lang="ja">送信中...</span><span data-lang="en">Submitting...</span>';
 
             try {
-                // Google Forms endpoint
-                const googleFormsUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSd_adJy86pa_ENQiRbHehLE7wgMuVu9bcSn838yANeSP3Ihdw/formResponse';
+                // Apps Script endpoint
+                const scriptUrl = 'https://script.google.com/macros/s/AKfycbwyw-JvVCYHlCB1K7Jv7GR_XltqRRGZJ7Jxrd5IjnrxgHMSe37OIgW2AtM1HF6si9JU/exec';
 
                 // Get form values
                 const name = document.getElementById('name').value;
@@ -1684,56 +1684,30 @@
                 const experience = document.getElementById('experience_select').value;
                 const requests = document.getElementById('requests').value;
 
-                // Create form data with correct entry IDs
-                const formData = new FormData();
-                formData.append('entry.415599372', name);           // お名前
-                formData.append('entry.1881413898', nameKana);      // フリガナ
-                formData.append('entry.2118212817', email);         // メールアドレス
-                formData.append('entry.2134014192', phone);         // 電話番号
+                // Create JSON data
+                const data = {
+                    name: name,
+                    nameKana: nameKana,
+                    email: email,
+                    phone: phone,
+                    birthdate: birthdate,
+                    gender: gender,
+                    datetime: datetime,
+                    participants: participants,
+                    allergies: allergies,
+                    experience: experience,
+                    requests: requests
+                };
 
-                // 生年月日 (yyyy-mm-dd形式をGoogle Formsの日/月/年形式に変換)
-                if (birthdate) {
-                    const [year, month, day] = birthdate.split('-');
-                    formData.append('entry.1102000674_year', year);
-                    formData.append('entry.1102000674_month', month);
-                    formData.append('entry.1102000674_day', day);
-                }
-
-                formData.append('entry.1947999768', gender);        // 性別
-                formData.append('entry.753779576', datetime);       // 参加日
-                formData.append('entry.1735607056', participants);  // 参加人数
-                formData.append('entry.1808811800', allergies);     // アレルギー
-                formData.append('entry.266270147', experience);     // 料理経験
-                formData.append('entry.1863986715', requests);      // その他ご要望
-
-                // Submit to Google Forms using iframe method (CORS回避)
-                const iframe = document.createElement('iframe');
-                iframe.name = 'hidden_iframe';
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
-
-                const tempForm = document.createElement('form');
-                tempForm.action = googleFormsUrl;
-                tempForm.method = 'POST';
-                tempForm.target = 'hidden_iframe';
-
-                // Add all form data as hidden inputs
-                for (let [key, value] of formData.entries()) {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = value;
-                    tempForm.appendChild(input);
-                }
-
-                document.body.appendChild(tempForm);
-                tempForm.submit();
-
-                // Clean up
-                setTimeout(() => {
-                    document.body.removeChild(tempForm);
-                    document.body.removeChild(iframe);
-                }, 1000);
+                // Submit to Apps Script
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
 
                 // Success message
                 formMessage.innerHTML = '<p style="color: var(--color-accent); font-weight: 600;"><span data-lang="ja">✓ ご予約ありがとうございます！<br>確認メールをお送りしました。</span><span data-lang="en">✓ Thank you for your reservation!<br>Confirmation email has been sent.</span></p>';
