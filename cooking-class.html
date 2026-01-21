@@ -1612,10 +1612,30 @@
         <script>
         // Language Toggle with ARIA support
         const langBtns = document.querySelectorAll('.lang-btn');
+
+        function updateSelectPlaceholders(lang) {
+            // Update select field placeholders based on language
+            document.querySelectorAll('select.form-control').forEach(select => {
+                const placeholders = select.querySelectorAll('option[data-lang]');
+                placeholders.forEach(option => {
+                    if (option.getAttribute('data-lang') === lang) {
+                        option.selected = true;
+                        option.hidden = false;
+                    } else {
+                        option.selected = false;
+                        option.hidden = true;
+                    }
+                });
+            });
+        }
+
         langBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const lang = btn.dataset.langSelector;
                 document.body.className = 'lang-' + lang;
+
+                // Update select placeholders
+                updateSelectPlaceholders(lang);
 
                 // Update ARIA states
                 langBtns.forEach(b => {
@@ -1626,6 +1646,10 @@
                 btn.setAttribute('aria-pressed', 'true');
             });
         });
+
+        // Initialize with current language
+        const currentLang = document.body.classList.contains('lang-en') ? 'en' : 'ja';
+        updateSelectPlaceholders(currentLang);
 
         // FAQ Toggle with ARIA support
         document.querySelectorAll('.faq-question').forEach(q => {
