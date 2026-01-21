@@ -617,6 +617,11 @@
             color: #fff;
         }
 
+        select.form-control option:disabled {
+            color: #666;
+            font-style: italic;
+        }
+
         .form-control:focus+.form-label,
         .form-control:not(:placeholder-shown)+.form-label {
             top: -0.9rem;
@@ -1255,7 +1260,7 @@
                                     <option value="" disabled selected hidden data-lang="ja">希望日時 *</option>
                                     <option value="" disabled selected hidden data-lang="en">Preferred Date & Time *</option>
                                     <option value="２月７日（土）ランチ">2月7日（土）昼の部 11:00-14:00 / Feb 7 (Sat) Day 11:00-14:00</option>
-                                    <option value="２月７日（土）ディナー">2月7日（土）夜の部 17:00-20:00 / Feb 7 (Sat) Evening 17:00-20:00</option>
+                                    <option value="２月７日（土）ディナー" disabled>2月7日（土）夜の部 17:00-20:00 （満席）/ Feb 7 (Sat) Evening 17:00-20:00 (Sold Out)</option>
                                 </select>
                             </div>
 
